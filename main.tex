@@ -1,0 +1,128 @@
+% ---------------------------------------------------------------------------------------
+% MODELO DE TCC - INSTITUTO FEDERAL DE SERGIPE (IFS)
+% ---------------------------------------------------------------------------------------
+% Autor do Modelo: Mikael dos Santos Gois (mikaelgois1@gmail.com)
+% Baseado nos modelos de: 
+%   - Diogo D. Moreira (TCC, Dissertação e Tese)
+%   - DECOM/UFOP (Monografia de Ciência da Computação)
+% Modelo Base: abnTeX2 adaptado para as normativas internas de TCC do IFS (Art. 31 e 34)
+% Versão: 1.0 (2026)
+% ---------------------------------------------------------------------------------------
+% Este arquivo faz parte de um modelo opensource para estudantes do IFS.
+% Não remova os créditos dos autores originais e do modelo base.
+% Este modelo é fornecido "no estado em que se encontra", sem garantias de qualquer tipo.
+% ---------------------------------------------------------------------------------------
+
+% -------------------------------------------------------------------
+% 1. DEFINIÇÕES GERAIS (Normas IFS - Art. 34)
+% -------------------------------------------------------------------
+\documentclass[12pt, openright, oneside, a4paper, english, brazil]{abntex2}
+
+\input{structure.tex}
+
+% --- PACOTES BÁSICOS ---
+\usepackage{times}              % Fonte Times New Roman
+\usepackage[T1]{fontenc}        % Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}     % Codificacao do arquivo (conversão automática dos acentos)
+\usepackage{indentfirst}        % Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}              % Controle das cores
+\usepackage{graphicx}           % Inclusão de gráficos
+\usepackage{microtype}          % para melhorias de justificação
+\usepackage[alf]{abntex2cite}   % Citações padrão ABNT
+
+% --- CONFIGURAÇÕES DE MARGENS ---
+% \setlmargin{3cm} \setrmargin{2cm} \settmargin{3cm} \setbmargin{2cm}
+\usepackage[a4paper, top=3.0cm, bottom=2.0cm, left=3.0cm, right=2.0cm]{geometry}
+\linespread{1.5}                % Espaçamento 1,5
+
+% -------------------------------------------------------------------
+% DADOS DO ALUNO E DO TRABALHO (PREENCHA AQUI)
+% -------------------------------------------------------------------
+\titulo{LUSO: Um Ecossistema Opensource para o Ensino Localizado de Programação}
+\autor{Mikael dos Santos Gois} 
+\autorcite{Gois, Mikael Gois}
+\local{Itabaiana/SE}
+\data{2026}
+\orientador{Prof. Me. Marlos Tacio Silva}
+\orientaddorcite{Silva, Marlos Tacio}
+\coorientador{Prof. Dr. José Aprígio Carneiro Neto} % Deixe vazio se não houver
+\coorientaddorcite{Neto, José Aprígio Carneiro} % Deixe vazio se não houver
+\instituicao{
+  \includegraphics[width=3cm]{figuras/logo-ifs}
+  INSTITUTO FEDERAL DE SERGIPE -- IFS
+  \par
+  CAMPUS ITABAIANA
+  \par
+  BACHARELADO EM CIÊNCIA DA COMPUTAÇÃO}
+\tipotrabalho{Trabalho de Conclusão de Curso (Bacharelado)}
+\preambulo{Monografia apresentada à Coordenação de Ciência da Computação do Campus Itabaiana, do Instituto Federal de Sergipe (IFS), como pré-requisito para obtenção do grau de Bacharel em Ciência da Computação.}
+
+% --- CONFIGURAÇÕES DE PDF ---
+\makeatletter
+\hypersetup{
+    pdftitle={\@title}, 
+    pdfauthor={\@author},
+    pdfsubject={\imprimirpreambulo},
+    colorlinks=false,   % links coloridos? (mantenha false para impressão)
+}
+\makeatother
+
+% -------------------------------------------------------------------
+% INÍCIO DO DOCUMENTO
+% -------------------------------------------------------------------
+\begin{document}
+
+\frenchspacing
+
+% --- ELEMENTOS PRÉ-TEXTUAIS ---
+\imprimircapa
+\imprimirfolhaderosto
+
+\include{01-pre-textuais/00-folha-catalografica}
+\include{01-pre-textuais/01-folha-aprovacao}
+\include{01-pre-textuais/02-dedicatoria}
+\include{01-pre-textuais/03-agradecimentos}
+\include{01-pre-textuais/04-epigrafe}
+\include{01-pre-textuais/05-resumo-pt}
+\include{01-pre-textuais/06-abstract-en}
+\include{01-pre-textuais/07-listas}
+
+% --- Ficha Catalográfica (Geralmente fornecida pela biblioteca) ---
+% \include{01-pre-textuais/ficha-catalografica}
+
+% --- Dedicatória, Agradecimentos e Epígrafe ---
+\include{01-pre-textuais/dedicatoria}
+\include{01-pre-textuais/agradecimentos}
+\include{01-pre-textuais/epigrafe}
+
+% --- Resumos ---
+\include{01-pre-textuais/resumo}
+\include{01-pre-textuais/abstract}
+
+% --- Listas ---
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+\listoftables*
+\cleardoublepage
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+% --- ELEMENTOS TEXTUAIS ---
+\textual
+\include{02-textuais/01-introducao}
+\include{02-textuais/02-fundamentacao-teorica}
+\include{02-textuais/03-trabalhos-correlatos}
+\include{02-textuais/04-metodologia}
+\include{02-textuais/05-resultados-discussao}
+\include{02-textuais/06-conclusao}
+
+% --- ELEMENTOS PÓS-TEXTUAIS ---
+% --- ELEMENTOS PÓS-TEXTUAIS ---
+\postextual
+\bibliography{referencias}
+\include{03-pos-textuais/01-apendices}
+\include{03-pos-textuais/02-anexos}
+
+\end{document}
