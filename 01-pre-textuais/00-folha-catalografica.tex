@@ -1,0 +1,62 @@
+% ---------------------------------------------------------------------------------------
+% MODELO DE TCC - INSTITUTO FEDERAL DE SERGIPE (IFS)
+% ---------------------------------------------------------------------------------------
+% Autor do Modelo: Mikael dos Santos Gois (mikaelgois1@gmail.com)
+% Baseado nos modelos de: 
+%   - Diogo D. Moreira (TCC, Dissertação e Tese)
+%   - DECOM/UFOP (Monografia de Ciência da Computação)
+% Modelo Base: abnTeX2 adaptado para as normativas internas de TCC do IFS (Art. 31 e 34)
+% Versão: 1.0 (2026)
+% ---------------------------------------------------------------------------------------
+% Este arquivo faz parte de um modelo opensource para estudantes do IFS.
+% Não remova os créditos dos autores originais e do modelo base.
+% Este modelo é fornecido "no estado em que se encontra", sem garantias de qualquer tipo.
+% ---------------------------------------------------------------------------------------
+
+% Modelo de ficha catalográfica. Você deverá substituir esta
+% folha na versão final da monografia por um pdf fornecido pela biblioteca.
+% Salve o modelo oficial como ficha_catalografica.pdf na raiz do projeto,
+% e use o comando abaixo para inseri-lo na versão final do texto.
+
+%\begin{fichacatalografica}
+%    \includepdf{ficha_catalografica.pdf}
+%\end{fichacatalografica}
+
+%% Modelo de Como fazer a Ficha Catalográfica:
+
+\begin{fichacatalografica}
+  \sffamily
+  \vspace*{\fill}					% Posição vertical
+  \begin{center}					% Minipage Centralizado
+    \fbox{
+      \begin{minipage}[c][8cm]{14cm}		% Largura
+        \small
+        \imprimirautorcite.
+        %Sobrenome, Nome do autor
+
+        % \hspace{0.5cm}  \\
+        % \imprimirtitulo ./ \imprimirautor. --, \imprimirano-
+
+        % \hspace{0.5cm} \pageref{LastPage} p. 1 :il. (colors; grafs; tabs).\\
+
+        % \hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+
+        % \hspace{0.5cm}
+        % \parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao, ~ \\
+        %   \imprimirinstituto, ~\imprimirdepartamento,~\imprimirano.}\\
+
+        \hspace{0.5cm} % Palavras-chave do trabalho
+        1. Palavra-chave.
+        2. Palavra-chave.
+        2. Palavra-chave.
+        3. Palavra-chave.
+        4. Palavra-chave.
+        5. Palavra-chave.
+        I. IFS.
+        II. \imprimirautorcite.
+        III. \imprimirorientadorcite.
+        \ifthenelse{\equal{\imprimircoorientadorcite}{}}{IV. \imprimirtitulo.}{IV. \imprimircoorientadorcite. V. \imprimirtitulo.}
+      \end{minipage}
+    }
+  \end{center}
+\end{fichacatalografica}
