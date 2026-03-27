@@ -24,11 +24,44 @@
                 % \imprimircoorientadorRotulo ~\imprimircoorientador \\
                         				
 				\vspace{3cm}
-             \textbf{{\large\MakeUppercase{\imprimirtitulo}}} \\
-			 \textbf{{\large \MakeUppercase{\imprimirsubtitulo}}} \\
-				\vfill
+            \textbf{{\large\MakeUppercase{\imprimirtitulo}}} \\
+            \textbf{{\large \MakeUppercase{\imprimirsubtitulo}}} \\
+            \vfill
         {\large{\imprimirlocal%, ~\imprimiruf 
         \\ \imprimirdata  }}
         \end{center}
 \end{capa}   
 } % Capa
+
+%----------------------------------------------------
+\renewcommand{\imprimirfolhaderosto}{% folha de rosto
+   \begin{center}
+        % \MakeUppercase{\imprimirinstituicao } \\
+        %  \MakeUppercase{\imprimirinstituto } \\
+        % \MakeUppercase{\imprimirdepartamento} \\
+        
+        % \vspace{4cm}
+        \MakeUppercase{\imprimirautor} \\
+        \vspace{4cm}
+        \begin{center}
+            \MakeUppercase{\textbf{\imprimirtitulo}} \\
+            \MakeUppercase{\textbf{\imprimirsubtitulo}} \\
+        \end{center}
+    \end{center}
+    % \vfill
+    \vspace{1cm}
+    \begin{flushright} 
+        \parbox{0.6\linewidth} {
+        \imprimirpreambulo 
+        \vspace{1cm} \\
+        \textbf{\imprimirorientadorRotulo}~\imprimirorientador \\
+        \textbf{\imprimircoorientadorRotulo}~\imprimircoorientador
+        }
+    \end{flushright}
+    \vfill
+    \begin{center}
+    % {\large{\imprimirlocal, ~ \imprimiruf \\
+    % \imprimirano} }
+    {\large{\imprimirlocal%, ~\imprimiruf 
+    \\ \imprimirdata  }}
+\end{center} }  % folha de rosto
