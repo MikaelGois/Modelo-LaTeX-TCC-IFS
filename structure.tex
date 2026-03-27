@@ -5,3 +5,30 @@
 \newcommand{\orientaddorcite}[1]{\renewcommand{\imprimirorientadorcite}{#1}}
 \providecommand{\imprimircoorientadorcite}{}
 \newcommand{\coorientaddorcite}[1]{\renewcommand{\imprimircoorientadorcite}{#1}}
+\providecommand{\imprimirlogoinstituicao}{}
+\newcommand{\logoinstituicao}[1]{\renewcommand{\imprimirlogoinstituicao}{#1}}
+
+%----------------------------------------------------
+\renewcommand{\imprimircapa}{ % Capa 
+\begin{capa}
+        \begin{center}
+                \begin{DoubleSpace}
+                \ifthenelse{\equal{\imprimirlogoinstituicao}}{}{\imprimirlogoinstituicao}
+                \MakeUppercase{\imprimirinstituicao } \\
+                 \MakeUppercase{\imprimirinstituto } \\
+                \MakeUppercase{\imprimirdepartamento} \\
+                \end{DoubleSpace}
+                \vspace{3cm}
+				\MakeUppercase{\imprimirautor}  \\
+                % \imprimirorientadorRotulo ~\imprimirorientador \\
+                % \imprimircoorientadorRotulo ~\imprimircoorientador \\
+                        				
+				\vspace{3cm}
+             \textbf{{\large\MakeUppercase{\imprimirtitulo}}} \\
+			 \textbf{{\large \MakeUppercase{\imprimirsubtitulo}}} \\
+				\vfill
+        {\large{\imprimirlocal%, ~\imprimiruf 
+        \\ \imprimirdata  }}
+        \end{center}
+\end{capa}   
+} % Capa
