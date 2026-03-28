@@ -23,7 +23,25 @@ Este modelo foi organizado por **Mikael dos Santos Gois** discente de Ciência d
 - `figuras/`: Pasta para armazenar todas as imagens (incluindo a logo do IFS).
 - `nao-altere/`: Arquivos de classe e estilo (.cls, .sty, .bst) que garantem a formatação.
 
+
+## TODO e Status de Revisão
+
+Esta seção lista os elementos do modelo que já foram revisados e estão marcados como **finalizados** (comentário `OK` no arquivo `main.tex`).
+
+### Elementos Finalizados
+
+- Capa (`\imprimircapa`)
+- Folha de rosto (`\imprimirfolhaderosto`)
+- Ficha Catalográfica de exemplo (`01-pre-textuais/00-folha-catalografica`)
+- Folha de aprovação de exemplo (`01-pre-textuais/01-folha-aprovacao`)
+
+Os demais elementos ainda podem passar por revisões ou ajustes.
+
+---
+
 ## Como Usar
-2. Abra o arquivo `main.tex` e preencha seus dados na seção indicada.
+1. Abra o arquivo `main.tex` e preencha seus dados na seção indicada.
+2. Edite o conteúdo pré-textual nos arquivos numerados dentro da pasta `01-pre-textuais/`.
 3. Edite o conteúdo textual nos arquivos numerados dentro da pasta `02-textuais/`.
-4. Adicione suas referências no arquivo `referencias.bib`.
+4. Edite o conteúdo pós-textual nos arquivos numerados dentro da pasta `03-pos-textuais/`.
+5. Adicione suas referências no arquivo `referencias.bib`.
