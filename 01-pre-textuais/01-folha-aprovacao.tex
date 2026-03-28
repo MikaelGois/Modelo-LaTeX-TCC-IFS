@@ -27,11 +27,12 @@
 \begin{folhadeaprovacao}
 
   \begin{center}
-    {\ABNTEXchapterfont\large\imprimirautor}
+    {\large\imprimirautor}
 
     \vspace{2cm}
     \begin{center}
-      \ABNTEXchapterfont\bfseries\large\imprimirtitulo
+      {\large \textbf{\imprimirtitulo}} \\
+      \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\large \textbf{\imprimirsubtitulo} \\}
     \end{center}
 
   \end{center}
@@ -43,7 +44,7 @@
 
   \vspace{1cm}
   \begin{center}
-    Trabalho defendido e aprovado em: 01/01/2026 % Preencha a data}
+    Trabalho defendido e aprovado em \imprimirdata % Preencha a data}
   \end{center}
 
   \begin{center}

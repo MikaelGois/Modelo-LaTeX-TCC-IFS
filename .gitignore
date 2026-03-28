@@ -1,0 +1,14 @@
+# Ignora arquivos pós-build 
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.synctex.gz
+*.toc
+# Ignora arquivos de configuração do editor
+.vscode/
+.idea/

@@ -1,67 +1,83 @@
 % Variáveis adicionais
-\providecommand{\imprimirautorcite}{}
-\newcommand{\autorcite}[1]{\renewcommand{\imprimirautorcite}{#1}}
-\providecommand{\imprimirorientadorcite}{}
-\newcommand{\orientaddorcite}[1]{\renewcommand{\imprimirorientadorcite}{#1}}
-\providecommand{\imprimircoorientadorcite}{}
-\newcommand{\coorientaddorcite}[1]{\renewcommand{\imprimircoorientadorcite}{#1}}
 \providecommand{\imprimirlogoinstituicao}{}
 \newcommand{\logoinstituicao}[1]{\renewcommand{\imprimirlogoinstituicao}{#1}}
 
-%----------------------------------------------------
-\renewcommand{\imprimircapa}{ % Capa 
-\begin{capa}
-        \begin{center}
-                \begin{DoubleSpace}
-                \ifthenelse{\equal{\imprimirlogoinstituicao}}{}{\imprimirlogoinstituicao}
-                \MakeUppercase{\imprimirinstituicao } \\
-                 \MakeUppercase{\imprimirinstituto } \\
-                \MakeUppercase{\imprimirdepartamento} \\
-                \end{DoubleSpace}
-                \vspace{3cm}
-				\MakeUppercase{\imprimirautor}  \\
-                % \imprimirorientadorRotulo ~\imprimirorientador \\
-                % \imprimircoorientadorRotulo ~\imprimircoorientador \\
-                        				
-				\vspace{3cm}
-            \textbf{{\large\MakeUppercase{\imprimirtitulo}}} \\
-            \textbf{{\large \MakeUppercase{\imprimirsubtitulo}}} \\
-            \vfill
-        {\large{\imprimirlocal%, ~\imprimiruf 
-        \\ \imprimirdata  }}
-        \end{center}
-\end{capa}   
-} % Capa
+\providecommand{\imprimirdepartamento}{}
+\newcommand{\departamento}[1]{\renewcommand{\imprimirdepartamento}{#1}}
 
-%----------------------------------------------------
-\renewcommand{\imprimirfolhaderosto}{% folha de rosto
-   \begin{center}
-        % \MakeUppercase{\imprimirinstituicao } \\
-        %  \MakeUppercase{\imprimirinstituto } \\
-        % \MakeUppercase{\imprimirdepartamento} \\
-        
-        % \vspace{4cm}
-        \MakeUppercase{\imprimirautor} \\
-        \vspace{4cm}
+\providecommand{\imprimircampus}{}
+\newcommand{\campus}[1]{\renewcommand{\imprimircampus}{#1}}
+
+\providecommand{\imprimirsubtitulo}{}
+\newcommand{\subtitulo}[1]{\renewcommand{\imprimirsubtitulo}{#1}}
+
+\providecommand{\imprimirautorcite}{}
+\newcommand{\autorcite}[1]{\renewcommand{\imprimirautorcite}{#1}}
+
+\providecommand{\imprimiruf}{}
+\newcommand{\uf}[1]{\renewcommand{\imprimiruf}{#1}}
+
+\providecommand{\imprimirano}{}
+\newcommand{\ano}[1]{\renewcommand{\imprimirano}{#1}}
+
+\providecommand{\imprimirorientadorcite}{}
+\newcommand{\orientaddorcite}[1]{\renewcommand{\imprimirorientadorcite}{#1}}
+
+\providecommand{\imprimircoorientadorcite}{}
+\newcommand{\coorientaddorcite}[1]{\renewcommand{\imprimircoorientadorcite}{#1}}
+
+% ============================================== capa ==============================================
+\renewcommand{\imprimircapa}{ % Capa 
+    \begin{capa}
         \begin{center}
-            \MakeUppercase{\textbf{\imprimirtitulo}} \\
-            \MakeUppercase{\textbf{\imprimirsubtitulo}} \\
+            \begin{DoubleSpace}
+                \ifthenelse{\equal{\imprimirlogoinstituicao}{}}{}{\imprimirlogoinstituicao \\}
+                \MakeUppercase{\imprimirinstituicao} \\
+                \MakeUppercase{\imprimirdepartamento} \\
+                \ifthenelse{\equal{\imprimircampus}{}}{}{\MakeUppercase{\imprimircampus \\}}
+            \end{DoubleSpace}
+            \vspace{3cm}
+            \MakeUppercase{\imprimirautor}  \\
+
+            % \imprimirorientadorRotulo ~\imprimirorientador \\
+            % \imprimircoorientadorRotulo ~\imprimircoorientador \\
+
+            \vspace{3cm}
+            \textbf{{\large\MakeUppercase{\imprimirtitulo}}} \\
+            \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\textbf{{\large \MakeUppercase{\imprimirsubtitulo}}} \\}
+            \vfill
+            {\large{\imprimirlocal, ~\imprimiruf
+                    \\ \imprimirano  }
+            }
         \end{center}
-    \end{center}
-    % \vfill
-    \vspace{1cm}
-    \begin{flushright} 
-        \parbox{0.6\linewidth} {
-        \imprimirpreambulo 
-        \vspace{1cm} \\
-        \textbf{\imprimirorientadorRotulo}~\imprimirorientador \\
-        \textbf{\imprimircoorientadorRotulo}~\imprimircoorientador
-        }
-    \end{flushright}
-    \vfill
-    \begin{center}
-    % {\large{\imprimirlocal, ~ \imprimiruf \\
-    % \imprimirano} }
-    {\large{\imprimirlocal%, ~\imprimiruf 
-    \\ \imprimirdata  }}
-\end{center} }  % folha de rosto
+    \end{capa}
+}
+% ============================================== capa ==============================================
+
+% ========================================= folha de rosto =========================================
+\renewcommand{\imprimirfolhaderosto}{
+    \begin{folhaderosto}
+        \begin{center}
+            \MakeUppercase{\imprimirautor} \\
+            \vspace{4cm}
+            \begin{DoubleSpace}
+                \MakeUppercase{\textbf{\imprimirtitulo}} \\
+                \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\MakeUppercase{\textbf{\imprimirsubtitulo}} \\}
+            \end{DoubleSpace}
+        \end{center}
+        \vspace{1cm}
+        \begin{flushright}
+            \parbox{0.6\linewidth} {
+                \imprimirpreambulo
+                \vspace{1cm} \\
+                \textbf{\imprimirorientadorRotulo}~\imprimirorientador \\
+                \textbf{\imprimircoorientadorRotulo}~\imprimircoorientador
+            }
+        \end{flushright}
+        \vfill
+        \begin{center}
+            {\large{\imprimirlocal, ~\imprimiruf \\ \imprimirano}}
+        \end{center}
+    \end{folhaderosto}
+}
+% ========================================= folha de rosto =========================================
