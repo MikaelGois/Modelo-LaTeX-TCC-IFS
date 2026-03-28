@@ -38,26 +38,33 @@
 % -------------------------------------------------------------------
 % DADOS DO ALUNO E DO TRABALHO (PREENCHA AQUI)
 % -------------------------------------------------------------------
-\titulo{LUSO: Um Ecossistema Opensource para o Ensino Localizado de Programação}
-\autor{Mikael dos Santos Gois} 
-\autorcite{Gois, Mikael Gois}
-\local{Itabaiana/SE}
-\data{2026}
-\orientador{Prof. Me. Marlos Tacio Silva}
-\orientaddorcite{Silva, Marlos Tacio}
-\coorientador{Prof. Dr. José Aprígio Carneiro Neto} % Deixe vazio se não houver
-\coorientaddorcite{Neto, José Aprígio Carneiro} % Deixe vazio se não houver
-\logoinstituicao{\includegraphics[width=3cm]{figuras/logo-instituicao.png}} % Caminho da logo. Deixe vazio se não houver
-\instituicao{
-  \par
-  INSTITUTO FEDERAL DE SERGIPE
-  \par
-  COORDENADORIA DO CURSO DE BACHAREL EM CIÊNCIA DA COMPUTAÇÃO
-  \par
-  CAMPUS ITABAIANA
-  }
-\tipotrabalho{Trabalho de Conclusão de Curso (Bacharelado)}
-\preambulo{Monografia apresentada à Coordenação de Ciência da Computação do Campus Itabaiana, do Instituto Federal de Sergipe (IFS), como pré-requisito para obtenção do grau de Bacharel em Ciência da Computação.}
+
+% --- Logo, Intituição, Departamento/Coordenação, Campus --- 
+\logoinstituicao{\includegraphics[width=3cm]{figuras/logo-instituicao.png}} % Caminho da logo. Deixe vazio se desejar omitir.
+\instituicao{INSTITUTO FEDERAL DE SERGIPE} % Nome da Instituição.
+\departamento{COORDENADORIA DO CURSO DE BACHAREL EM CIÊNCIA DA COMPUTAÇÃO} % Nome do Departamento ou Coordenação.
+\campus{CAMPUS ITABAIANA} % Nome do Campus. Deixe vazio se desejar omitir.
+
+% --- Título, Autor, Local, Ano ---
+\titulo{Coloque o título do trabalho aqui} % Título do Trabalho
+\subtitulo{Coloque o subtítulo do trabalho aqui caso haja} % Subtítulo do Trabalho. Deixe vazio se desejar omitir.
+\autor{Seu Nome Aqui} % Nome do Autor.
+\autorcite{Aqui, Seu Nome} % Citação do Autor.
+\local{Itabaiana} % Cidade da Defesa.
+\uf{SE} % Estado do Cidade da Defesa.
+\data{01 de Janeiro de 2026} % Data da Defesa.
+\ano{2026} % Ano da Defesa.
+
+% --- Orientador e Coorientador ---
+\orientador{Nome do Orientador Aqui} % Nome do Orientador.
+\orientaddorcite{Aqui, Nome do Orientador} % Citação do Orientador.
+\coorientador{Nome do Coorientador Aqui} % Nome do Coorientador. Deixe vazio se não houver
+\coorientaddorcite{Aqui, Nome do Coorientador} % Citação do Coorientador. Deixe vazio se não houver
+
+% --- Preambulo (Descrição do Trabalho) ---
+\preambulo{Monografia apresentada à Coordenação de Ciência da Computação do Campus Itabaiana, do 
+Instituto Federal de Sergipe (IFS), como pré-requisito para obtenção do grau de Bacharel em Ciência 
+da Computação.}
 
 % --- CONFIGURAÇÕES DE PDF ---
 \makeatletter
@@ -77,11 +84,11 @@
 \frenchspacing
 
 % --- ELEMENTOS PRÉ-TEXTUAIS ---
-\imprimircapa
-\imprimirfolhaderosto
+\imprimircapa         % OK
+\imprimirfolhaderosto % OK
 
-\include{01-pre-textuais/00-folha-catalografica}
-\include{01-pre-textuais/01-folha-aprovacao}
+\include{01-pre-textuais/00-folha-catalografica} % Ficha Catalográfica de Exemplo (Na versão final é gerada e fornecida pela biblioteca). % OK
+\include{01-pre-textuais/01-folha-aprovacao} % Folha de Aprovação de Exemplo (Na versão final é gerada e fornecida pela banca após a defesa). % OK
 \include{01-pre-textuais/02-dedicatoria}
 \include{01-pre-textuais/03-agradecimentos}
 \include{01-pre-textuais/04-epigrafe}
