@@ -32,23 +32,23 @@
       \begin{minipage}[c][8cm]{14cm}		% Largura
         \small
         \begin{center}
-            {Isto é apenas um exemplo}
+          {Isto é apenas um exemplo e deve ser substituído pela ficha catalográfica oficial fornecida pela biblioteca do IFS.}
         \end{center}
         \imprimirautorcite.
         %Sobrenome, Nome do autor
 
         \hspace{0.5cm}  \\
-        \imprimirtitulo. / \imprimirautor. -- {Itabaiana}, \imprimirdata.
+        \imprimirtitulo. / \imprimirautor. -- \imprimirlocal, \imprimirano.
 
         % \hspace{0.5cm} \pageref{LastPage} p. 1 :il. (colors; grafs; tabs).\\
-        
+
         \hspace{0.5cm}  \\
-        {Trabalho de conclusão de curso (Bacharelado em Ciência da 
-        Computação) – Instituto Federal de Educação, Ciência e Tecnologia de 
-        Sergipe – IFS, \imprimirdata.}
-        
-        \hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador
-        \ifthenelse{\equal{\imprimircoorientador}{}}{}{\imprimircoorientadorRotulo~\imprimircoorientador}
+        {Trabalho de conclusão de curso (Bacharelado em Ciência da
+        Computação) – Instituto Federal de Educação, Ciência e Tecnologia de
+        Sergipe – IFS, \imprimirano. \\}
+
+        \hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador.
+        \ifthenelse{\equal{\imprimircoorientador}{}}{}{ \imprimircoorientadorRotulo~\imprimircoorientador \\}
 
         % \hspace{0.5cm}
         % \parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao, ~ \\
