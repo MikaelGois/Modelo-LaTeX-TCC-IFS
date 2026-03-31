@@ -61,13 +61,13 @@
             \MakeUppercase{\imprimirautor} \\
             \vspace{4cm}
             \begin{DoubleSpace}
-                \MakeUppercase{\textbf{\imprimirtitulo}} \\
-                \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\MakeUppercase{\textbf{\imprimirsubtitulo}} \\}
+                \MakeUppercase{\textbf{\imprimirtitulo}}
+                \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\MakeUppercase{\textbf{\\ \imprimirsubtitulo}} \\}
             \end{DoubleSpace}
         \end{center}
         \vspace{1cm}
         \begin{flushright}
-            \parbox{0.6\linewidth} {
+            \hspace*{7cm}\parbox{0.6\linewidth} {
                 \imprimirpreambulo
                 \vspace{1cm} \\
                 \textbf{\imprimirorientadorRotulo}~\imprimirorientador \\
