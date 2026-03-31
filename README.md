@@ -34,7 +34,7 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 - [x] Folha de rosto (`\imprimirfolhaderosto`)
 - [x] Ficha Catalográfica de exemplo (`01-pre-textuais/00-folha-catalografica`)
 - [x] Folha de aprovação de exemplo (`01-pre-textuais/01-folha-aprovacao`)
-- [ ] Dedicatória (`01-pre-textuais/02-dedicatoria`)
+- [X] Dedicatória (`01-pre-textuais/02-dedicatoria`)
 - [ ] Agradecimentos (`01-pre-textuais/03-agradecimentos`)
 - [ ] Epígrafe (`01-pre-textuais/04-epigrafe`)
 - [ ] Resumo (`01-pre-textuais/05-resumo-pt`)
