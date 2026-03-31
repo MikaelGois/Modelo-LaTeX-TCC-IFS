@@ -26,16 +26,38 @@ Este modelo foi organizado por **Mikael dos Santos Gois** discente de Ciência d
 
 ## TODO e Status de Revisão
 
-Esta seção lista os elementos do modelo que já foram revisados e estão marcados como **finalizados** (comentário `OK` no arquivo `main.tex`).
+Esta seção lista os elementos do modelo que já foram revisados e finalizados, bem como aqueles que ainda estão em processo de revisão ou ajustes.
 
-### Elementos Finalizados
+### Elementos Pré-Textuais
 
-- Capa (`\imprimircapa`)
-- Folha de rosto (`\imprimirfolhaderosto`)
-- Ficha Catalográfica de exemplo (`01-pre-textuais/00-folha-catalografica`)
-- Folha de aprovação de exemplo (`01-pre-textuais/01-folha-aprovacao`)
+- [x] Capa (`\imprimircapa`)
+- [x] Folha de rosto (`\imprimirfolhaderosto`)
+- [x] Ficha Catalográfica de exemplo (`01-pre-textuais/00-folha-catalografica`)
+- [x] Folha de aprovação de exemplo (`01-pre-textuais/01-folha-aprovacao`)
+- [] Dedicatória (`01-pre-textuais/02-dedicatoria`)
+- [] Agradecimentos (`01-pre-textuais/03-agradecimentos`)
+- [] Epígrafe (`01-pre-textuais/04-epigrafe`)
+- [] Resumo (`01-pre-textuais/05-resumo-pt`)
+- [] Abstract (`01-pre-textuais/06-abstract-en`)
+- [] Lista de Figuras/Ilustrações (`\listfigurename`)
+- [] Lista de Algoritmos (`\listofalgorithmes`)
+- [] Lista de Tabelas (`\listtablename`)
+- [] Lista de Abreviaturas e Siglas (`01-pre-textuais/07-lista-abreviaturas-siglas`)
+- [] Lista de Símbolos (`01-pre-textuais/08-lista-simbolos`)
+- [] Sumário (Índice) (`\contentsname`)
 
-Os demais elementos ainda podem passar por revisões ou ajustes.
+### Elementos Textuais
+- [] Introdução (`02-textuais/01-01-introducao`)
+- [] Fundamentação Teórica (`02-textuais/02-fundamentacao-teorica.tex`)
+- [] Trabalhos Correlatos (`02-textuais/03-trabalhos-correlatos`)
+- [] Metodologia (`02-textuais/04-metodologia`)
+- [] Resultados e Discussão (`02-textuais/05-resultados-discussao`)
+- [] Conclusão (`02-textuais/06-conclusao`)
+
+### Elementos Pós-Textuais
+- [] Referências (`\bibliography{referencias}`)
+- [] Apêndices (`03-pos-textuais/01-apendices`)
+- [] Anexos (`03-pos-textuais/02-anexos`)
 
 ---
 
