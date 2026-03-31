@@ -83,7 +83,7 @@ da Computação.}
 
 \frenchspacing
 
-% --- ELEMENTOS PRÉ-TEXTUAIS ---
+% ========== ELEMENTOS PRÉ-TEXTUAIS ==========
 \imprimircapa         % OK
 \imprimirfolhaderosto % OK
 
@@ -94,31 +94,43 @@ da Computação.}
 \include{01-pre-textuais/04-epigrafe}
 \include{01-pre-textuais/05-resumo-pt}
 \include{01-pre-textuais/06-abstract-en}
-\include{01-pre-textuais/07-listas}
 
-% --- Ficha Catalográfica (Geralmente fornecida pela biblioteca) ---
-% \include{01-pre-textuais/ficha-catalografica}
+% As listas são opcionais. 
+% Se alguma das listas abaixo não estiver presente no trabalho, comente as linhas correspondentes.
 
-% --- Dedicatória, Agradecimentos e Epígrafe ---
-\include{01-pre-textuais/dedicatoria}
-\include{01-pre-textuais/agradecimentos}
-\include{01-pre-textuais/epigrafe}
-
-% --- Resumos ---
-\include{01-pre-textuais/resumo}
-\include{01-pre-textuais/abstract}
-
-% --- Listas ---
+% --- Lista de Figuras/Ilustrações ---
 \pdfbookmark[0]{\listfigurename}{lof}
 \listoffigures*
 \cleardoublepage
+
+% --- Lista de Algoritmos ---
+
+% A Lista de Algoritmos não é mencionada nominalmente como um item obrigatório na norma ABNT NBR 14724, 
+% mas ela se enquadra na categoria de Lista de Ilustrações. De acordo com a norma, recomenda-se que, 
+% quando o trabalho possui muitos itens de um tipo específico (como algoritmos, códigos-fonte ou programas), 
+% seja elaborada uma lista própria para eles para facilitar a consulta
+
+% \pdfbookmark[0]{\listalgorithmcfname}{lof}
+% \listofalgorithmes*
+% \cleardoublepage
+
+% --- Lista de Tabelas ---
+\pdfbookmark[0]{\listtablename}{lot}
 \listoftables*
 \cleardoublepage
+
+% --- Lista de Siglas ---
+\include{01-pre-textuais/07-lista-abreviaturas-siglas}
+
+% --- Lista de Símbolos ---
+\include{01-pre-textuais/08-lista-simbolos}
+
+% --- Sumário (Índice) ---
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
 \cleardoublepage
 
-% --- ELEMENTOS TEXTUAIS ---
+% ========== ELEMENTOS TEXTUAIS ==========
 \textual
 \include{02-textuais/01-introducao}
 \include{02-textuais/02-fundamentacao-teorica}
@@ -127,8 +139,7 @@ da Computação.}
 \include{02-textuais/05-resultados-discussao}
 \include{02-textuais/06-conclusao}
 
-% --- ELEMENTOS PÓS-TEXTUAIS ---
-% --- ELEMENTOS PÓS-TEXTUAIS ---
+% ========== ELEMENTOS PÓS-TEXTUAIS ==========
 \postextual
 \bibliography{referencias}
 \include{03-pos-textuais/01-apendices}
