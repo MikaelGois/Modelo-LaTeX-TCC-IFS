@@ -29,6 +29,8 @@
 % ============================================== capa ==============================================
 \renewcommand{\imprimircapa}{ % Capa 
     \begin{capa}
+        \newpage
+        \thispagestyle{empty}
         \begin{center}
             \begin{DoubleSpace}
                 \ifthenelse{\equal{\imprimirlogoinstituicao}{}}{}{\imprimirlogoinstituicao \\}
@@ -37,18 +39,12 @@
                 \ifthenelse{\equal{\imprimircampus}{}}{}{\MakeUppercase{\imprimircampus \\}}
             \end{DoubleSpace}
             \vspace{3cm}
-            \MakeUppercase{\imprimirautor}  \\
-
-            % \imprimirorientadorRotulo ~\imprimirorientador \\
-            % \imprimircoorientadorRotulo ~\imprimircoorientador \\
-
+            \MakeUppercase{\imprimirautor} \\
             \vspace{3cm}
-            \textbf{{\large\MakeUppercase{\imprimirtitulo}}} \\
-            \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\textbf{{\large \MakeUppercase{\imprimirsubtitulo}}} \\}
+            \MakeUppercase{\textbf{\imprimirtitulo}}
+            \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\MakeUppercase{\textbf{\\ \imprimirsubtitulo}} \\}
             \vfill
-            {\large{\imprimirlocal, ~\imprimiruf
-                    \\ \imprimirano  }
-            }
+            {\large{\imprimirlocal, \imprimiruf \\ \imprimirano}}
         \end{center}
     \end{capa}
 }
@@ -57,6 +53,8 @@
 % ========================================= folha de rosto =========================================
 \renewcommand{\imprimirfolhaderosto}{
     \begin{folhaderosto}
+        \newpage
+        \thispagestyle{empty}
         \begin{center}
             \MakeUppercase{\imprimirautor} \\
             \vspace{4cm}
@@ -67,7 +65,7 @@
         \end{center}
         \vspace{1cm}
         \begin{flushright}
-            \hspace*{7cm}\parbox{0.6\linewidth} {
+            \parbox{\dimexpr\textwidth-7cm\relax} {
                 \imprimirpreambulo
                 \vspace{1cm} \\
                 \textbf{\imprimirorientadorRotulo}~\imprimirorientador \\
@@ -76,8 +74,20 @@
         \end{flushright}
         \vfill
         \begin{center}
-            {\large{\imprimirlocal, ~\imprimiruf \\ \imprimirano}}
+            {\large{\imprimirlocal, \imprimiruf \\ \imprimirano}}
         \end{center}
     \end{folhaderosto}
 }
 % ========================================= folha de rosto =========================================
+
+% ========================================= agradecimentos =========================================
+\renewenvironment{agradecimentos}{
+    \newpage
+    \thispagestyle{empty}
+    \normalsize
+
+    \begin{center}
+        \textbf{AGRADECIMENTOS}
+    \end{center}
+}{}
+% ========================================= agradecimentos =========================================
