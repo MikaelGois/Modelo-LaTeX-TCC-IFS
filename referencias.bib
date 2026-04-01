@@ -12,9 +12,51 @@ Este arquivo faz parte de um modelo opensource para estudantes do IFS.
 Não remova os créditos dos autores originais e do modelo base.
 ---------------------------------------------------------------------------------------
 
-@book{exemplo2026,
-  author    = {Sobrenome, Nome},
-  title     = {Título do Livro},
-  year      = {2026},
-  publisher = {Editora}
+As referências devem ser conforme a seção 7 e a seção 8 da norma ABNT NBR 6023:2025, seguindo as 
+orientações específicas para cada tipo de documento.
+
+EXEMPLO Monografia (7.1.2)
+- Elementos essenciais
+AGUIAR, André Andrade de. Avaliação da microbiota bucal em pacientes sob uso crônico de penicilina e 
+benzatina. 2009. Tese (Doutorado em Cardiologia) — Faculdade de Medicina, Universidade de Sào Paulo, 
+São Paulo, 2009.
+
+
+
+@phdthesis{exemploMonografia,
+  author  = {AGUIAR, André Andrade de},
+  title   = {Avaliação da microbiota bucal em pacientes sob uso crônico de penicilina e benzatina},
+  type    = {Tese (Doutorado em Cardiologia)},
+  school  = {Faculdade de Medicina, Universidade de São Paulo},
+  address = {São Paulo},
+  year    = {2009}
+}
+
+Exemplo Artigo, seção e/ou matéria de publicação periódica (7.7.5)
+@article{kitchenham2007guidelines,
+  title     = {Guidelines for performing systematic literature reviews in software engineering},
+  author    = {Kitchenham, Barbara and Charters, Stuart and others},
+  year      = {2007},
+  publisher = {Keele, UK}
+}
+
+Exemplo Artigo, seção e/ou matéria de publicação periódica em meio eletrônico (7.7.6)
+@article{kitchenham2007guidelinesOnline,
+  title         = {Guidelines for performing systematic literature reviews in software engineering},
+  author        = {Kitchenham, Barbara and Charters, Stuart and others},
+  year          = {2007},
+  publisher     = {Keele, UK},
+  url           = {http://exemplo.com/artigo-online},
+  urlaccessdate = {01 de jan, 2026}
+}
+
+@manual{NBR14724:2024,
+  title        = {{ABNT NBR} 14724:2024},
+  organization = {Associa{\c c}\~ao Brasileira de Normas T\'ecnicas},
+  address      = {Rio de Janeiro},
+  month        = {dezembro},
+  year         = {2024},
+  org-short    = {ABNT},
+  pages        = {16},
+  subtitle     = {Informação e documentação -- Trabalhos acadêmicos -- Apresentação}
 }

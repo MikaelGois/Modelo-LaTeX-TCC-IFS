@@ -1,21 +1,21 @@
-% ---------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 % MODELO DE TCC - INSTITUTO FEDERAL DE SERGIPE (IFS)
-% ---------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 % Autor do Modelo: Mikael dos Santos Gois (mikaelgois1@gmail.com)
 % Baseado nos modelos de: 
 %   - Diogo D. Moreira (TCC, Dissertação e Tese)
 %   - DECOM/UFOP (Monografia de Ciência da Computação)
 % Modelo Base: abnTeX2 adaptado para as normativas internas de TCC do IFS (Art. 31 e 34)
 % Versão: 1.0 (2026)
-% ---------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 % Este arquivo faz parte de um modelo opensource para estudantes do IFS.
 % Não remova os créditos dos autores originais e do modelo base.
 % Este modelo é fornecido "no estado em que se encontra", sem garantias de qualquer tipo.
-% ---------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 
-% -------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 % 1. DEFINIÇÕES GERAIS (Normas IFS - Art. 34)
-% -------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 \documentclass[12pt, openright, oneside, a4paper, english, brazil]{abntex2}
 
 \input{structure.tex}
@@ -35,33 +35,50 @@
 \usepackage[a4paper, top=3.0cm, bottom=2.0cm, left=3.0cm, right=2.0cm]{geometry}
 \linespread{1.5}                % Espaçamento 1,5
 
-% -------------------------------------------------------------------
-% DADOS DO ALUNO E DO TRABALHO (PREENCHA AQUI)
-% -------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
+% DADOS DO ALUNO E DO TRABALHO
+% ----------------------------------------------------------------------------------------
+% logoinstituicao:      Caminho da logo. Opcional, deixe vazio se desejar omitir.
+% instituicao:          Nome da Instituição.
+% departamento:         Nome do Departamento ou Coordenação.
+% campus:               Nome do Campus. Deixe vazio se desejar omitir.
+%
+% titulo:               Título do Trabalho.
+% subtitulo:            Subtítulo do Trabalho. Deixe vazio se desejar omitir.
+% autor:                Nome do Autor.
+% autorcite:            Citação do Autor.
+% local:                Cidade da Defesa.
+% uf:                   Estado da Cidade da Defesa.
+% data:                 Data da Defesa.
+% ano:                  Ano da Defesa.
+%
+% orientador:           Nome do Orientador.
+% orientaddorcite:      Citação do Orientador.
+% coorientador:         Nome do Coorientador. Deixe vazio se não houver.
+% coorientaddorcite:    Citação do Coorientador. Deixe vazio se não houver.
+% preambulo/natureza:   Descrição do Trabalho. Também chamado de natureza do trabalho.
+% ----------------------------------------------------------------------------------------
 
-% --- Logo, Intituição, Departamento/Coordenação, Campus --- 
-\logoinstituicao{\includegraphics[width=3cm]{figuras/logo-instituicao.png}} % Caminho da logo. Deixe vazio se desejar omitir.
-\instituicao{INSTITUTO FEDERAL DE SERGIPE} % Nome da Instituição.
-\departamento{COORDENADORIA DO CURSO DE BACHAREL EM CIÊNCIA DA COMPUTAÇÃO} % Nome do Departamento ou Coordenação.
-\campus{CAMPUS ITABAIANA} % Nome do Campus. Deixe vazio se desejar omitir.
+\logoinstituicao{\includegraphics[width=3cm]{figuras/logo-instituicao.png}}
+\instituicao{INSTITUTO FEDERAL DE SERGIPE}
+\departamento{COORDENAÇÃO DO CURSO DE BACHAREL EM CIÊNCIA DA COMPUTAÇÃO}
+\campus{CAMPUS ITABAIANA}
 
-% --- Título, Autor, Local, Ano ---
-\titulo{Coloque o título do trabalho aqui:} % Título do Trabalho
-\subtitulo{Coloque o subtítulo do trabalho aqui caso haja} % Subtítulo do Trabalho. Deixe vazio se desejar omitir.
-\autor{Seu Nome Aqui} % Nome do Autor.
-\autorcite{Aqui, Seu Nome} % Citação do Autor.
-\local{Itabaiana} % Cidade da Defesa.
-\uf{SE} % Estado do Cidade da Defesa.
-\data{01 de Janeiro de 2026} % Data da Defesa.
-\ano{2026} % Ano da Defesa.
+\titulo{Coloque o título do trabalho aqui}
+% ":" é adicionado de forma automática após o título apenas se o subtítulo for preenchido.
+\subtitulo{Subtítulo: se houver, deve ser precedido de dois-pontos, evidenciando a sua subordinação ao título.}
+\autor{Seu Nome Aqui}
+\autorcite{Aqui, Seu Nome}
+\local{Itabaiana}
+\uf{SE}
+\data{01 de Janeiro de 2026}
+\ano{2026}
 
-% --- Orientador e Coorientador ---
-\orientador{Nome do Orientador Aqui} % Nome do Orientador.
-\orientaddorcite{Aqui, Nome do Orientador} % Citação do Orientador.
-\coorientador{Nome do Coorientador Aqui} % Nome do Coorientador. Deixe vazio se não houver
-\coorientaddorcite{Aqui, Nome do Coorientador} % Citação do Coorientador. Deixe vazio se não houver
+\orientador{Nome do Orientador Aqui}
+\orientaddorcite{Aqui, Nome do Orientador}
+\coorientador{Nome do Coorientador Aqui}
+\coorientaddorcite{Aqui, Nome do Coorientador}
 
-% --- Preambulo (Descrição do Trabalho) ---
 \preambulo{Monografia apresentada à Coordenação de Ciência da Computação do Campus Itabaiana, do 
 Instituto Federal de Sergipe (IFS), como pré-requisito para obtenção do grau de Bacharel em Ciência 
 da Computação.}
@@ -76,61 +93,136 @@ da Computação.}
 }
 \makeatother
 
-% -------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 % INÍCIO DO DOCUMENTO
-% -------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 \begin{document}
 
 \frenchspacing
 
-% ========== ELEMENTOS PRÉ-TEXTUAIS ==========
-\imprimircapa         % OK
-\imprimirfolhaderosto % OK
+% O conteúdo é gerado automaticamente a partir dos dados preenchidos acima.
+% Não entra na contagem de páginas.
+\imprimircapa % Feito e Revisado
 
-\include{01-pre-textuais/00-folha-catalografica} % Ficha Catalográfica de Exemplo (Na versão final é gerada e fornecida pela biblioteca). % OK
-\include{01-pre-textuais/01-folha-aprovacao} % Folha de Aprovação de Exemplo (Na versão final é gerada e fornecida pela banca após a defesa). % OK
-\include{01-pre-textuais/02-dedicatoria} % Dedicatória. Preencha no arquivo ou comente esta linha se não for utilizar. % OK
+% ----------------------------------------------------------------------------------------
+% ============= ELEMENTOS PRÉ-TEXTUAIS - NBR 14724:2024 (4.2.1.1 a 4.2.1.13) =============
+% ----------------------------------------------------------------------------------------
+% imprimirfolhaderosto: Folha de Rosto. Obrigatória.
+%                       O conteúdo é gerado automaticamente a partir dos dados preenchidos 
+%                       acima.
+%
+% ficha-catalografica:  Ficha Catalográfica de Exemplo. Obrigatória.
+%                       Edite no arquivo 00-folha-catalografica.tex.
+%
+% folha-aprovacao:      Folha de Aprovação de Exemplo. Obrigatória.
+%                       Edite no arquivo 01-folha-aprovacao.tex.
+%
+% dedicatoria:          Dedicatória. Opcional, comente a linha se não for usar.
+%                       Edite no arquivo 02-dedicatoria.tex.
+%
+% agradecimentos:       Agradecimentos. Opcional, comente a linha se não for usar.
+%                       Edite no arquivo 03-agradecimentos
+%
+% epigrafe:             Epígrafe. Opcional, comente a linha se não for usar.
+%                       Edite no arquivo 04-epigrafe.tex.
+%
+% resumo-pt:            Resumo na língua vernácula. Obrigatório. 
+%                       Deve ser elaborado conforme a ABNT NBR 6028.
+%
+% abstract-en:          Resumo em língua estrangeira. Obrigatório.
+%                       Deve ser elaborado conforme a ABNT NBR 6028.
+%
+% listoffigures:        Lista de Figuras. Opcional, comente a linha se não for usar.
+% listofalgorithms:     Lista de Algoritmos. Opcional, comente a linha se não for usar.
+% listoftables:         Lista de Tabelas. Opcional, comente a linha se não for usar.
+%
+% abreviaturas-siglas:  Lista de Abreviaturas e Siglas. 
+%                       Opcional, comente a linha se não for usar.
+%                       Edite no arquivo 07-lista-abreviaturas-siglas.tex.
+%
+% simbolos:             Lista de Símbolos. Opcional, comente a linha se não for usar.
+%                       Edite no arquivo 08-lista-simbolos.tex.
+%
+% tableofcontents:      Sumário. Obrigatório.
+%                       Deve ser elaborado conforme a ABNT NBR 6027.
+%                       O conteúdo é gerado automaticamente a partir do conteúdo do trabalho.
+% ----------------------------------------------------------------------------------------
+
+\pretextual
+
+% A contagem de páginas começa a partir da folha de rosto mas é visível apenas a partir
+% de 'Introdução' (NBR 14724)
+% O conteúdo é gerado automaticamente a partir dos dados preenchidos acima.
+\imprimirfolhaderosto % Feito
+
+\include{01-pre-textuais/00-folha-catalografica} % Feito
+\include{01-pre-textuais/01-folha-aprovacao} % Feito
+\include{01-pre-textuais/02-dedicatoria} % Feito
 \include{01-pre-textuais/03-agradecimentos}
 \include{01-pre-textuais/04-epigrafe}
 \include{01-pre-textuais/05-resumo-pt}
 \include{01-pre-textuais/06-abstract-en}
 
-% As listas são opcionais. 
-% Se alguma das listas abaixo não estiver presente no trabalho, comente as linhas correspondentes.
 
-% --- Lista de Figuras/Ilustrações ---
+% Deve ser elaborada de acordo com a ordem apresentada no texto, com cada item designado por seu nome
+% específico, travessão, título e respectivo número da folha ou página. Quando necessário, recomenda-se
+% a elaboração de lista própria para cada tipo de ilustração (desenhos, esquemas, fluxogramas, fotografias, 
+% gráficos, mapas, organogramas, plantas, quadros, retratos e outras) - NBR 14724:2024 (4.2.1.9)
+% O conteúdo da lista é gerado automaticamente a partir do conteúdo do trabalho.
 \pdfbookmark[0]{\listfigurename}{lof}
 \listoffigures*
 \cleardoublepage
 
-% --- Lista de Algoritmos ---
-
-% A Lista de Algoritmos não é mencionada nominalmente como um item obrigatório na norma ABNT NBR 14724, 
-% mas ela se enquadra na categoria de Lista de Ilustrações. De acordo com a norma, recomenda-se que, 
-% quando o trabalho possui muitos itens de um tipo específico (como algoritmos, códigos-fonte ou programas), 
-% seja elaborada uma lista própria para eles para facilitar a consulta
-
-% \pdfbookmark[0]{\listalgorithmcfname}{lof}
-% \listofalgorithmes*
+% A Lista de Algoritmos não é mencionada nominalmente como um item obrigatório na norma ABNT NBR 14724:2024, 
+% mas pode se enquadrar na recomendação de "lista própria" presente na Lista de Ilustrações acima.
+% O conteúdo da lista é gerado automaticamente a partir do conteúdo do trabalho.
+% Para habilitar a lista de algoritmos, é necessário importar um pacote adequado no preâmbulo,
+% por exemplo:
+%   \usepackage[ruled,vlined]{algorithm2e}
+% O pacote `algorithm2e` fornece o comando \listofalgorithmes para gerar a lista:
+% \pdfbookmark[0]{\listalgorithmcfname}{loa}
+% \listofalgorithmes
 % \cleardoublepage
 
-% --- Lista de Tabelas ---
+% Deve ser elaborada de acordo com a ordem apresentada no texto. Cada título deve ser precedido da
+% palavra Tabela, seguida de seu número de ordem de ocorrência no texto e travessão. Após o título, 
+% informar o respectivo número da folha ou página. - NBR 14724:2024 (4.2.1.10)
+% O conteúdo da lista é gerado automaticamente a partir do conteúdo do trabalho.
 \pdfbookmark[0]{\listtablename}{lot}
 \listoftables*
 \cleardoublepage
 
-% --- Lista de Siglas ---
 \include{01-pre-textuais/07-lista-abreviaturas-siglas}
-
-% --- Lista de Símbolos ---
 \include{01-pre-textuais/08-lista-simbolos}
 
-% --- Sumário (Índice) ---
+% Deve ser elaborado conforme a ABNT NBR 6027.
+% O conteúdo da lista é gerado automaticamente a partir do conteúdo do trabalho.
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
 \cleardoublepage
 
-% ========== ELEMENTOS TEXTUAIS ==========
+% ----------------------------------------------------------------------------------------
+% ========== ELEMENTOS TEXTUAIS - NBR 14724:2024 (4.2.2) e Normas IFS (Art. 31) ==========
+% ----------------------------------------------------------------------------------------
+
+% NORMATIVA INTERNA PARA O TRABALHO DE CONCLUSÃO DE CURSO (TCC) - 2011 
+% Art. 31 - A monografia deverá conter, no mínimo, os seguintes itens: capa, sumário, resumo em português
+% com palavras-chave do trabalho, introdução, referencial teórico, metodologia, resultados e discussões,
+% conclusões e bibliografia.
+
+% NBR 14724:2024 (4.2.2)
+% Elementos textuais:
+% O texto é composto de uma parte introdutória, que apresenta os objetivos do trabalho e as razões 
+% de sua elaboração; o desenvolvimento, que detalha a pesquisa ou estudo realizado; e uma parte conclusiva.
+% O trabalho acadêmico não pode ser dividido em capítulos; deve ser organizado em seções (ver 5.4).
+
+% NBR 14724:2024 (5.4)
+% Numeração progressiva:
+% Deve ser elaborada conforme a ABNT NBR 6024.
+% A numeração progressiva deve ser utilizada para evidenciar a sistematização do conteúdo do trabalho.
+% Destacam-se gradativamente, no sumário e, de forma idêntica, no texto, os títulos das seções, utilizando-se
+% os recursos de negrito, itálico ou sublinhado e outros.
+
 \textual
 \include{02-textuais/01-introducao}
 \include{02-textuais/02-fundamentacao-teorica}
@@ -139,10 +231,23 @@ da Computação.}
 \include{02-textuais/05-resultados-discussao}
 \include{02-textuais/06-conclusao}
 
-% ========== ELEMENTOS PÓS-TEXTUAIS ==========
+% ----------------------------------------------------------------------------------------
+% ============= ELEMENTOS PÓS-TEXTUAIS - NBR 14724:2024 (4.2.3.1 a 4.2.3.5) ==============
+% ----------------------------------------------------------------------------------------
+% referencias:          Referências. Obrigatório.
+%                       Deve ser elaborado conforme a ABNT NBR 6023.
+%                       O conteúdo é gerado automaticamente a partir do conteúdo do trabalho.
+% glossario:            Glossário. Opcional, comente a linha se não for usar.
+% apendices:            Apêndice. Opcional, comente a linha se não for usar.
+% anexos:               Anexo. Opcional, comente a linha se não for usar.
+% ----------------------------------------------------------------------------------------
+
 \postextual
+
+% O conteúdo é gerado automaticamente a partir do conteúdo do trabalho.
 \bibliography{referencias}
-\include{03-pos-textuais/01-apendices}
-\include{03-pos-textuais/02-anexos}
+
+\include{03-pos-textuais/01-apendices} % Feito
+\include{03-pos-textuais/02-anexos} % Feito
 
 \end{document}
