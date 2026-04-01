@@ -176,8 +176,12 @@ da Computação.}
 % A Lista de Algoritmos não é mencionada nominalmente como um item obrigatório na norma ABNT NBR 14724:2024, 
 % mas pode se enquadrar na recomendação de "lista própria" presente na Lista de Ilustrações acima.
 % O conteúdo da lista é gerado automaticamente a partir do conteúdo do trabalho.
-% \pdfbookmark[0]{\listalgorithmname}{lof}
-% \listofalgorithm*
+% Para habilitar a lista de algoritmos, é necessário importar um pacote adequado no preâmbulo,
+% por exemplo:
+%   \usepackage[ruled,vlined]{algorithm2e}
+% O pacote `algorithm2e` fornece o comando \listofalgorithmes para gerar a lista:
+% \pdfbookmark[0]{\listalgorithmcfname}{loa}
+% \listofalgorithmes
 % \cleardoublepage
 
 % Deve ser elaborada de acordo com a ordem apresentada no texto. Cada título deve ser precedido da
