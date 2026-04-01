@@ -14,7 +14,7 @@
 Segundo a norma ABNT NBR 14724:2024 "Os documentos a seguir são citados no texto de tal forma que seus conteúdos, totais ou parciais, constituem requisitos para este Documento. Para referências datadas, aplicam-se somente as edições citadas. Para referências não datadas, aplicam-se as edições mais recentes do referido documento (incluindo emendas)."
 
 * ABNT NBR 6023, Informação e documentação – Referências – Elaboração
-* ABNT NBR 6024, Informação e documentação – Numeração progressiva das seções de um documento –Apresentação
+* ABNT NBR 6024, Informação e documentação – Numeração progressiva das seções de um documento – Apresentação
 * ABNT NBR 6027, Informação e documentação – Sumário – Apresentação
 * ABNT NBR 6028, Informação e documentação – Resumo, resenha e recensão – Apresentação
 * ABNT NBR 6034, Informação e documentação – Índice – Apresentação
