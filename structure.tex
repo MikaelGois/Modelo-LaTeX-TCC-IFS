@@ -42,7 +42,9 @@
             \MakeUppercase{\imprimirautor} \\
             \vspace{3cm}
             \MakeUppercase{\textbf{\imprimirtitulo}}
-            \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\MakeUppercase{\textbf{\\ \imprimirsubtitulo}} \\}
+            % ":" é adicionado de forma automática apenas se o subtítulo for preenchido.
+            % "\unskip" remove o espaço extra antes dos dois-pontos caso o subtítulo for preenchido.
+            \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\MakeUppercase{\textbf{\unskip: \\ \imprimirsubtitulo}} \\}
             \vfill
             {\large{\imprimirlocal, \imprimiruf \\ \imprimirano}}
         \end{center}
@@ -60,12 +62,15 @@
             \vspace{4cm}
             \begin{DoubleSpace}
                 \MakeUppercase{\textbf{\imprimirtitulo}}
-                \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\MakeUppercase{\textbf{\\ \imprimirsubtitulo}} \\}
+                % ":" é adicionado de forma automática apenas se o subtítulo for preenchido.
+                % "\unskip" remove o espaço extra antes dos dois-pontos caso o subtítulo for preenchido.
+                \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\MakeUppercase{\textbf{\unskip: \\ \imprimirsubtitulo}} \\}
             \end{DoubleSpace}
         \end{center}
         \vspace{1cm}
         \begin{flushright}
-            \parbox{\dimexpr\textwidth-7cm\relax} {
+            % Delocamento para a direita de 7 ou 8 cm, sendo 8 cm o mais comum para coincidir com o meio da folha
+            \parbox{\dimexpr\textwidth-8cm\relax} {
                 \imprimirpreambulo
                 \vspace{1cm} \\
                 \textbf{\imprimirorientadorRotulo}~\imprimirorientador \\
