@@ -55,9 +55,9 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 - [ ] Conclusão (`02-textuais/06-conclusao`)
 
 ### Elementos Pós-Textuais
-- [ ] Referências (`\bibliography{referencias}`)
-- [ ] Apêndices (`03-pos-textuais/01-apendices`)
-- [ ] Anexos (`03-pos-textuais/02-anexos`)
+- [X] Referências (`\bibliography{referencias}`) (Obs.: Ajustar diagramação/formatação)
+- [X] Apêndices (`03-pos-textuais/01-apendices`) (Obs.: Ajustar diagramação/formatação)
+- [X] Anexos (`03-pos-textuais/02-anexos`) (Obs.: Ajustar diagramação/formatação)
 
 ---
 
