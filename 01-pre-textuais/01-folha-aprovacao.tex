@@ -18,9 +18,9 @@
 % Salve o modelo oficial como folhadeaprovacao_final.pdf na raiz do projeto,
 % e use o comando abaixo para inseri-lo na versão final do texto.
 
-%\begin{fichacatalografica}
+%\begin{folhadeaprovacao}
 %    \includepdf{folhadeaprovacao_final.pdf}
-%\end{fichacatalografica}
+%\end{folhadeaprovacao}
 
 %% Modelo de Como fazer a Folha de Aprovação:
 
@@ -30,15 +30,17 @@
     {\large\imprimirautor}
     \vspace{2cm}
     \begin{center}
-      {\large \textbf{\imprimirtitulo}} \\
-      \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\large \textbf{\imprimirsubtitulo} \\}
+      \MakeUppercase{\textbf{\imprimirtitulo}}
+      % ":" é adicionado de forma automática apenas se o subtítulo for preenchido.
+      % "\unskip" remove o espaço extra antes dos dois-pontos caso o subtítulo for preenchido.
+      \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\MakeUppercase{\textbf{\unskip: \\ \imprimirsubtitulo}} \\}
     \end{center}
   \end{center}
 
   \vspace{1cm}
 
   \begin{flushright}
-    \parbox{\dimexpr\textwidth-7cm\relax}
+    \parbox{\dimexpr\textwidth-8cm\relax}
     \imprimirpreambulo
   \end{flushright}
 
