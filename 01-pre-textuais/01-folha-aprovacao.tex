@@ -18,9 +18,9 @@
 % Salve o modelo oficial como folhadeaprovacao_final.pdf na raiz do projeto,
 % e use o comando abaixo para inseri-lo na versão final do texto.
 
-%\begin{fichacatalografica}
+%\begin{folhadeaprovacao}
 %    \includepdf{folhadeaprovacao_final.pdf}
-%\end{fichacatalografica}
+%\end{folhadeaprovacao}
 
 %% Modelo de Como fazer a Folha de Aprovação:
 
@@ -28,43 +28,41 @@
 
   \begin{center}
     {\large\imprimirautor}
-
     \vspace{2cm}
     \begin{center}
-      {\large \textbf{\imprimirtitulo}} \\
-      \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\large \textbf{\imprimirsubtitulo} \\}
+      \MakeUppercase{\textbf{\imprimirtitulo}}
+      % ":" é adicionado de forma automática apenas se o subtítulo for preenchido.
+      % "\unskip" remove o espaço extra antes dos dois-pontos caso o subtítulo for preenchido.
+      \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\MakeUppercase{\textbf{\unskip: \\ \imprimirsubtitulo}} \\}
     \end{center}
-
   \end{center}
 
   \vspace{1cm}
+
   \begin{flushright}
-    \hspace*{7cm}\parbox{0.6\linewidth}
-    \imprimirpreambulo
+    \parbox{\dimexpr\textwidth-8cm\relax}{%
+      \imprimirpreambulo
+    }
   \end{flushright}
 
   \vspace{1cm}
+
   \begin{center}
     Trabalho defendido e aprovado em \imprimirdata % Preencha a data}
   \end{center}
 
   \begin{center}
     \textbf{BANCA EXAMINADORA}
-
     \vfill
     \rule{10cm}{.1pt} \\ {\imprimirorientador \space(Orientador) \\ Instituto Federal de Sergipe}
-
     \ifthenelse{\equal{\imprimircoorientador}{}}{}{
     \vfill
     \rule{10cm}{.1pt} \\ {\imprimircoorientador \space(Coorientador) \\ Instituto Federal de Sergipe}
     }
-
     \vfill
     \rule{10cm}{.1pt} \\ {Prof. Nome do Membro 1 (Membro examinador) \\ Instituto Federal de Sergipe}
-
     \vfill
     \rule{10cm}{.1pt} \\ {Prof. Nome do Membro 2 (Membro examinador) \\ Instituto Federal de Sergipe}
-
   \end{center}
 
 \end{folhadeaprovacao}
