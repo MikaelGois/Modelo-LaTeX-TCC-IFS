@@ -33,7 +33,7 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 - [x] Capa (`\imprimircapa`)
 - [x] Folha de rosto (`\imprimirfolhaderosto`) (Obs.: Revisar espaçamento e fonte)
 - [x] Ficha Catalográfica de exemplo (`01-pre-textuais/00-folha-catalografica`) 
-- [x] Folha de aprovação de exemplo (`01-pre-textuais/01-folha-aprovacao`) (Obs.: Revisar espaçamento e fonte)
+- [x] Folha de Aprovação de exemplo (`01-pre-textuais/01-folha-aprovacao`)
 - [X] Dedicatória (`01-pre-textuais/02-dedicatoria`) (Obs.: Revisar espaçamento e fonte)
 - [X] Agradecimentos (`01-pre-textuais/03-agradecimentos`) (Obs.: Revisar espaçamento e fonte)
 - [ ] Epígrafe (`01-pre-textuais/04-epigrafe`)
