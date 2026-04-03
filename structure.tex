@@ -1,9 +1,33 @@
+% --- PACOTES BÁSICOS ---
+\usepackage{times}              % Fonte Times New Roman
+\usepackage[T1]{fontenc}        % Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}     % Codificacao do arquivo (conversão automática dos acentos)
+\usepackage{indentfirst}        % Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}              % Controle das cores
+\usepackage{graphicx}           % Inclusão de gráficos
+\usepackage{microtype}          % para melhorias de justificação
+\usepackage[alf]{abntex2cite}   % Citações padrão ABNT
+\usepackage{ifthen}             % Comandos condicionais
+
+% --- CONFIGURAÇÕES DE MARGENS ---
+% \setlmargin{3cm} \setrmargin{2cm} \settmargin{3cm} \setbmargin{2cm}
+\usepackage[a4paper, top=3.0cm, bottom=2.0cm, left=3.0cm, right=2.0cm]{geometry}
+% \linespread{1.5}                % Espaçamento 1,5
+\OnehalfSpacing % Comando oficial do abntex2 para espaçamento 1,5
+
 % Força o uso de Times New Roman (serif) em todos os níveis de título
 \renewcommand{\ABNTEXchapterfont}{\rmfamily\bfseries}
 \renewcommand{\ABNTEXsectionfont}{\rmfamily\bfseries}
 \renewcommand{\ABNTEXsubsectionfont}{\rmfamily\bfseries}
 \renewcommand{\ABNTEXsubsubsectionfont}{\rmfamily\bfseries}
 \renewcommand{\ABNTEXsubsubsubsectionfont}{\rmfamily\bfseries}
+
+% Força todos os títulos a usarem o tamanho definido no documento
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
 
 % Variáveis adicionais
 \providecommand{\imprimirlogoinstituicao}{}
@@ -32,6 +56,16 @@
 
 \providecommand{\imprimircoorientadorcite}{}
 \newcommand{\coorientaddorcite}[1]{\renewcommand{\imprimircoorientadorcite}{#1}}
+
+% --- CONFIGURAÇÃO AUTOMÁTICA DE METADADOS DO PDF ---
+\makeatletter
+\hypersetup{
+    pdftitle={\@title},
+    pdfauthor={\@author},
+    pdfsubject={\imprimirpreambulo},
+    colorlinks=false,   % links coloridos? (mantenha false para impressão)
+}
+\makeatother
 
 % ============================================== capa ==============================================
 \renewcommand{\imprimircapa}{ % Capa 
