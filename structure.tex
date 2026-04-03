@@ -8,6 +8,8 @@
 \usepackage{microtype}          % para melhorias de justificação
 \usepackage[alf]{abntex2cite}   % Citações padrão ABNT
 \usepackage{ifthen}             % Comandos condicionais
+\usepackage{bookmark}           % Melhora a criação e sincronização do índice lateral
+\usepackage[linesnumbered,ruled,boxed,vlined,portuguese]{algorithm2e} % Pacote para algoritmos
 
 % --- CONFIGURAÇÕES DE MARGENS ---
 % \setlmargin{3cm} \setrmargin{2cm} \settmargin{3cm} \setbmargin{2cm}
@@ -29,7 +31,39 @@
 \renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
 \renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
 
-% Variáveis adicionais
+% --- CONFIGURAÇÃO DE CAPÍTULOS E SEÇÕES ---
+\renewcommand{\pretextualchapter}[2][]{%
+    \cleardoublepage
+    \thispagestyle{empty}
+    \phantomsection
+    \ifthenelse{\equal{#1}{}}%
+    {\pdfbookmark[0]{#2}{pretextual.\thepage}}% Se o opcional estiver vazio, usa o título normal no PDF
+    {\pdfbookmark[0]{#1}{pretextual.\thepage}}% Se houver título opcional, usa ele no PDF
+    \begin{center}
+        \ABNTEXchapterfont\ABNTEXchapterfontsize
+        \MakeUppercase{\textbf{#2}} % FORÇA MAIÚSCULO NO DOCUMENTO
+    \end{center}
+}
+
+% --- CONFIGURAÇÃO AUTOMÁTICA DE METADADOS DO PDF ---
+\AtBeginDocument{
+    \hypersetup{
+        % Metadados
+        unicode=true,               % Permite acentos e caracteres especiais nos metadados
+        pdftitle={\imprimirtitulo},
+        pdfauthor={\imprimirautor},
+        pdfsubject={\imprimirpreambulo},
+        % Comportamento do Índice (Bookmarks)
+        bookmarksnumbered=true,     % Mostra a numeração das seções no índice lateral
+        bookmarksopen=true,         % Abre o índice lateral por padrão ao abrir o PDF
+        bookmarksdepth=3,           % Define a profundidade: Capítulos, Seções e Subseções
+        % Aparência Visual
+        colorlinks=false,           % Mantém links sem cores (ideal para impressão)
+        hidelinks                   % Remove as bordas coloridas dos links
+    }
+}
+
+% ====================================== variáveis adicionais ======================================
 \providecommand{\imprimirlogoinstituicao}{}
 \newcommand{\logoinstituicao}[1]{\renewcommand{\imprimirlogoinstituicao}{#1}}
 
@@ -57,17 +91,19 @@
 \providecommand{\imprimircoorientadorcite}{}
 \newcommand{\coorientaddorcite}[1]{\renewcommand{\imprimircoorientadorcite}{#1}}
 
-% --- CONFIGURAÇÃO AUTOMÁTICA DE METADADOS DO PDF ---
-% \makeatletter
-\AtBeginDocument{
-    \hypersetup{
-        pdftitle={\imprimirtitulo},
-        pdfauthor={\imprimirautor},
-        pdfsubject={\imprimirpreambulo},
-        colorlinks=false  % links coloridos? (mantenha false para impressão)
-    }
+% \renewcommand{\listadesimbolosname}{LISTA DE SÍMBOLOS}
+
+% --- Comando para título SEM aparecer no índice do PDF ---
+\newcommand{\pretextualchaptersilent}[1]{%
+    \cleardoublepage
+    \thispagestyle{empty}
+    \begin{center}
+        \ABNTEXchapterfont\ABNTEXchapterfontsize
+        \MakeUppercase{\textbf{#1}}
+    \end{center}
+    % Note que aqui NÃO há o comando \pdfbookmark
 }
-% \makeatother
+% ====================================== variáveis adicionais ======================================
 
 % ============================================== capa ==============================================
 \renewcommand{\imprimircapa}{ % Capa 
@@ -128,13 +164,52 @@
 % ========================================= folha de rosto =========================================
 
 % ========================================= agradecimentos =========================================
-\renewenvironment{agradecimentos}{
-    \newpage
+\renewenvironment{agradecimentos}[1][\agradecimentosname]{%
+    \cleardoublepage
     \thispagestyle{empty}
-    \normalsize
-
+    \phantomsection
+    \pdfbookmark[0]{#1}{agradecimentos.\thepage} % Bookmark do PDF usa o que você digitar (ex: Agradecimentos)
     \begin{center}
-        \textbf{AGRADECIMENTOS}
+        \ABNTEXchapterfont\ABNTEXchapterfontsize
+        \MakeUppercase{\textbf{#1}}
     \end{center}
-}{}
+}{\PRIVATEclearpageifneeded}
 % ========================================= agradecimentos =========================================
+
+% ======================================== resumo e abstract =======================================
+\renewenvironment{resumo}[1][\resumoname]{%
+    \cleardoublepage
+    \thispagestyle{empty}
+    \phantomsection
+    \pdfbookmark[0]{#1}{resumo.\thepage} % Bookmark do PDF usa o que você digitar (ex: Resumo)
+    \begin{center}
+        \ABNTEXchapterfont\ABNTEXchapterfontsize
+        \MakeUppercase{\textbf{#1}} % Texto no documento será sempre MAIÚSCULO (ex: RESUMO)
+    \end{center}
+    % \vspace{\onelineskip}
+}{\PRIVATEclearpageifneeded}
+% ======================================== resumo e abstract =======================================
+
+% \renewenvironment{siglas}[1][\listadesiglasname]{%
+%     \cleardoublepage
+%     \thispagestyle{empty}
+%     \phantomsection
+%     \pdfbookmark[0]{#1}{siglas.\thepage} % Bookmark do PDF usa o que você digitar (ex: Siglas)
+%     \begin{center}
+%         \ABNTEXchapterfont\ABNTEXchapterfontsize
+%         \MakeUppercase{\textbf{#1}} % Texto no documento será sempre MAIÚSCULO (ex: SIGLAS)
+%     \end{center}
+%     % \vspace{\onelineskip}
+% }{\PRIVATEclearpageifneeded}
+
+% \renewenvironment{simbolos}[1][\listadesimbolosname]{%
+%     \cleardoublepage
+%     \thispagestyle{empty}
+%     \phantomsection
+%     \pdfbookmark[0]{#1}{simbolos.\thepage} % Bookmark do PDF usa o que você digitar (ex: Símbolos)
+%     \begin{center}
+%         \ABNTEXchapterfont\ABNTEXchapterfontsize
+%         \MakeUppercase{\textbf{#1}} % Texto no documento será sempre MAIÚSCULO (ex: SÍMBOLOS)
+%     \end{center}
+%     % \vspace{\onelineskip}
+% }{\PRIVATEclearpageifneeded}
