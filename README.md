@@ -40,7 +40,7 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 - [X] Resumo (`01-pre-textuais/05-resumo-pt`) (Obs.: Ajustar diagramação/formatação)
 - [X] Abstract (`01-pre-textuais/06-abstract-en`) (Obs.: Ajustar diagramação/formatação)
 - [ ] Lista de Figuras/Ilustrações (`\listfigurename`)
-- [ ] Lista de Algoritmos (`\listofalgorithmes`)
+- [ ] Lista de Algoritmos (`\listofalgorithms`)
 - [ ] Lista de Tabelas (`\listtablename`)
 - [X] Lista de Abreviaturas e Siglas (`01-pre-textuais/07-lista-abreviaturas-siglas`) (Obs.: Ajustar diagramação/formatação)
 - [ ] Lista de Símbolos (`01-pre-textuais/08-lista-simbolos`)
