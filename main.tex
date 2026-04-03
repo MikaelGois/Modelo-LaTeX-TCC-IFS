@@ -17,24 +17,7 @@
 % 1. DEFINIÇÕES GERAIS (Normas IFS - Art. 34)
 % ----------------------------------------------------------------------------------------
 \documentclass[12pt, openright, oneside, a4paper, english, brazil]{abntex2}
-
 \input{structure.tex}
-
-% --- PACOTES BÁSICOS ---
-\usepackage{times}              % Fonte Times New Roman
-\usepackage[T1]{fontenc}        % Selecao de codigos de fonte.
-\usepackage[utf8]{inputenc}     % Codificacao do arquivo (conversão automática dos acentos)
-\usepackage{indentfirst}        % Indenta o primeiro parágrafo de cada seção.
-\usepackage{color}              % Controle das cores
-\usepackage{graphicx}           % Inclusão de gráficos
-\usepackage{microtype}          % para melhorias de justificação
-\usepackage[alf]{abntex2cite}   % Citações padrão ABNT
-
-% --- CONFIGURAÇÕES DE MARGENS ---
-% \setlmargin{3cm} \setrmargin{2cm} \settmargin{3cm} \setbmargin{2cm}
-\usepackage[a4paper, top=3.0cm, bottom=2.0cm, left=3.0cm, right=2.0cm]{geometry}
-% \linespread{1.5}                % Espaçamento 1,5
-\OnehalfSpacing % Comando oficial do abntex2 para espaçamento 1,5
 
 % ----------------------------------------------------------------------------------------
 % DADOS DO ALUNO E DO TRABALHO
@@ -83,16 +66,6 @@
 \preambulo{Monografia apresentada à Coordenação de Ciência da Computação do Campus Itabaiana, do 
 Instituto Federal de Sergipe (IFS), como pré-requisito para obtenção do grau de Bacharel em Ciência 
 da Computação.}
-
-% --- CONFIGURAÇÕES DE PDF ---
-\makeatletter
-\hypersetup{
-    pdftitle={\@title}, 
-    pdfauthor={\@author},
-    pdfsubject={\imprimirpreambulo},
-    colorlinks=false,   % links coloridos? (mantenha false para impressão)
-}
-\makeatother
 
 % ----------------------------------------------------------------------------------------
 % INÍCIO DO DOCUMENTO
