@@ -58,14 +58,16 @@
 \newcommand{\coorientaddorcite}[1]{\renewcommand{\imprimircoorientadorcite}{#1}}
 
 % --- CONFIGURAÇÃO AUTOMÁTICA DE METADADOS DO PDF ---
-\makeatletter
-\hypersetup{
-    pdftitle={\@title},
-    pdfauthor={\@author},
-    pdfsubject={\imprimirpreambulo},
-    colorlinks=false,   % links coloridos? (mantenha false para impressão)
+% \makeatletter
+\AtBeginDocument{
+    \hypersetup{
+        pdftitle={\imprimirtitulo},
+        pdfauthor={\imprimirautor},
+        pdfsubject={\imprimirpreambulo},
+        colorlinks=false  % links coloridos? (mantenha false para impressão)
+    }
 }
-\makeatother
+% \makeatother
 
 % ============================================== capa ==============================================
 \renewcommand{\imprimircapa}{ % Capa 
