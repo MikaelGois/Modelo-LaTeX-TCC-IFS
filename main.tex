@@ -143,37 +143,34 @@ da Computação.}
 % a elaboração de lista própria para cada tipo de ilustração (desenhos, esquemas, fluxogramas, fotografias, 
 % gráficos, mapas, organogramas, plantas, quadros, retratos e outras) - NBR 14724:2024 (4.2.1.9)
 % O conteúdo da lista é gerado automaticamente a partir do conteúdo do trabalho.
-\pdfbookmark[0]{\listfigurename}{lof}
-\listoffigures*
-\cleardoublepage
+\pdfbookmark[0]{Lista de Ilustrações}{lof}
+\renewcommand{\listfigurename}{LISTA DE ILUSTRAÇÕES}
+\listoffigures* \cleardoublepage
 
 % A Lista de Algoritmos não é mencionada nominalmente como um item obrigatório na norma ABNT NBR 14724:2024, 
 % mas pode se enquadrar na recomendação de "lista própria" presente na Lista de Ilustrações acima.
 % O conteúdo da lista é gerado automaticamente a partir do conteúdo do trabalho.
-% Para habilitar a lista de algoritmos, é necessário importar um pacote adequado no preâmbulo,
-% por exemplo:
-%   \usepackage[ruled,vlined]{algorithm2e}
-% O pacote `algorithm2e` fornece o comando \listofalgorithmes para gerar a lista:
-% \pdfbookmark[0]{\listalgorithmcfname}{loa}
-% \listofalgorithmes
-% \cleardoublepage
+% Veja a documentação em https://br.mirrors.cicku.me/ctan/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf
+\pdfbookmark[0]{Lista de Algoritmos}{loa}
+\renewcommand{\listalgorithmcfname}{LISTA DE ALGORITMOS}
+\listofalgorithms* \cleardoublepage
 
 % Deve ser elaborada de acordo com a ordem apresentada no texto. Cada título deve ser precedido da
 % palavra Tabela, seguida de seu número de ordem de ocorrência no texto e travessão. Após o título, 
 % informar o respectivo número da folha ou página. - NBR 14724:2024 (4.2.1.10)
 % O conteúdo da lista é gerado automaticamente a partir do conteúdo do trabalho.
-\pdfbookmark[0]{\listtablename}{lot}
-\listoftables*
-\cleardoublepage
+\pdfbookmark[0]{Lista de Tabelas}{lot}
+\renewcommand{\listtablename}{LISTA DE TABELAS}
+\listoftables* \cleardoublepage
 
 \include{01-pre-textuais/07-lista-abreviaturas-siglas}
 \include{01-pre-textuais/08-lista-simbolos}
 
 % Deve ser elaborado conforme a ABNT NBR 6027.
 % O conteúdo da lista é gerado automaticamente a partir do conteúdo do trabalho.
-\pdfbookmark[0]{\contentsname}{toc}
-\tableofcontents*
-\cleardoublepage
+\pdfbookmark[0]{Sumário}{toc}
+\renewcommand{\contentsname}{SUMÁRIO}
+\tableofcontents* \cleardoublepage
 
 % ----------------------------------------------------------------------------------------
 % ========== ELEMENTOS TEXTUAIS - NBR 14724:2024 (4.2.2) e Normas IFS (Art. 31) ==========
