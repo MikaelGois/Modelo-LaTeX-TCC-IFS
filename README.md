@@ -36,7 +36,7 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 - [x] Folha de Aprovação de exemplo (`01-pre-textuais/01-folha-aprovacao`)
 - [X] Dedicatória (`01-pre-textuais/02-dedicatoria`) (Obs.: Revisar espaçamento e fonte)
 - [X] Agradecimentos (`01-pre-textuais/03-agradecimentos`) 
-- [ ] Epígrafe (`01-pre-textuais/04-epigrafe`) (Obs.: Ajustar diagramação/formatação)
+- [X] Epígrafe (`01-pre-textuais/04-epigrafe`)
 - [X] Resumo (`01-pre-textuais/05-resumo-pt`) (Obs.: Ajustar diagramação/formatação)
 - [X] Abstract (`01-pre-textuais/06-abstract-en`) (Obs.: Ajustar diagramação/formatação)
 - [ ] Lista de Figuras/Ilustrações (`\listfigurename`)
