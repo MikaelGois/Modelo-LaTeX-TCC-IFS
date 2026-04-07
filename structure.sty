@@ -22,6 +22,18 @@
 \renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
 \renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
 
+% --- AJUSTE DE ESPAÇAMENTO ENTRE TÍTULO E TEXTO (Norma ABNT) ---
+% Define o espaço após os títulos para ser exatamente de uma linha (1.5)
+\setlength{\afterchapskip}{\onelineskip}   % Para Capítulos (\chapter)
+\setlength{\aftersecskip}{\onelineskip}    % Para Seções (\section)
+\setlength{\aftersubsecskip}{\onelineskip} % Para Subseções (\subsection)
+\setlength{\aftersubsubsecskip}{\onelineskip} % Para Subsubseções (\subsubsection)
+
+% Opcional: Ajuste do espaço ANTES do título (exceto no início da página)
+\setlength{\beforechapskip}{0pt} % Capítulos sempre começam no topo da página
+\setlength{\beforesecskip}{1.0\onelineskip}
+\setlength{\beforesubsecskip}{1.0\onelineskip}
+
 % --- CONFIGURAÇÃO DE CAPÍTULOS E SEÇÕES ---
 \renewcommand{\pretextualchapter}[2][]{%
     \cleardoublepage
