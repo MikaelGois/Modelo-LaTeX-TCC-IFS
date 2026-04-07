@@ -180,26 +180,31 @@
 }{\PRIVATEclearpageifneeded}
 % ======================================== resumo e abstract =======================================
 
-% \renewenvironment{siglas}[1][\listadesiglasname]{%
-%     \cleardoublepage
-%     \thispagestyle{empty}
-%     \phantomsection
-%     \pdfbookmark[0]{#1}{siglas.\thepage} % Bookmark do PDF usa o que você digitar (ex: Siglas)
-%     \begin{center}
-%         \ABNTEXchapterfont\ABNTEXchapterfontsize
-%         \MakeUppercase{\textbf{#1}} % Texto no documento será sempre MAIÚSCULO (ex: SIGLAS)
-%     \end{center}
-%     % \vspace{\onelineskip}
-% }{\PRIVATEclearpageifneeded}
+% ======================================== Apêndices e Anexos =======================================
+% --- AUTOMAÇÃO: Forçar "Apêndice A" ou "Anexo A" no Bookmark ---
+\makeatletter
+\let\oldchapter\chapter
+\renewcommand{\chapter}{\@ifstar{\oldchapter*}{\@ifnextchar[{\chap@opt}{\chap@noopt}}}
 
-% \renewenvironment{simbolos}[1][\listadesimbolosname]{%
-%     \cleardoublepage
-%     \thispagestyle{empty}
-%     \phantomsection
-%     \pdfbookmark[0]{#1}{simbolos.\thepage} % Bookmark do PDF usa o que você digitar (ex: Símbolos)
-%     \begin{center}
-%         \ABNTEXchapterfont\ABNTEXchapterfontsize
-%         \MakeUppercase{\textbf{#1}} % Texto no documento será sempre MAIÚSCULO (ex: SÍMBOLOS)
-%     \end{center}
-%     % \vspace{\onelineskip}
-% }{\PRIVATEclearpageifneeded}
+\def\chap@opt[#1]#2{%
+    \ifthenelse{\boolean{abntex@apendiceousecao}}{%
+        \bookmarksetup{numbered=false}%
+        % \appendixname assume "Apêndice" ou "Anexo" conforme o ambiente atual
+        \oldchapter[\texorpdfstring{#1}{\appendixname\space\thechapter\space -- #1}]{#2}%
+        \bookmarksetup{numbered=true}% 
+    }{%
+        \oldchapter[#1]{#2}%
+    }%
+}
+
+\def\chap@noopt#1{%
+    \ifthenelse{\boolean{abntex@apendiceousecao}}{%
+        \bookmarksetup{numbered=false}%
+        \oldchapter[\texorpdfstring{#1}{\appendixname\space\thechapter\space -- #1}]{#1}%
+        \bookmarksetup{numbered=true}%
+    }{%
+        \oldchapter{#1}%
+    }%
+}
+\makeatother
+% ======================================== Apêndices e Anexos =======================================
