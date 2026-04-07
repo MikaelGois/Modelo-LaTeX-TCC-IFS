@@ -1,4 +1,4 @@
-%----------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 % MODELO DE TCC - INSTITUTO FEDERAL DE SERGIPE (IFS)
 % ----------------------------------------------------------------------------------------
 % Autor do Modelo: Mikael dos Santos Gois (mikaelgois1@gmail.com)
@@ -19,8 +19,20 @@
 \documentclass[12pt, openright, oneside, a4paper, english, brazil]{abntex2}
 
 % --- ESCOLHA DA FONTE (Descomente apenas uma) ---
-\input{style-font-times.sty}
-%\input{style-font-arial.sty}
+
+% Fonte Times New Roman original, precisa usar motor de compilação LuaLaTeX ou XeLaTeX
+% \input{style-font-times-new-roman.sty}
+
+% Clone moderno e mais fiel da fonte Times New Roman, compativel com qualquer motor de compilação 
+% Tem diferenças visuais em pdf com zoom out
+\input{style-font-newtx.sty}
+
+% Fonte Arial original, precisa usar motor de compilação LuaLaTeX ou XeLaTeX
+% \input{style-font-arial.sty}
+
+% Clone da fonte Arial, compativel com qualquer motor de compilação
+% Tem diferenças visuais em pdf com zoom out
+% \input{style-font-helvet.sty}
 
 \input{structure.sty}
 

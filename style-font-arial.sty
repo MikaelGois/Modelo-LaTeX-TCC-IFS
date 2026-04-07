@@ -1,9 +1,10 @@
-% --- CONFIGURAÇÃO: ARIAL ---
-\usepackage[scaled]{helvet}     % Carrega a Helvetica (clone da Arial)
-\usepackage[T1]{fontenc}        % Selecao de codigos de fonte
-\renewcommand{\familydefault}{\sfdefault} % Define sem serifa como padrão
+% --- CONFIGURAÇÃO: ARIAL REAL ---
+\usepackage{fontspec}                     % Inspeciona fontes do sistema
+\setmainfont{Arial}                       % Carrega a fonte Arial
+\setsansfont{Arial}                       % Define a fonte sans-serif como Arial
+\renewcommand{\familydefault}{\sfdefault} % Define a família de fontes padrão como sans-serif
 
-% Força o uso de Arial (sans-serif) em todos os níveis de título do abnTeX2
+% Força o uso da fonte Arial em todos os níveis de título do abntex2
 \renewcommand{\ABNTEXchapterfont}{\sffamily\bfseries}
 \renewcommand{\ABNTEXsectionfont}{\sffamily\bfseries}
 \renewcommand{\ABNTEXsubsectionfont}{\sffamily\bfseries}
