@@ -30,21 +30,21 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 
 ### Elementos Pré-Textuais
 
-- [x] Capa (`\imprimircapa`)
-- [x] Folha de rosto (`\imprimirfolhaderosto`) (Obs.: Revisar espaçamento e fonte)
+- [x] Capa (`\imprimircapa`) - Finalizado
+- [x] Folha de rosto (`\imprimirfolhaderosto`) - Revisar espaçamento entre linhas do preambulo
 - [x] Ficha Catalográfica de exemplo (`01-pre-textuais/00-folha-catalografica`) 
-- [x] Folha de Aprovação de exemplo (`01-pre-textuais/01-folha-aprovacao`)
-- [X] Dedicatória (`01-pre-textuais/02-dedicatoria`) (Obs.: Revisar espaçamento e fonte)
-- [X] Agradecimentos (`01-pre-textuais/03-agradecimentos`) 
-- [X] Epígrafe (`01-pre-textuais/04-epigrafe`)
-- [X] Resumo (`01-pre-textuais/05-resumo-pt`) (Obs.: Ajustar diagramação/formatação)
-- [X] Abstract (`01-pre-textuais/06-abstract-en`) (Obs.: Ajustar diagramação/formatação)
+- [x] Folha de Aprovação de exemplo (`01-pre-textuais/01-folha-aprovacao`) - Revisar espaçamento entre linhas do titulo e subtítulo
+- [X] Dedicatória (`01-pre-textuais/02-dedicatoria`) - Revisar espaçamento entre linhas
+- [X] Agradecimentos (`01-pre-textuais/03-agradecimentos`) - Finalizado
+- [X] Epígrafe (`01-pre-textuais/04-epigrafe`) - Revisar diagramação/formatação
+- [X] Resumo (`01-pre-textuais/05-resumo-pt`) - Revisar diagramação/formatação
+- [X] Abstract (`01-pre-textuais/06-abstract-en`) - Revisar diagramação/formatação
 - [ ] Lista de Figuras/Ilustrações (`\listfigurename`)
 - [ ] Lista de Algoritmos (`\listofalgorithms`)
 - [ ] Lista de Tabelas (`\listtablename`)
-- [X] Lista de Abreviaturas e Siglas (`01-pre-textuais/07-lista-abreviaturas-siglas`) (Obs.: Ajustar diagramação/formatação)
-- [ ] Lista de Símbolos (`01-pre-textuais/08-lista-simbolos`)
-- [ ] Sumário (Índice) (`\contentsname`)
+- [X] Lista de Abreviaturas e Siglas (`01-pre-textuais/07-lista-abreviaturas-siglas`) - Revisar diagramação/formatação
+- [ ] Lista de Símbolos (`01-pre-textuais/08-lista-simbolos`) - Revisar diagramação/formatação
+- [ ] Sumário (`\contentsname`) - Revisar diagramação/formatação
 
 ### Elementos Textuais
 - [ ] Introdução (`02-textuais/01-01-introducao`)
@@ -55,9 +55,11 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 - [ ] Conclusão (`02-textuais/06-conclusao`)
 
 ### Elementos Pós-Textuais
-- [X] Referências (`\bibliography{referencias}`) (Obs.: Ajustar diagramação/formatação)
-- [X] Apêndices (`03-pos-textuais/01-apendices`) (Obs.: Ajustar diagramação/formatação)
-- [X] Anexos (`03-pos-textuais/02-anexos`) (Obs.: Ajustar diagramação/formatação)
+- [X] Referências (`\bibliography{referencias}`) - Revisar diagramação/formatação
+- [ ] Glossário (`03-pos-textuais/`)
+- [X] Apêndices (`03-pos-textuais/01-apendices`) - Revisar diagramação/formatação
+- [X] Anexos (`03-pos-textuais/02-anexos`) - Revisar diagramação/formatação
+- [ ] Índice (`03-pos-textuais/`)
 
 ---
 

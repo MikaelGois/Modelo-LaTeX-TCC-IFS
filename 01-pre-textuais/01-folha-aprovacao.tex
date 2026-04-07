@@ -25,16 +25,16 @@
 %% Modelo de Como fazer a Folha de Aprovação:
 
 \begin{folhadeaprovacao}
-
+  \thispagestyle{empty}
   \begin{center}
     \MakeUppercase{\imprimirautor} \\
     \vspace{2cm}
-    \begin{DoubleSpace}
-      \MakeUppercase{\textbf{\imprimirtitulo}}
-      % ":" é adicionado de forma automática apenas se o subtítulo for preenchido.
-      % "\unskip" remove o espaço extra antes dos dois-pontos caso o subtítulo for preenchido.
-      \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\MakeUppercase{\textbf{\unskip: \\ \imprimirsubtitulo}} \\}
-    \end{DoubleSpace}
+    % \begin{DoubleSpace} PRECISA SER REVISADO PARA VER SE O ESPAÇAMENTO FICA ADEQUADO
+    \MakeUppercase{\textbf{\imprimirtitulo}}
+    % ":" é adicionado de forma automática apenas se o subtítulo for preenchido.
+    % "\unskip" remove o espaço extra antes dos dois-pontos caso o subtítulo for preenchido.
+    \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\MakeUppercase{\textbf{\unskip: \\ \imprimirsubtitulo}} \\}
+    % \end{DoubleSpace}
   \end{center}
 
   \vspace{1cm}
@@ -56,8 +56,8 @@
     \vfill
     \rule{10cm}{.1pt} \\ {\imprimirorientador \space(Orientador) \\ Instituto Federal de Sergipe}
     \ifthenelse{\equal{\imprimircoorientador}{}}{}{
-      \vfill
-      \rule{10cm}{.1pt} \\ {\imprimircoorientador \space(Coorientador) \\ Instituto Federal de Sergipe}
+    \vfill
+    \rule{10cm}{.1pt} \\ {\imprimircoorientador \space(Coorientador) \\ Instituto Federal de Sergipe}
     }
     \vfill
     \rule{10cm}{.1pt} \\ {Prof. Nome do Membro 1 (Membro examinador) \\ Instituto Federal de Sergipe}
