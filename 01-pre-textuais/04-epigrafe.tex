@@ -7,22 +7,23 @@
 %   - Diogo D. Moreira (TCC, Dissertação e Tese)
 %   - DECOM/UFOP (Monografia de Ciência da Computação)
 % Modelo Base: abnTeX2 adaptado para as normativas internas de TCC do IFS (Art. 31 e 34)
-% Versão: 1.1 (2026)
+% Versão: 1.0 (2026)
 % ---------------------------------------------------------------------------------------
 % Este arquivo faz parte de um modelo opensource para estudantes do IFS.
 % Não remova os créditos dos autores originais e do modelo base.
 % Este modelo é fornecido "no estado em que se encontra", sem garantias de qualquer tipo.
-% ---------------------------------------------------------------------------------------
+% --------------------------------------------------------------
+\thispagestyle{empty} % Contada, mas não numerada
 
-\begin{epigrafe}
-  \vspace*{\fill}
+\vspace*{\fill} %Posicionada na parte inferior 
 
-  \begin{flushright}
-  
-      \textit{“Alguma citação importante para a construção do trabalho. A fonte deve ser indicada e também deve constar na lista de referências bibliográficas.”} \\ %Evite textos longos
-      
-      \vspace*{0.5cm} % Pequeno espaço entre a frase e o autor
-      (Nome do Autor)
-  \end{flushright}
-
-\end{epigrafe}
+\begin{flushright}
+    \begin{minipage}{.5\textwidth} % Do meio da mancha à margem direita 
+        \begin{SingleSpacing} % Espaçamento simples
+            \textit{“Alguma citação importante para a construção do trabalho. A fonte deve ser indicada e também deve constar na lista de referências bibliográficas.”}
+            
+            \vspace{1em}
+            (Nome do Autor) % Indicação de autoria
+        \end{SingleSpacing}
+    \end{minipage}
+\end{flushright}
