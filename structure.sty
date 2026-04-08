@@ -136,36 +136,33 @@
 
 % ========================================= folha de rosto =========================================
 \renewcommand{\imprimirfolhaderosto}{%
-    % \begin{folhaderosto}
-    % \newpage
-    % \thispagestyle{empty}
-    \begin{center}
-        \MakeUppercase{\imprimirautor} \\
-        \vspace{4cm}
-        % \begin{DoubleSpace}
-        \MakeUppercase{\textbf{\imprimirtitulo}}
-        % ":" é adicionado de forma automática apenas se o subtítulo for preenchido.
-        % "\unskip" remove o espaço extra antes dos dois-pontos caso o subtítulo for preenchido.
-        \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\MakeUppercase{\textbf{\unskip: \\ \imprimirsubtitulo}} \\}
-        % \end{DoubleSpace}
-    \end{center}
-    \vspace{1cm}
-    \begin{flushright}
-        \begin{SingleSpacing}
-            % Deslocamento para a direita de 7 ou 8 cm, sendo 8 cm o mais comum para coincidir com o meio da folha
-            \parbox{\dimexpr\textwidth-8cm\relax}{%
-                \imprimirpreambulo
-                \vspace{\onelineskip}
-                \imprimirorientadorRotulo~\imprimirorientador \\
-                \imprimircoorientadorRotulo~\imprimircoorientador
-            }
-        \end{SingleSpacing}
-    \end{flushright}
-    \vfill
-    \begin{center}
-        {\large{\imprimirlocal, \imprimiruf \\ \imprimirano}}
-    \end{center}
-    % \end{folhaderosto}
+    \begin{folhaderosto}
+        \thispagestyle{empty}
+        \begin{center}
+            \MakeUppercase{\imprimirautor} \\
+            \vspace{4cm}
+            \MakeUppercase{\textbf{\imprimirtitulo}}
+            % ":" é adicionado de forma automática apenas se o subtítulo for preenchido.
+            % "\unskip" remove o espaço extra antes dos dois-pontos caso o subtítulo for preenchido.
+            \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\MakeUppercase{\textbf{\unskip: \\ \imprimirsubtitulo}} \\}
+        \end{center}
+        \vspace{1cm}
+        \begin{flushright}
+            \begin{SingleSpacing}
+                % Deslocamento para a direita de 7 ou 8 cm, sendo 8 cm o mais comum para coincidir com o meio da folha
+                \parbox{\dimexpr\textwidth-8cm\relax}{%
+                    \imprimirpreambulo
+                    \vspace{\onelineskip} \\
+                    \imprimirorientadorRotulo~\imprimirorientador \\
+                    \imprimircoorientadorRotulo~\imprimircoorientador
+                }
+            \end{SingleSpacing}
+        \end{flushright}
+        \vfill
+        \begin{center}
+            {\large{\imprimirlocal, \imprimiruf \\ \imprimirano}}
+        \end{center}
+    \end{folhaderosto}
 }
 % ========================================= folha de rosto =========================================
 
