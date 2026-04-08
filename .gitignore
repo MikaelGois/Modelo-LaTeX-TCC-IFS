@@ -1,16 +1,6 @@
 # Ignora arquivos pós-build 
 *.aux
-*.bbl
-*.blg
-*.fdb_latexmk
-*.fls
-*.loa
-*.lof
-*.log
-*.lot
-*.synctex.gz
-*.toc
-./main.pdf
+main.*
 !main.tex
 # Ignora arquivos de configuração do editor
 .vscode/
