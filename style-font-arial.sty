@@ -1,0 +1,19 @@
+% --- CONFIGURAÇÃO: ARIAL REAL ---
+\RequirePackage{iftex}
+\ifPDFTeX
+  \PackageError{style-font-arial}
+    {Este estilo exige XeLaTeX ou LuaLaTeX para usar a fonte Arial via fontspec}
+    {Altere o compilador do projeto para XeLaTeX ou LuaLaTeX e tente novamente.}
+\else
+  \RequirePackage{fontspec}                % Inspeciona fontes do sistema
+  \setmainfont{Arial}                      % Carrega a fonte Arial
+  \setsansfont{Arial}                     % Define a fonte sans-serif como Arial
+  \renewcommand{\familydefault}{\sfdefault} % Define a família de fontes padrão como sans-serif
+\fi
+
+% Força o uso da fonte Arial em todos os níveis de título do abntex2
+\renewcommand{\ABNTEXchapterfont}{\sffamily\bfseries}
+\renewcommand{\ABNTEXsectionfont}{\sffamily\bfseries}
+\renewcommand{\ABNTEXsubsectionfont}{\sffamily\bfseries}
+\renewcommand{\ABNTEXsubsubsectionfont}{\sffamily\bfseries}
+\renewcommand{\ABNTEXsubsubsubsectionfont}{\sffamily\bfseries}

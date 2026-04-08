@@ -10,6 +10,9 @@
 *.lot
 *.synctex.gz
 *.toc
+main.*
+!main.pdf
+!main.tex
 # Ignora arquivos de configuração do editor
 .vscode/
 .idea/

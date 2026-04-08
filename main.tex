@@ -1,4 +1,4 @@
-%----------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
 % MODELO DE TCC - INSTITUTO FEDERAL DE SERGIPE (IFS)
 % ----------------------------------------------------------------------------------------
 % Autor do Modelo: Mikael dos Santos Gois (mikaelgois1@gmail.com)
@@ -19,10 +19,22 @@
 \documentclass[12pt, openright, oneside, a4paper, english, brazil]{abntex2}
 
 % --- ESCOLHA DA FONTE (Descomente apenas uma) ---
-\input{style-font-times.tex}
-%\input{style-font-arial.tex}
 
-\input{structure.tex}
+% Fonte Times New Roman original, precisa usar motor de compilação LuaLaTeX ou XeLaTeX
+% \input{style-font-times-new-roman.sty}
+
+% Clone moderno e mais fiel da fonte Times New Roman, compativel com qualquer motor de compilação 
+% Tem diferenças visuais em pdf com zoom out
+\input{style-font-newtx.sty}
+
+% Fonte Arial original, precisa usar motor de compilação LuaLaTeX ou XeLaTeX
+% \input{style-font-arial.sty}
+
+% Clone da fonte Arial, compativel com qualquer motor de compilação
+% Tem diferenças visuais em pdf com zoom out
+% \input{style-font-helvet.sty}
+
+\input{structure.sty}
 
 % ----------------------------------------------------------------------------------------
 % DADOS DO ALUNO E DO TRABALHO
@@ -81,7 +93,7 @@ da Computação.}
 
 % O conteúdo é gerado automaticamente a partir dos dados preenchidos acima.
 % Não entra na contagem de páginas.
-\imprimircapa % Feito e Revisado
+\imprimircapa % Finalizado
 
 % ----------------------------------------------------------------------------------------
 % ============= ELEMENTOS PRÉ-TEXTUAIS - NBR 14724:2024 (4.2.1.1 a 4.2.1.13) =============
@@ -132,15 +144,15 @@ da Computação.}
 % A contagem de páginas começa a partir da folha de rosto mas é visível apenas a partir
 % de 'Introdução' (NBR 14724)
 % O conteúdo é gerado automaticamente a partir dos dados preenchidos acima.
-\imprimirfolhaderosto % Feito
+\imprimirfolhaderosto % Feito - Revisar espaçamento entre linhas do preambulo
 
 \include{01-pre-textuais/00-folha-catalografica} % Feito
-\include{01-pre-textuais/01-folha-aprovacao} % Feito e Revisado
-\include{01-pre-textuais/02-dedicatoria} % Feito
-\include{01-pre-textuais/03-agradecimentos}
-\include{01-pre-textuais/04-epigrafe} %Feito 
-\include{01-pre-textuais/05-resumo-pt}
-\include{01-pre-textuais/06-abstract-en}
+\include{01-pre-textuais/01-folha-aprovacao} % Feito - Revisar espaçamento entre linhas do titulo e subtítulo
+\include{01-pre-textuais/02-dedicatoria} % Feito - Revisar espaçamento entre linhas
+\include{01-pre-textuais/03-agradecimentos} % Finalizado
+\include{01-pre-textuais/04-epigrafe} % Feito - Revisar diagramação/formatação
+\include{01-pre-textuais/05-resumo-pt} % Feito - Revisar diagramação/formatação
+\include{01-pre-textuais/06-abstract-en} % Feito - Revisar diagramação/formatação
 
 
 % Deve ser elaborada de acordo com a ordem apresentada no texto, com cada item designado por seu nome
@@ -158,7 +170,7 @@ da Computação.}
 % Veja a documentação em https://br.mirrors.cicku.me/ctan/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf
 \pdfbookmark[0]{Lista de Algoritmos}{loa}
 \renewcommand{\listalgorithmcfname}{LISTA DE ALGORITMOS}
-\listofalgorithms* \cleardoublepage
+\listofalgorithms \cleardoublepage
 
 % Deve ser elaborada de acordo com a ordem apresentada no texto. Cada título deve ser precedido da
 % palavra Tabela, seguida de seu número de ordem de ocorrência no texto e travessão. Após o título, 
@@ -168,13 +180,13 @@ da Computação.}
 \renewcommand{\listtablename}{LISTA DE TABELAS}
 \listoftables* \cleardoublepage
 
-\include{01-pre-textuais/07-lista-abreviaturas-siglas}
-\include{01-pre-textuais/08-lista-simbolos}
+\include{01-pre-textuais/07-lista-abreviaturas-siglas} % Feito - Revisar diagramação/formatação
+\include{01-pre-textuais/08-lista-simbolos} % Feito - Revisar diagramação/formatação
 
 % Deve ser elaborado conforme a ABNT NBR 6027.
 % O conteúdo da lista é gerado automaticamente a partir do conteúdo do trabalho.
 \pdfbookmark[0]{Sumário}{toc}
-\renewcommand{\contentsname}{SUMÁRIO}
+\renewcommand{\contentsname}{SUMÁRIO} % Feito - Revisar diagramação/formatação
 \tableofcontents* \cleardoublepage
 
 % ----------------------------------------------------------------------------------------
@@ -221,9 +233,9 @@ da Computação.}
 \postextual
 
 % O conteúdo é gerado automaticamente a partir do conteúdo do trabalho.
-\bibliography{referencias}
+\bibliography{referencias} % Feito - Revisar diagramação/formatação
 
-\include{03-pos-textuais/01-apendices} % Feito
-\include{03-pos-textuais/02-anexos} % Feito
+\include{03-pos-textuais/01-apendices} % Feito - Revisar diagramação/formatação
+\include{03-pos-textuais/02-anexos} % Feito - Revisar diagramação/formatação
 
 \end{document}
