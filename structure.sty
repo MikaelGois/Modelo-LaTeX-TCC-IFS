@@ -154,7 +154,7 @@
                     \imprimirpreambulo
                     \par\vspace{\onelineskip}
                     \imprimirorientadorRotulo~\imprimirorientador \\
-                    \imprimircoorientadorRotulo~\imprimircoorientador
+                    \ifthenelse{\equal{\imprimircoorientador}{}}{}{\imprimircoorientadorRotulo~\imprimircoorientador}
                 }
             \end{SingleSpacing}
         \end{flushright}
