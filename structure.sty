@@ -151,13 +151,15 @@
     \end{center}
     \vspace{1cm}
     \begin{flushright}
-        % Delocamento para a direita de 7 ou 8 cm, sendo 8 cm o mais comum para coincidir com o meio da folha
-        \parbox{\dimexpr\textwidth-8cm\relax}{%
-            \imprimirpreambulo
-            \vspace{\onelineskip}
-            \imprimirorientadorRotulo~\imprimirorientador \\
-            \imprimircoorientadorRotulo~\imprimircoorientador
-        }
+        \begin{SingleSpacing}
+            % Delocamento para a direita de 7 ou 8 cm, sendo 8 cm o mais comum para coincidir com o meio da folha
+            \parbox{\dimexpr\textwidth-8cm\relax}{%
+                \imprimirpreambulo
+                \vspace{\onelineskip}
+                \imprimirorientadorRotulo~\imprimirorientador \\
+                \imprimircoorientadorRotulo~\imprimircoorientador
+            }
+        \end{SingleSpacing}
     \end{flushright}
     \vfill
     \begin{center}
