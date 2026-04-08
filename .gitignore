@@ -1,5 +1,6 @@
 # Ignora arquivos pós-build 
 *.aux
+*.log
 main.*
 !main.tex
 # Ignora arquivos de configuração do editor
