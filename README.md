@@ -32,7 +32,7 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 
 - [x] Capa (`\imprimircapa`) - Finalizado
 - [x] Folha de rosto (`\imprimirfolhaderosto`) - Revisar espaçamento entre linhas do preambulo
-- [x] Ficha Catalográfica de exemplo (`01-pre-textuais/00-folha-catalografica`) 
+- [x] Ficha Catalográfica de exemplo (`01-pre-textuais/00-folha-catalografica`) - Não pode contar no total de páginas do trabalho.
 - [x] Folha de Aprovação de exemplo (`01-pre-textuais/01-folha-aprovacao`) - Revisar espaçamento entre linhas do titulo e subtítulo
 - [X] Dedicatória (`01-pre-textuais/02-dedicatoria`) - Revisar espaçamento entre linhas
 - [X] Agradecimentos (`01-pre-textuais/03-agradecimentos`) - Finalizado
