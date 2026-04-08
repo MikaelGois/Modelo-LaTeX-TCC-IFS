@@ -22,6 +22,18 @@
 \renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
 \renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
 
+% --- AJUSTE DE ESPAÇAMENTO ENTRE TÍTULO E TEXTO (Norma ABNT) ---
+% Define o espaço após os títulos para ser exatamente de uma linha (1.5)
+\setlength{\afterchapskip}{\onelineskip}   % Para Capítulos (\chapter)
+\setlength{\aftersecskip}{\onelineskip}    % Para Seções (\section)
+\setlength{\aftersubsecskip}{\onelineskip} % Para Subseções (\subsection)
+\setlength{\aftersubsubsecskip}{\onelineskip} % Para Subsubseções (\subsubsection)
+
+% Opcional: Ajuste do espaço ANTES do título (exceto no início da página)
+\setlength{\beforechapskip}{0pt} % Capítulos sempre começam no topo da página
+\setlength{\beforesecskip}{1.0\onelineskip}
+\setlength{\beforesubsecskip}{1.0\onelineskip}
+
 % --- CONFIGURAÇÃO DE CAPÍTULOS E SEÇÕES ---
 \renewcommand{\pretextualchapter}[2][]{%
     \cleardoublepage
@@ -49,7 +61,6 @@
         bookmarksopen=true,         % Abre o índice lateral por padrão ao abrir o PDF
         bookmarksdepth=3,           % Define a profundidade: Capítulos, Seções e Subseções
         % Aparência Visual
-        colorlinks=false,           % Mantém links sem cores (ideal para impressão)
         hidelinks                   % Remove as bordas coloridas dos links
     }
 }
@@ -97,23 +108,25 @@
 % ====================================== variáveis adicionais ======================================
 
 % ============================================== capa ==============================================
-\renewcommand{\imprimircapa}{ % Capa 
+\renewcommand{\imprimircapa}{% 
     \begin{capa}
         \thispagestyle{empty}
         \begin{center}
-            \begin{DoubleSpace}
-                \ifthenelse{\equal{\imprimirlogoinstituicao}{}}{}{\imprimirlogoinstituicao \\}
-                \MakeUppercase{\imprimirinstituicao} \\
-                \MakeUppercase{\imprimirdepartamento} \\
-                \ifthenelse{\equal{\imprimircampus}{}}{}{\MakeUppercase{\imprimircampus \\}}
-            \end{DoubleSpace}
+            % \begin{DoubleSpace}
+            \ifthenelse{\equal{\imprimirlogoinstituicao}{}}{}{\imprimirlogoinstituicao \\}
+            \MakeUppercase{\imprimirinstituicao} \\
+            \MakeUppercase{\imprimirdepartamento} \\
+            \ifthenelse{\equal{\imprimircampus}{}}{}{\MakeUppercase{\imprimircampus \\}}
+            % \end{DoubleSpace}
             \vspace{3cm}
             \MakeUppercase{\imprimirautor} \\
             \vspace{3cm}
+            % \begin{DoubleSpace}
             \MakeUppercase{\textbf{\imprimirtitulo}}
             % ":" é adicionado de forma automática apenas se o subtítulo for preenchido.
             % "\unskip" remove o espaço extra antes dos dois-pontos caso o subtítulo for preenchido.
             \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\MakeUppercase{\textbf{\unskip: \\ \imprimirsubtitulo}} \\}
+            % \end{DoubleSpace}
             \vfill
             {\large{\imprimirlocal, \imprimiruf \\ \imprimirano}}
         \end{center}
@@ -122,28 +135,28 @@
 % ============================================== capa ==============================================
 
 % ========================================= folha de rosto =========================================
-\renewcommand{\imprimirfolhaderosto}{
+\renewcommand{\imprimirfolhaderosto}{%
     % \begin{folhaderosto}
     % \newpage
     % \thispagestyle{empty}
     \begin{center}
         \MakeUppercase{\imprimirautor} \\
         \vspace{4cm}
-        \begin{DoubleSpace}
-            \MakeUppercase{\textbf{\imprimirtitulo}}
-            % ":" é adicionado de forma automática apenas se o subtítulo for preenchido.
-            % "\unskip" remove o espaço extra antes dos dois-pontos caso o subtítulo for preenchido.
-            \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\MakeUppercase{\textbf{\unskip: \\ \imprimirsubtitulo}} \\}
-        \end{DoubleSpace}
+        % \begin{DoubleSpace}
+        \MakeUppercase{\textbf{\imprimirtitulo}}
+        % ":" é adicionado de forma automática apenas se o subtítulo for preenchido.
+        % "\unskip" remove o espaço extra antes dos dois-pontos caso o subtítulo for preenchido.
+        \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\MakeUppercase{\textbf{\unskip: \\ \imprimirsubtitulo}} \\}
+        % \end{DoubleSpace}
     \end{center}
     \vspace{1cm}
     \begin{flushright}
         % Delocamento para a direita de 7 ou 8 cm, sendo 8 cm o mais comum para coincidir com o meio da folha
-        \parbox{\dimexpr\textwidth-8cm\relax} {
+        \parbox{\dimexpr\textwidth-8cm\relax}{%
             \imprimirpreambulo
-            \vspace{1cm} \\
-            \textbf{\imprimirorientadorRotulo}~\imprimirorientador \\
-            \textbf{\imprimircoorientadorRotulo}~\imprimircoorientador
+            \vspace{\onelineskip}
+            \imprimirorientadorRotulo~\imprimirorientador \\
+            \imprimircoorientadorRotulo~\imprimircoorientador
         }
     \end{flushright}
     \vfill
@@ -181,26 +194,31 @@
 }{\PRIVATEclearpageifneeded}
 % ======================================== resumo e abstract =======================================
 
-% \renewenvironment{siglas}[1][\listadesiglasname]{%
-%     \cleardoublepage
-%     \thispagestyle{empty}
-%     \phantomsection
-%     \pdfbookmark[0]{#1}{siglas.\thepage} % Bookmark do PDF usa o que você digitar (ex: Siglas)
-%     \begin{center}
-%         \ABNTEXchapterfont\ABNTEXchapterfontsize
-%         \MakeUppercase{\textbf{#1}} % Texto no documento será sempre MAIÚSCULO (ex: SIGLAS)
-%     \end{center}
-%     % \vspace{\onelineskip}
-% }{\PRIVATEclearpageifneeded}
+% ======================================== Apêndices e Anexos =======================================
+% --- AUTOMAÇÃO: Forçar "Apêndice A" ou "Anexo A" no Bookmark ---
+\makeatletter
+\let\oldchapter\chapter
+\renewcommand{\chapter}{\@ifstar{\oldchapter*}{\@ifnextchar[{\chap@opt}{\chap@noopt}}}
 
-% \renewenvironment{simbolos}[1][\listadesimbolosname]{%
-%     \cleardoublepage
-%     \thispagestyle{empty}
-%     \phantomsection
-%     \pdfbookmark[0]{#1}{simbolos.\thepage} % Bookmark do PDF usa o que você digitar (ex: Símbolos)
-%     \begin{center}
-%         \ABNTEXchapterfont\ABNTEXchapterfontsize
-%         \MakeUppercase{\textbf{#1}} % Texto no documento será sempre MAIÚSCULO (ex: SÍMBOLOS)
-%     \end{center}
-%     % \vspace{\onelineskip}
-% }{\PRIVATEclearpageifneeded}
+\def\chap@opt[#1]#2{%
+    \ifthenelse{\boolean{abntex@apendiceousecao}}{%
+        \bookmarksetup{numbered=false}%
+        % \appendixname assume "Apêndice" ou "Anexo" conforme o ambiente atual
+        \oldchapter[\texorpdfstring{#1}{\appendixname\space\thechapter\space -- #1}]{#2}%
+        \bookmarksetup{numbered=true}% 
+    }{%
+        \oldchapter[#1]{#2}%
+    }%
+}
+
+\def\chap@noopt#1{%
+    \ifthenelse{\boolean{abntex@apendiceousecao}}{%
+        \bookmarksetup{numbered=false}%
+        \oldchapter[\texorpdfstring{#1}{\appendixname\space\thechapter\space -- #1}]{#1}%
+        \bookmarksetup{numbered=true}%
+    }{%
+        \oldchapter{#1}%
+    }%
+}
+\makeatother
+% ======================================== Apêndices e Anexos =======================================
