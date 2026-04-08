@@ -29,12 +29,12 @@
   \begin{center}
     \MakeUppercase{\imprimirautor} \\
     \vspace{2cm}
-    % \begin{DoubleSpace} PRECISA SER REVISADO PARA VER SE O ESPAÇAMENTO FICA ADEQUADO
-    \MakeUppercase{\textbf{\imprimirtitulo}}
-    % ":" é adicionado de forma automática apenas se o subtítulo for preenchido.
-    % "\unskip" remove o espaço extra antes dos dois-pontos caso o subtítulo for preenchido.
-    \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\MakeUppercase{\textbf{\unskip: \\ \imprimirsubtitulo}} \\}
-    % \end{DoubleSpace}
+    \begin{OnehalfSpacing}
+      \MakeUppercase{\textbf{\imprimirtitulo}}
+      % ":" é adicionado de forma automática apenas se o subtítulo for preenchido.
+      % "\unskip" remove o espaço extra antes dos dois-pontos caso o subtítulo for preenchido.
+      \ifthenelse{\equal{\imprimirsubtitulo}{}}{}{\MakeUppercase{\textbf{\unskip: \\ \imprimirsubtitulo}} \\}
+    \end{OnehalfSpacing}
   \end{center}
 
   \vspace{1cm}
@@ -55,7 +55,7 @@
     \textbf{BANCA EXAMINADORA}
     \vfill
     \rule{10cm}{.1pt} \\ {\imprimirorientador \space(Orientador) \\ Instituto Federal de Sergipe}
-    \ifthenelse{\equal{\imprimircoorientador}{}}{}{
+    \ifthenelse{\equal{\imprimircoorientador}{}}{}{%
     \vfill
     \rule{10cm}{.1pt} \\ {\imprimircoorientador \space(Coorientador) \\ Instituto Federal de Sergipe}
     }
