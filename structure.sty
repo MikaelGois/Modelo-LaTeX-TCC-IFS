@@ -179,7 +179,7 @@
 }{\PRIVATEclearpageifneeded}
 % ========================================= agradecimentos =========================================
 
-% ======================================== resumo e abstract =======================================
+% ============================================= resumo =============================================
 \renewenvironment{resumo}[1][\resumoname]{%
     \cleardoublepage
     \thispagestyle{empty}
@@ -191,7 +191,24 @@
     \end{center}
     % \vspace{\onelineskip}
 }{\PRIVATEclearpageifneeded}
-% ======================================== resumo e abstract =======================================
+% ============================================= resumo =============================================
+
+% ============================================ abstract ============================================
+\renewenvironment{abstract}[1][\abstractname]{%
+    \cleardoublepage
+    \thispagestyle{empty}
+    \phantomsection
+    \pdfbookmark[0]{#1}{abstract.\thepage} % Bookmark do PDF usa o que você digitar (ex: Abstract)
+    \begin{center}
+        \ABNTEXchapterfont\ABNTEXchapterfontsize
+        \MakeUppercase{\textbf{#1}} % Texto no documento será sempre MAIÚSCULO (ex: ABSTRACT)
+    \end{center}
+    \begin{otherlanguage*}{english}
+        }{
+    \end{otherlanguage*}
+    \PRIVATEclearpageifneeded
+}
+% ============================================ abstract ============================================
 
 % ======================================== Apêndices e Anexos =======================================
 % --- AUTOMAÇÃO: Forçar "Apêndice A" ou "Anexo A" no Bookmark ---
