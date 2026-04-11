@@ -37,8 +37,8 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 - [X] Dedicatória (`01-pre-textuais/02-dedicatoria`) - Finalizado
 - [X] Agradecimentos (`01-pre-textuais/03-agradecimentos`) - Finalizado
 - [X] Epígrafe (`01-pre-textuais/04-epigrafe`) - Finalizado
-- [X] Resumo (`01-pre-textuais/05-resumo-pt`) - Revisar diagramação/formatação
-- [X] Abstract (`01-pre-textuais/06-abstract-en`) - Criar estrutura independente no `structure.sty`
+- [X] Resumo (`01-pre-textuais/05-resumo-pt`) - Finalizado
+- [X] Abstract (`01-pre-textuais/06-abstract-en`) - Finalizado
 - [ ] Lista de Figuras/Ilustrações (`\listfigurename`)
 - [ ] Lista de Algoritmos (`\listofalgorithms`)
 - [ ] Lista de Tabelas (`\listtablename`)
