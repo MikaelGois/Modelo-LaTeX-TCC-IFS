@@ -153,8 +153,8 @@
                 \parbox{\dimexpr\textwidth-8cm\relax}{%
                     \imprimirpreambulo
                     \par\vspace{\onelineskip}
-                    \imprimirorientadorRotulo~\imprimirorientador \\
-                    \ifthenelse{\equal{\imprimircoorientador}{}}{}{\imprimircoorientadorRotulo~\imprimircoorientador}
+                    \imprimirorientadorRotulo~\imprimirorientador
+                    \ifthenelse{\equal{\imprimircoorientador}{}}{}{\\ \imprimircoorientadorRotulo~\imprimircoorientador}
                 }
             \end{SingleSpacing}
         \end{flushright}
