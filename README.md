@@ -34,7 +34,7 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 - [x] Folha de rosto (`\imprimirfolhaderosto`) - Finalizado
 - [x] Ficha Catalográfica de exemplo (`01-pre-textuais/00-folha-catalografica`) - Não pode contar no total de páginas do trabalho.
 - [x] Folha de Aprovação de exemplo (`01-pre-textuais/01-folha-aprovacao`) - Finalizado
-- [X] Dedicatória (`01-pre-textuais/02-dedicatoria`) - Revisar espaçamento entre linhas
+- [X] Dedicatória (`01-pre-textuais/02-dedicatoria`) - Finalizado
 - [X] Agradecimentos (`01-pre-textuais/03-agradecimentos`) - Finalizado
 - [X] Epígrafe (`01-pre-textuais/04-epigrafe`) - Finalizado
 - [X] Resumo (`01-pre-textuais/05-resumo-pt`) - Revisar diagramação/formatação
@@ -42,7 +42,7 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 - [ ] Lista de Figuras/Ilustrações (`\listfigurename`)
 - [ ] Lista de Algoritmos (`\listofalgorithms`)
 - [ ] Lista de Tabelas (`\listtablename`)
-- [X] Lista de Abreviaturas e Siglas (`01-pre-textuais/07-lista-abreviaturas-siglas`) - Revisar diagramação/formatação
+- [X] Lista de Abreviaturas e Siglas (`01-pre-textuais/07-lista-abreviaturas-siglas`) - Finalizado
 - [ ] Lista de Símbolos (`01-pre-textuais/08-lista-simbolos`) - Revisar diagramação/formatação
 - [ ] Sumário (`\contentsname`) - Revisar diagramação/formatação
 
