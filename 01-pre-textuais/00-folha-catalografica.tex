@@ -17,8 +17,11 @@
 % folha na versão final da monografia por um pdf fornecido pela biblioteca.
 % Salve o modelo oficial como ficha_catalografica.pdf na raiz do projeto,
 % e use o comando abaixo para inseri-lo na versão final do texto.
+% Em ambos os casos (modelo manual ou PDF oficial), a ficha deve ser
+% desconsiderada na contagem total de páginas.
 
 %\begin{fichacatalografica}
+%    \addtocounter{page}{-1} % Subtrai 1 da contagem total de páginas
 %    \includepdf{ficha_catalografica.pdf}
 %\end{fichacatalografica}
 
