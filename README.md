@@ -32,7 +32,7 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 
 - [x] Capa (`\imprimircapa`) - Finalizado
 - [x] Folha de rosto (`\imprimirfolhaderosto`) - Finalizado
-- [x] Ficha Catalográfica de exemplo (`01-pre-textuais/00-folha-catalografica`) - Não pode contar no total de páginas do trabalho.
+- [x] Ficha Catalográfica de exemplo (`01-pre-textuais/00-folha-catalografica`) -Finalizado
 - [x] Folha de Aprovação de exemplo (`01-pre-textuais/01-folha-aprovacao`) - Finalizado
 - [X] Dedicatória (`01-pre-textuais/02-dedicatoria`) - Finalizado
 - [X] Agradecimentos (`01-pre-textuais/03-agradecimentos`) - Finalizado
@@ -43,7 +43,7 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 - [ ] Lista de Algoritmos (`\listofalgorithms`)
 - [ ] Lista de Tabelas (`\listtablename`)
 - [X] Lista de Abreviaturas e Siglas (`01-pre-textuais/07-lista-abreviaturas-siglas`) - Finalizado
-- [ ] Lista de Símbolos (`01-pre-textuais/08-lista-simbolos`) - Revisar diagramação/formatação
+- [X] Lista de Símbolos (`01-pre-textuais/08-lista-simbolos`) - Finalizado
 - [ ] Sumário (`\contentsname`) - Revisar diagramação/formatação
 
 ### Elementos Textuais
