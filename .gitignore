@@ -9,3 +9,4 @@ main.*
 # Ignora PDFs de normas ABNT
 Normas ABNT/
 relatorio*
+session*
