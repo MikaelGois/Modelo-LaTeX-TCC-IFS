@@ -6,3 +6,6 @@ main.*
 # Ignora arquivos de configuração do editor
 .vscode/
 .idea/
+# Ignora PDFs de normas ABNT
+Normas ABNT/
+relatorio*
