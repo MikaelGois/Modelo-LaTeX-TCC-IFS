@@ -39,7 +39,7 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 - [X] Epígrafe (`01-pre-textuais/04-epigrafe`) - Finalizado
 - [X] Resumo (`01-pre-textuais/05-resumo-pt`) - Finalizado
 - [X] Abstract (`01-pre-textuais/06-abstract-en`) - Finalizado
-- [ ] Lista de Figuras/Ilustrações (`\listfigurename`)
+- [X] Lista de Figuras/Ilustrações (`\listfigurename`)
 - [ ] Lista de Algoritmos (`\listofalgorithms`)
 - [ ] Lista de Tabelas (`\listtablename`)
 - [X] Lista de Abreviaturas e Siglas (`01-pre-textuais/07-lista-abreviaturas-siglas`) - Finalizado
@@ -48,7 +48,7 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 
 ### Elementos Textuais
 - [ ] Introdução (`02-textuais/01-01-introducao`)
-- [ ] Fundamentação Teórica (`02-textuais/02-fundamentacao-teorica.tex`)
+- [X] Fundamentação Teórica (`02-textuais/02-fundamentacao-teorica.tex`)
 - [ ] Trabalhos Correlatos (`02-textuais/03-trabalhos-correlatos`)
 - [ ] Metodologia (`02-textuais/04-metodologia`)
 - [ ] Resultados e Discussão (`02-textuais/05-resultados-discussao`)
