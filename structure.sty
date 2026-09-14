@@ -8,6 +8,27 @@
 \usepackage{ifthen}             % Comandos condicionais
 \usepackage{bookmark}           % Melhora a criação e sincronização do índice lateral
 \usepackage[linesnumbered,ruled,boxed,vlined,portuguese]{algorithm2e} % Pacote para algoritmos
+\usepackage{listings} % Código-fonte (monocromático, conforme NBR 14724:2024, 5.1)
+
+% --- CÓDIGO-FONTE EM PRETO E BRANCO (NBR 14724:2024, 5.1) ---
+% A norma determina que os textos sejam apresentados em cor preta; cores ficam
+% restritas às ilustrações. Por isso o destaque de palavras-chave usa NEGRITO e
+% ITÁLICO (não cor). Ajuste a linguagem no próprio ambiente \begin{lstlisting}.
+\lstset{
+    language=Java,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\bfseries\ttfamily,
+    commentstyle=\itshape\ttfamily,
+    stringstyle=\ttfamily,
+    numbers=left,
+    % frame fica desativado: quando usado dentro de \begin{algorithm}
+    % (algorithm2e), a moldura vêm do próprio ambiente de
+    % algoritmos, evitando "bloco dentro de bloco".
+    showstringspaces=false,
+    breaklines=true,
+    breakatwhitespace=false,
+    tabsize=4
+}
 
 % --- CONFIGURAÇÕES DE MARGENS ---
 % \setlmargin{3cm} \setrmargin{2cm} \settmargin{3cm} \setbmargin{2cm}

@@ -15,3 +15,32 @@
 
 % [O que aparece no PDF Bookmark] {O que aparece impresso no documento}
 \chapter[Metodologia]{METODOLOGIA} \label{sec:metodologia}
+
+% ------------------------------------------------------------------------------
+% EXEMPLO DE ALGORITMO / CÓDIGO-FONTE
+% ------------------------------------------------------------------------------
+% DICA PARA O ESTUDANTE:
+% - O comando \ref{} referencia o número do algoritmo gerado automaticamente.
+% - Referencie o algoritmo no texto ANTES dele aparecer, como na frase abaixo.
+% - O código-fonte é renderizado em PRETO E BRANCO (NBR 14724:2024, 5.1), com
+%   destaque de palavras-chave por negrito/itálico, e não por cor.
+% - Mantenha o código alinhado à esquerda (sem espaços antes da 1ª coluna),
+%   preservando apenas a indentação interna da linguagem.
+% - SUBSTITUA este exemplo pelo seu próprio algoritmo antes de entregar o
+%   trabalho. Para trocar a linguagem, mude "language=Java".
+\section{Exemplo de Inserção de Algoritmo}
+
+Para demonstrar a inserção de um algoritmo no texto, apresenta-se a seguir um exemplo de código em Java no Algoritmo \ref{alg:exemplo_java}. Note que o algoritmo é citado antes de sua apresentação e que o bloco é gerado automaticamente pelo ambiente de algoritmos.
+\begin{algorithm}[htb]
+    \caption{Exemplo de Algoritmo em Java}
+    \label{alg:exemplo_java}
+    \begin{lstlisting}[language=Java]
+public static int somar(int a, int b) {
+    // Retorna a soma de dois inteiros
+    return a + b;
+}
+    \end{lstlisting}
+\end{algorithm}
+
+% DICA: Lembre-se de citar figuras, tabelas e algoritmos no texto com \ref{} e
+% de inserir a fonte das ilustrações com \fonte{}.
