@@ -106,10 +106,35 @@ Ao concluir uma revisão (via skill `revisao-abnt`):
 
 ---
 
+## 5.1 Documentação do código LaTeX (skill `revisao-documentacao`)
+
+A documentação instrutiva (comentários `%` e a referência de comandos) é revisada
+pela skill `revisao-documentacao`, que mantém os checkpoints abaixo e gera
+`relatorio-revisao-documentacao.md`.
+
+Legenda: ✅ Instrutivo · ⚠️ Ajuste · ⬜ Não documentado.
+
+| Arquivo | Status | Observação |
+|---------|--------|------------|
+| `structure.sty` (listings/código-fonte) | ✅ Instrutivo | `listings` carregado; `\lstset` monocromático, moldura `frame` desativada (vem do algorithm2e), numeração de linha `numbers=left` ativada |
+| `02-textuais/04-metodologia.tex` | ✅ Instrutivo | exemplo de algoritmo Java (B&W) com `%` DICA; popula `\listofalgorithms` |
+| `02-textuais/01-introducao.tex` | ⚠️ Ajuste | `\cite[text]{...}` sem DICA explicativa (citação direta vs. indireta) |
+| `README.md` ("Referência rápida de comandos") | ✅ Instrutivo | tabela de comandos sincronizada; *(comum adicional)* sinalizado |
+
+Checkpoints de documentação:
+- `\cite`, `\citeonline`, `\fonte`, `\label`, `\ref` sempre documentados quando usados.
+- Todo novo ambiente (tabela, equação, algoritmo, figura) deve ter DICA.
+- Referência de comandos (README) deve permanecer sincronizada com o código.
+- Exemplos destinados a substituição/remoção antes da entrega devem ser sinalizados nos `%`.
+
+---
+
 ## 6. Convenções do projeto (breve)
 
 - Arquivos de classe/estilo: `nao-altere/` (`abntex2.cls`, `.sty`, `.bst`). Não editar.
 - Elementos em: `01-pre-textuais/`, `02-textuais/`, `03-pos-textuais/`.
 - Estrutura e capa/folha de rosto: `structure.sty` + `main.tex`.
 - Fontes: `style-font-*.sty` (Times original via LuaLaTeX; `newtx` padrão; Arial; Helvet).
+- Código-fonte em preto e branco (NBR 14724 §5.1): destaque por negrito/itálico, sem cor.
+- Skills do projeto: `revisao-abnt` (conformidade ABNT) e `revisao-documentacao` (documentação do código).
 - `README.md` lista o status TODO dos elementos ("Finalizado" etc.). Manter sincronizado.
