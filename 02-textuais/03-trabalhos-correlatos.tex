@@ -22,19 +22,21 @@ Ao longo da literatura, nota-se que grande parte das implementações prioriza a
 
 % EXEMPLO DE TABELA PADRÃO ABNT / IBGE (SEM BORDAS LATERAIS)
 
+
 \begin{table}[htb]
     \centering
     \caption{Comparativo entre os trabalhos correlatos e a solução proposta}
-    \vspace{0.2cm} % Pequeno espaço entre o título e a tabela
+    \vspace{0.2cm}
     
     % DICA PARA O ESTUDANTE:
-    % 'c' = centralizado, 'l' = alinhado à esquerda. 
-    % Adicione ou remova as letras 'c' abaixo caso precise de mais ou menos colunas.
-    \begin{tabular}{l | c | c | c}
+    % 'l' = alinhado à esquerda (ideal para colunas curtas, como o nome do Autor)
+    % 'c' = centralizado (ideal para colunas com respostas curtas, como Sim/Não)
+    % 'X' = coluna dinâmica que quebra o texto automaticamente e preenche o espaço da página
+    \begin{tabularx}{\textwidth}{l | X | X | X}
         \hline
         \textbf{Autor (Ano)} & \textbf{[Inserir Critério 1]} & \textbf{[Inserir Critério 2]} & \textbf{[Inserir Critério 3]} \\
         \hline
-        Sobrenome et al. (2023) & Método X & Baixo & Não \\
+        Sobrenome et al. (2023) & Método longo que agora vai quebrar a linha sozinho & Baixo & Não \\
         \hline
         Sobrenome e Silva (2024)& Método Y & Médio & Sim \\
         \hline
@@ -42,7 +44,7 @@ Ao longo da literatura, nota-se que grande parte das implementações prioriza a
         \hline
         \textbf{Proposta Atual} & \textbf{Método Inovador} & \textbf{Baixo} & \textbf{Sim} \\
         \hline
-    \end{tabular}
+    \end{tabularx}
     
     \fonte{Elaborada pelo autor (2026).}
     \label{tab:comparativo_trabalhos}
