@@ -62,4 +62,4 @@ Consulte os detalhes em `AGENTS.md`. Resumo:
 
 - Margens 3/2/3/2 e fonte 12 já são garantidas por `structure.sty`; verificar apenas se não houve regressão.
 - Não ler arquivos PDF/imagens diretamente (o modelo não suporta); usar `pdftotext`.
-- Após salvar alterações em arquivos de config (este skill, `AGENTS.md`), lembrar o usuário de reiniciar o opencode para que o skill seja carregado.
+- Após salvar alterações em arquivos de config (este skill, `AGENTS.md`), lembrar o usuário de reiniciar a sessão do agent (OpenCode, Copilot ou Claude Code) para que a skill seja recarregada.

@@ -63,4 +63,5 @@ de cada comando documentado e histórico — ficam em **`AGENTS.md`** (seção
 
 - Não ler arquivos PDF/imagens diretamente; usar `pdftotext` quando necessário.
 - Após salvar alterações em arquivos de config (este skill, `AGENTS.md`),
-  lembrar o usuário de reiniciar o opencode para que o skill seja carregado.
+  lembrar o usuário de reiniciar a sessão do agent (OpenCode, Copilot ou
+  Claude Code) para que a skill seja recarregada.
