@@ -136,5 +136,11 @@ Checkpoints de documentação:
 - Estrutura e capa/folha de rosto: `structure.sty` + `main.tex`.
 - Fontes: `style-font-*.sty` (Times original via LuaLaTeX; `newtx` padrão; Arial; Helvet).
 - Código-fonte em preto e branco (NBR 14724 §5.1): destaque por negrito/itálico, sem cor.
-- Skills do projeto: `revisao-abnt` (conformidade ABNT) e `revisao-documentacao` (documentação do código).
+- Skills do projeto: `revisao-abnt` (conformidade ABNT) e `revisao-documentacao`
+  (documentação do código), em **`.agents/skills/`** (padrão aberto agentskills.io).
+  - Compatibilidade: Copilot (VS Code/CLI/cloud agent) ✅ lê `.agents/skills/`;
+    OpenCode V2 ✅ lê via compatibilidade; Claude Code ⚠️ não documentado para
+    esse local (opcional: adicionar symlink em `.claude/skills/`).
+  - IDs das skills derivam do caminho (`revisao-abnt`, `revisao-documentacao`);
+    os nomes/descrições do frontmatter seguem o padrão kebab-case do Copilot.
 - `README.md` lista o status TODO dos elementos ("Finalizado" etc.). Manter sincronizado.
