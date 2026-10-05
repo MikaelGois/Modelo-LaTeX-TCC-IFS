@@ -70,29 +70,35 @@ Divergência ABNT × IFS: reportar **ambas** as posições, sem impor critério.
 
 Legenda: ✅ Conforme · ⚠️ Ajuste · ❌ Não conforme · ⬜ Não revisado.
 
+> Última revisão completa: **28/09/2026** (elementos "Finalizado" do README, 16 elementos; PDF compilado do zero, 26 páginas, sem erros).
+
 | Elemento | Arquivo | Status | Observação registrada |
 |----------|---------|--------|------------------------|
 | Capa | `structure.sty` (`\imprimircapa`) | ✅ Conforme | local/ano em `\large`; fonte `newtx` (clone Times) vs. Times original (IFS Art. 34) |
 | Folha de Rosto | `structure.sty` (`\imprimirfolhaderosto`) | ✅ Conforme | — |
-| Ficha Catalográfica | `01-pre-textuais/00-folha-catalografica.tex` | ⚠️ Ajuste | palavras-chave com "2." duplicado (linhas 62–67) |
-| Folha de Aprovação | `01-pre-textuais/01-folha-aprovacao.tex` | ⚠️ Ajuste | banca até 4 membros vs. IFS Art. 18 (3 membros) |
+| Ficha Catalográfica | `01-pre-textuais/00-folha-catalografica.tex` | ✅ Conforme | numeração das palavras-chave corrigida (commit `07ed40e`: sequência 1–5 + descritores romanos I–V); observação anterior ("2." duplicado) desatualizada |
+| Folha de Aprovação | `01-pre-textuais/01-folha-aprovacao.tex` | ⚠️ Ajuste | banca até 4 membros vs. IFS Art. 18 (3 titulares + suplente); placeholders sem titulação (§4.2.1.3) |
 | Dedicatória | `01-pre-textuais/02-dedicatoria.tex` | ✅ Conforme | — |
 | Agradecimentos | `01-pre-textuais/03-agradecimentos.tex` | ✅ Conforme | — |
-| Epígrafe | `01-pre-textuais/04-epigrafe.tex` | ⚠️ Ajuste | espaçamento 1,0 vs. regra 1,5 (§5.2) |
-| Resumo | `01-pre-textuais/05-resumo-pt.tex` | ✅ Conforme | — |
-| Abstract | `01-pre-textuais/06-abstract-en.tex` | ✅ Conforme | — |
+| Epígrafe | `01-pre-textuais/04-epigrafe.tex` | ⚠️ Ajuste | espaçamento 1,0 vs. regra 1,5 (§5.2 — lista de exceções não inclui a epígrafe) |
+| Resumo | `01-pre-textuais/05-resumo-pt.tex` | ⚠️ Ajuste | siglas em minúsculas nas palavras-chave ("ifs", "abnt", "tcc") — NBR 6028 §4.1.7 (exceção: substantivos próprios); texto-exemplo com 134 palavras (< 150, §4.1.8a) |
+| Abstract | `01-pre-textuais/06-abstract-en.tex` | ⚠️ Ajuste | idem em inglês ("ifs", "abnt"); texto-exemplo < 150 palavras |
+| Lista de Figuras | `main.tex` (`\listoffigures*`) | ✅ Conforme | entrada "Figura 1 – Título … página" com travessão ✓ |
+| Lista de Algoritmos | `main.tex` (`\listofalgorithms`) | ⚠️ Ajuste | entradas sem "Algoritmo" e sem travessão (§4.2.1.9 por analogia; legenda usa "Algoritmo 1:"); pacote `algorithm2e` em `nao-altere/` |
 | Lista de Siglas | `01-pre-textuais/07-lista-abreviaturas-siglas.tex` | ✅ Conforme | — |
 | Lista de Símbolos | `01-pre-textuais/08-lista-simbolos.tex` | ⚠️ Ajuste | ordem por categoria vs. ordem de aparição (§4.2.1.12) |
-| Referências | `referencias.bib` + `\bibliography` | ⚠️ Ajuste | título "Referências" em caixa mista; exemplos `kitchenham` quase duplicados |
-| Apêndices | `03-pos-textuais/01-apendices.tex` | ⚠️ Ajuste | hífen em vez de travessão |
-| Anexos | `03-pos-textuais/02-anexos.tex` | ⚠️ Ajuste | hífen em vez de travessão |
+| Referências | `referencias.bib` + `\bibliography` | ⚠️ Ajuste | título "Referências" em caixa mista; exemplos `kitchenham` quase duplicados (citações 2007a/2007b); data de acesso "01 de jan, 2026" fora do padrão |
+| Apêndices | `03-pos-textuais/01-apendices.tex` | ⚠️ Ajuste | meia-risca (–) em vez de travessão (—) (§4.2.3.3); separador gerado pela classe `abntex2.cls` (`nao-altere/`) |
+| Anexos | `03-pos-textuais/02-anexos.tex` | ⚠️ Ajuste | meia-risca (–) em vez de travessão (—) (§4.2.3.4) |
 
 ### Correções recomendadas (pendentes)
-1. Ficha catalográfica: corrigir numeração das palavras-chave (linhas 62–67).
-2. Epígrafe: avaliar espaçamento 1,0 → 1,5.
-3. Lista de símbolos: reordenar conforme aparição no texto.
-4. Padronizar título "REFERÊNCIAS" em maiúsculas; hífen → travessão em apêndices/anexos.
-5. Decidir composição da banca (ABNT vs. IFS Art. 18) e fonte (Times original vs. `newtx`).
+1. Epígrafe: avaliar espaçamento 1,0 → 1,5 (NBR 14724:2024 §5.2).
+2. Resumo/Abstract: capitalizar as siglas nos exemplos de palavras-chave — "normativa do IFS; ABNT NBR 6028; formatação de TCC" (NBR 6028 §4.1.7); substituir os textos-exemplo por resumos reais (150–500 palavras, §4.1.8a).
+3. Lista de Algoritmos: redefinir localmente as entradas para "Algoritmo 1 – Título … página" e a legenda com travessão (analogia §4.2.1.9/§5.8).
+4. Lista de símbolos: reordenar conforme aparição no texto (§4.2.1.12).
+5. Padronizar título "REFERÊNCIAS" em maiúsculas; unificar entradas kitchenham (NBR 6023 §7.7.6); meia-risca → travessão em apêndices/anexos (§4.2.3.3/4).
+6. Decidir composição da banca (ABNT vs. IFS Art. 18) e fonte (Times original vs. `newtx`).
+7. ~~Ficha catalográfica: corrigir numeração das palavras-chave~~ — **RESOLVIDO** (commit `07ed40e`, 13/09/2026).
 
 ---
 
