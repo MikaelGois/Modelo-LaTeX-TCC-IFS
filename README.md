@@ -33,12 +33,12 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 - [x] Capa (`\imprimircapa`) - Finalizado
 - [x] Folha de rosto (`\imprimirfolhaderosto`) - Finalizado
 - [x] Ficha Catalográfica de exemplo (`01-pre-textuais/00-folha-catalografica`) -Finalizado
-- [x] Folha de Aprovação de exemplo (`01-pre-textuais/01-folha-aprovacao`) - Finalizado
+- [x] Folha de Aprovação de exemplo (`01-pre-textuais/01-folha-aprovacao`) - Revisar diagramação/formatação
 - [X] Dedicatória (`01-pre-textuais/02-dedicatoria`) - Finalizado
 - [X] Agradecimentos (`01-pre-textuais/03-agradecimentos`) - Finalizado
-- [X] Epígrafe (`01-pre-textuais/04-epigrafe`) - Finalizado
-- [X] Resumo (`01-pre-textuais/05-resumo-pt`) - Finalizado
-- [X] Abstract (`01-pre-textuais/06-abstract-en`) - Finalizado
+- [X] Epígrafe (`01-pre-textuais/04-epigrafe`) - Revisar diagramação/formatação
+- [X] Resumo (`01-pre-textuais/05-resumo-pt`) - Revisar diagramação/formatação
+- [X] Abstract (`01-pre-textuais/06-abstract-en`) - Revisar diagramação/formatação
 - [X] Lista de Figuras/Ilustrações (`\listfigurename`) - Finalizado
 - [X] Lista de Algoritmos (`\listofalgorithms`) - Revisar diagramação/formatação
 - [ ] Lista de Tabelas (`\listtablename`)
