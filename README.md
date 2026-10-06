@@ -70,6 +70,16 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 4. Edite o conteúdo pós-textual nos arquivos numerados dentro da pasta `03-pos-textuais/`.
 5. Adicione suas referências no arquivo `referencias.bib`.
 
+### Skills do assistente (`.agents/skills/`)
+Se você usa este modelo com um assistente de IA (VS Code/Copilot, OpenCode etc.),
+três skills já vêm prontas (reinicie a sessão após clonar para carregá-las):
+
+| Skill | Uso |
+|-------|-----|
+| `revisor-academico` | **Revisão do seu TCC em produção**: estrutura (IFS Art. 31), extensão mínima (Art. 35), formatação (Art. 34), redação (Art. 22), citações (NBR 10520), resumo (NBR 6028) e referências (NBR 6023) — com arquivo, linha, nível de impacto e sugestão por achado. |
+| `revisao-abnt` | Verifica a conformidade do **modelo/template** com as normas ABNT (uso do mantenedor do repositório). |
+| `revisao-documentacao` | Verifica os comentários instrutivos do código LaTeX (uso do mantenedor). |
+
 ### Referência rápida de comandos
 Este modelo já contém comentários `%` instrutivos nos arquivos `.tex`. Abaixo,
 os comandos principais que você usará com mais frequência. Itens marcados como
