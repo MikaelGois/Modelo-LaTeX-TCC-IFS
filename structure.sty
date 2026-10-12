@@ -36,6 +36,32 @@
 % \linespread{1.5}                % Espaçamento 1,5
 \OnehalfSpacing % Comando oficial do abntex2 para espaçamento 1,5
 
+% --- PAGINAÇÃO: SOMENTE OS ALGARISMOS, SEM CABEÇALHO CORRENTE (NBR 14724:2024, 5.3) ---
+% A norma exige apenas a numeração no canto superior direito (anverso) e no
+% canto superior esquerdo (verso), a 2 cm das bordas. O cabeçalho corrente do
+% abntheadings (título do capítulo em itálico + filete no topo da página,
+% a partir da segunda folha de cada capítulo) é extra-normativo e foi removido:
+% ficam só os algarismos, sem texto e sem filete — igual à primeira folha de
+% cada capítulo (estilo abntchapfirst, que já trazia apenas o número).
+\makeevenhead{abntheadings}{\ABNTEXfontereduzida\thepage}{}{}
+\makeoddhead{abntheadings}{}{}{\ABNTEXfontereduzida\thepage}
+\makeheadrule{abntheadings}{\textwidth}{0pt} % filete de altura zero = invisível
+
+% --- NOTAS DE RODAPÉ (NBR 14724:2024, 5.2.1) ---
+% A norma manda separar as notas do texto por um filete de 5 cm a partir da
+% margem esquerda, com espaço simples entre as linhas da nota, fonte menor e a
+% segunda linha alinhada abaixo da primeira letra da primeira palavra. O
+% abntex2 já dá fonte menor (\ABNTEXfontereduzida) e o alinhamento pendente;
+% ajusta-se aqui o filete (padrão do memoir = 0,4 da coluna) e o espaçamento
+% simples (o \OnehalfSpacing não deve vazar para dentro das notas).
+% Notas (NBR 14724:2024, 5.2.1): filete de 5 cm, notas em espaçamento simples,
+% fonte menor que a do texto. \SingleSpacing (API pública do memoir) QUEBRA a
+% primeira linha da nota — o expoente sai sozinho numa linha e o texto cai na
+% seguinte (testado: docs a/b/d em fn-test); \setSpacing{1} (API baixa) faz o
+% mesmo \def\baselinestretch{1} + reseleção de fonte sem efeito colateral.
+\setfootnoterule{3pt}{5cm}{\normalrulethickness}
+\renewcommand{\foottextfont}{\ABNTEXfontereduzida\setSpacing{1}}
+
 % Força todos os títulos a usarem o tamanho definido no documento
 \renewcommand{\ABNTEXchapterfontsize}{\normalsize}
 \renewcommand{\ABNTEXsectionfontsize}{\normalsize}
@@ -73,6 +99,30 @@
 \setsecnumformat{\csname the#1\endcsname\space}
 \makeatother
 
+% --- ESPAÇO ENTRE NUMERAÇÃO E TÍTULO DO CAPÍTULO (NBR 14724:2024, 5.2.2) ---
+% O estilo "abnt" do abntex2 imprime o indicativo como \space\thechapter\space;
+% somado ao separador que o memoir insere antes do título, resultavam DOIS
+% espaços entre "1" e "INTRODUÇÃO" (medido: 5,98 pt ≈ 2 espaços). Redefine-se
+% \printchapternum para que a separação seja de UM espaço de caractere, como já
+% ocorre nas seções secundárias. No ramo apêndice/anexo o espaço antes do
+% travessão (–) é preservado, conforme a saída original.
+\makeatletter
+\renewcommand{\printchapternum}{%
+  \tocprintchapter
+  \setboolean{abntex@innonumchapter}{false}%
+  \chapnumfont
+  \ifthenelse{\boolean{abntex@apendiceousecao}}{%
+    % apêndice/anexo: "APÊNDICE A – ...". O espaço inicial separa o nome da
+    % letra, já que \chapternamenum é vazio no abntex2 (igual à saída original).
+    \space\thechapter\space\tocinnonumchapter\ABNTEXcaptiondelim}{%
+    % capítulo normal: compor "dígito + UM espaço" idêntico à medição de
+    % \chapternamenumlength — sem o espaço inicial, que o TeX descarta no
+    % início do parágrafo mas contava na medição, esticando a linha e
+    % dobrando a folga (5,98 pt ≈ 2 espaços; a norma pede 1 — NBR 14724:2024,
+    % 5.2.2). Assim a linha enche exata e sobra UM espaço antes do título.
+    \thechapter\space}}
+\makeatother
+
 % --- LISTAS: ESPAÇAMENTO ENTRE ITENS (NBR 14724:2024, 5.2) ---
 % Todo o texto é composto com espaçamento 1,5 e a norma não excepciona listas:
 % não deve haver espaço extra (\topsep/\itemsep/\parsep/\partopsep) entre os itens.
@@ -80,32 +130,72 @@
 
 % Ambiente `symbols` (memoir), usado pelas listas `siglas` e `simbolos`: o padrão
 % reserva uma coluna FIXA de 8 em para o texto, o que gera espaço vazio excessivo
-% após siglas/símbolos curtos e sensação de desalinhamento. Redefine-se com medida
-% DINÂMICA: o texto começa logo após o rótulo mais largo da própria lista, com os
-% rótulos alinhados à esquerda (NBR 14724:2024, 4.2.1.11 — relação sigla/extenso).
+% após siglas/símbolos curtos e sensação de desalinhamento. Ajusta-se para rótulos
+% alinhados à esquerda numa coluna de 6 em + 2,5 em de folga até o texto, com
+% todos os significados começando na MESMA vertical — como no exemplo da própria
+% NBR 14724 (4.2.1.11 e 4.2.1.12: "ABNT<col>Associação..." — a norma usa APENAS
+% alinhamento em coluna, sem travessão ou outro sinal entre sigla/símbolo e
+% texto; a travessão é obrigatória só nas listas de ilustrações e tabelas,
+% 4.2.1.9 e 4.2.1.10). Se a lista tiver sigla mais larga que 6 em, amplie o
+% labelwidth (com align=left sozinho, o enumitem faz o texto recuar depois de
+% cada rótulo e a coluna sai desalinhada — testado).
 \newlist{abntsymbols}{description}{1}
-\setlist[abntsymbols]{align=left,font=\normalfont,leftmargin=!,topsep=0pt,itemsep=0pt,parsep=0pt,partopsep=0pt}
+\setlist[abntsymbols]{align=left,labelwidth=6em,font=\normalfont,leftmargin=!,labelsep=2.5em,topsep=0pt,itemsep=0pt,parsep=0pt,partopsep=0pt}
 \renewenvironment{symbols}{\begin{abntsymbols}}{\end{abntsymbols}}
 
-% --- SUMÁRIO: SEM "VÁCUO" ENTRE ENTRADAS (NBR 6027; NBR 14724:2024, 5.2) ---
-% O modo abnt-6027-2012 do abntex2 já alinha número/título pela numeração mais
-% extensa (Manual ABNT 2024, 3.1.14 c) e d)) — apenas remove-se o espaço extra
-% de 1 em antes das seções primárias (\cftbeforechapterskip), que também criava
-% dobra de espaço nas entradas de referências, apêndices e anexos (\phantompart
-% usa o mesmo comprimento).
+% --- SUMÁRIO: UM ESPAÇO APÓS A NUMERAÇÃO MAIS EXTENSA (NBR 6027:2012, 5.2) ---
+% A norma manda alinhar os títulos "pela margem do título do indicativo mais
+% extenso, inclusive os elementos pós-textuais" (5.2), e entre o indicativo e o
+% título deve haver UM espaço de caractere (NBR 14724:2024, 5.2.2 — o exemplo da
+% própria NBR 6027 mostra "3.3.1 Tempo de arquivo em disco"). O abntex2 fixava a
+% coluna em \cftsubsubsectionnumwidth+1em (folga medida de 26,8 pt ≈ 8 espaços
+% após "2.1.1.1"). Mede-se aqui a numeração mais extensa usada no documento
+% (x.x.x.x) + um espaço e redefinem-se os recuos de todos os níveis; o valor
+% fica na própria \cftlastnumwidth, que os trechos inseridos no meio do .toc
+% (\tocprintchapter etc.) também leem. Se o documento usar numeração mais larga
+% que x.x.x.x (ex.: dois dígitos em algum nível), amplie o argumento de
+% \settowidth. Também se remove o espaço extra de 1 em antes das seções
+% primárias e dos elementos pós-textuais (\phantompart usa os mesmos comprimentos).
+\newlength{\abntnumtemp}
+\AtBeginDocument{%
+  \begingroup
+    \normalfont\normalsize
+    \settowidth{\abntnumtemp}{2.1.1.1}%
+    \addtolength{\abntnumtemp}{0.25em}% um espaço de caractere
+    \global\cftlastnumwidth=\abntnumtemp% copia ANTES do \endgroup
+  \endgroup
+  % atribuições globais: \settowidth/\setlength são locais e seriam
+  % desfeitos pelo \endgroup (e talvez pelo próprio agrupamento do hook)
+  \global\cftpartindent=0pt
+  \global\cftpartnumwidth=\cftlastnumwidth
+  \global\cftchapterindent=0pt
+  \global\cftchapternumwidth=\cftlastnumwidth
+  \global\cftsectionindent=0pt
+  \global\cftsectionnumwidth=\cftlastnumwidth
+  \global\cftsubsectionindent=0pt
+  \global\cftsubsectionnumwidth=\cftlastnumwidth
+  \global\cftsubsubsectionindent=0pt
+  \global\cftsubsubsectionnumwidth=\cftlastnumwidth
+  \global\cftparagraphindent=0pt
+  \global\cftparagraphnumwidth=\cftlastnumwidth
+  \global\cftsubparagraphindent=0pt
+  \global\cftsubparagraphnumwidth=\cftlastnumwidth
+}
 \setlength{\cftbeforechapterskip}{0pt}
 \setlength{\cftbeforepartskip}{0pt}
 
 % --- SUMÁRIO: FONTES IDÊNTICAS AO TEXTO (NBR 14724:2024, 5.4; Manual ABNT 2024, 2.2) ---
 % Tamanho uniforme 12 (a norma não excepciona o sumário da fonte de 12) e o mesmo
 % destaque tipográfico do texto: negrito nas seções primárias/secundárias (já
-% definidos no abntex2) e regular a partir das terciárias.
-\renewcommand{\cftsubsectionfont}{\normalsize}
-\renewcommand{\cftsubsectionpagefont}{\normalsize}
-\renewcommand{\cftsubsubsectionfont}{\normalsize}
-\renewcommand{\cftsubsubsectionpagefont}{\normalsize}
-\renewcommand{\cftparagraphfont}{\normalsize}
-\renewcommand{\cftparagraphpagefont}{\normalsize}
+% definidos no abntex2) e regular a partir das terciárias. O \normalfont é
+% necessário: apenas \normalsize não zera o \bfseries das entradas anteriores,
+% o que mantinha subsection/subsubsection em negrito no sumário.
+\renewcommand{\cftsubsectionfont}{\normalfont\normalsize}
+\renewcommand{\cftsubsectionpagefont}{\normalfont\normalsize}
+\renewcommand{\cftsubsubsectionfont}{\normalfont\normalsize}
+\renewcommand{\cftsubsubsectionpagefont}{\normalfont\normalsize}
+\renewcommand{\cftparagraphfont}{\normalfont\normalsize}
+\renewcommand{\cftparagraphpagefont}{\normalfont\normalsize}
 
 % --- CONFIGURAÇÃO DE CAPÍTULOS E SEÇÕES ---
 \renewcommand{\pretextualchapter}[2][]{%
