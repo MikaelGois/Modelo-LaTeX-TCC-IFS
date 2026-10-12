@@ -55,6 +55,58 @@
 \setlength{\beforesecskip}{1.0\onelineskip}
 \setlength{\beforesubsecskip}{1.0\onelineskip}
 
+% --- HIERARQUIA TIPOGRÁFICA DOS TÍTULOS (NBR 14724:2024, 5.4; NBR 6024:2012, 4.1 j)) ---
+% "Destacam-se gradativamente... os títulos das seções, utilizando-se os recursos de
+% negrito, itálico ou sublinhado e outros" — o recurso é livre, desde que hierárquico.
+% Adotado neste modelo: NEGRITO nas seções primárias (capítulos) e secundárias
+% (\section); fonte regular (sem negrito, itálico ou sublinhado) a partir das
+% terciárias (\subsection em diante). O mesmo esquema vale no sumário.
+\renewcommand{\ABNTEXsubsectionfont}{\normalfont}
+\renewcommand{\ABNTEXsubsubsectionfont}{\normalfont}
+\renewcommand{\ABNTEXsubsubsubsectionfont}{\normalfont}
+
+% --- ESPAÇAMENTO ENTRE INDICATIVO E TÍTULO (NBR 14724:2024, 5.2.2; NBR 6024:2012, 4.1 c) e d)) ---
+% O indicativo deve ser separado do título por "um espaço de caractere", sem ponto,
+% hífen ou qualquer sinal entre eles. O memoir usa \quad (1 em) por padrão em
+% \section e descendentes; substitui-se por um simples espaço.
+\makeatletter
+\setsecnumformat{\csname the#1\endcsname\space}
+\makeatother
+
+% --- LISTAS: ESPAÇAMENTO ENTRE ITENS (NBR 14724:2024, 5.2) ---
+% Todo o texto é composto com espaçamento 1,5 e a norma não excepciona listas:
+% não deve haver espaço extra (\topsep/\itemsep/\parsep/\partopsep) entre os itens.
+\setlist{topsep=0pt,itemsep=0pt,parsep=0pt,partopsep=0pt}
+
+% Ambiente `symbols` (memoir), usado pelas listas `siglas` e `simbolos`: o padrão
+% reserva uma coluna FIXA de 8 em para o texto, o que gera espaço vazio excessivo
+% após siglas/símbolos curtos e sensação de desalinhamento. Redefine-se com medida
+% DINÂMICA: o texto começa logo após o rótulo mais largo da própria lista, com os
+% rótulos alinhados à esquerda (NBR 14724:2024, 4.2.1.11 — relação sigla/extenso).
+\newlist{abntsymbols}{description}{1}
+\setlist[abntsymbols]{align=left,font=\normalfont,leftmargin=!,topsep=0pt,itemsep=0pt,parsep=0pt,partopsep=0pt}
+\renewenvironment{symbols}{\begin{abntsymbols}}{\end{abntsymbols}}
+
+% --- SUMÁRIO: SEM "VÁCUO" ENTRE ENTRADAS (NBR 6027; NBR 14724:2024, 5.2) ---
+% O modo abnt-6027-2012 do abntex2 já alinha número/título pela numeração mais
+% extensa (Manual ABNT 2024, 3.1.14 c) e d)) — apenas remove-se o espaço extra
+% de 1 em antes das seções primárias (\cftbeforechapterskip), que também criava
+% dobra de espaço nas entradas de referências, apêndices e anexos (\phantompart
+% usa o mesmo comprimento).
+\setlength{\cftbeforechapterskip}{0pt}
+\setlength{\cftbeforepartskip}{0pt}
+
+% --- SUMÁRIO: FONTES IDÊNTICAS AO TEXTO (NBR 14724:2024, 5.4; Manual ABNT 2024, 2.2) ---
+% Tamanho uniforme 12 (a norma não excepciona o sumário da fonte de 12) e o mesmo
+% destaque tipográfico do texto: negrito nas seções primárias/secundárias (já
+% definidos no abntex2) e regular a partir das terciárias.
+\renewcommand{\cftsubsectionfont}{\normalsize}
+\renewcommand{\cftsubsectionpagefont}{\normalsize}
+\renewcommand{\cftsubsubsectionfont}{\normalsize}
+\renewcommand{\cftsubsubsectionpagefont}{\normalsize}
+\renewcommand{\cftparagraphfont}{\normalsize}
+\renewcommand{\cftparagraphpagefont}{\normalsize}
+
 % --- CONFIGURAÇÃO DE CAPÍTULOS E SEÇÕES ---
 \renewcommand{\pretextualchapter}[2][]{%
     \cleardoublepage

@@ -63,6 +63,11 @@ Divergência ABNT × IFS: reportar **ambas** as posições, sem impor critério.
 - **Lista de símbolos** — §4.2.1.12: ordem de aparição no texto.
 - **Referências** — NBR 6023 §6.3 + NBR 14724 §5.2: espaço simples, alinhamento à esquerda, alfabético, separadas por linha em branco; antes de apêndices/anexos (§4.2.3).
 - **Apêndices / Anexos** — §4.2.3.3 / §4.2.3.4: "APÊNDICE/ANEXO + letra" + **travessão** + título.
+- **Títulos de seção** — indicativo separado do título por **um único espaço de caractere**, sem ponto/hífen/travessão entre eles (NBR 6024 §4.1 c)-d); NBR 14724 §5.2.2); destaque **gradativo** (NBR 14724 §5.4) — modelo: negrito até secundárias, fonte regular da terciária em diante, **idêntico no sumário**; seções primárias no topo da mancha, em folha nova (ímpar se frente-e-verso) (§5.2.2).
+- **Listas de itens** — subdivisão sem título próprio → **alíneas** (a), (b)… e subalíneas (—) (NBR 6024 §4.2/4.3); bullets e listas numeradas de itens são **extra-normativos** (Manual ABNT 2024, p. 43: recomenda-se não usar bullets); espaçamento 1,5 **sem espaço extra entre itens** (§5.2). No LaTeX: ambiente `alineas`; siglas/símbolos via `siglas`/`simbolos` (coluna de texto logo após o rótulo mais largo).
+- **Cabeçalho, filete e rodapé** — numeração no **canto superior direito**, a partir da parte textual (§5.3); cabeçalho corrente com título e filete no topo **não são prescritos** pela ABNT (extra-normativos — decisão do autor); palavra "Capítulo" diante da numeração é desaconselhada (Manual ABNT 2024 §2.6); notas de rodapé separadas do texto por **filete de 5 cm** (§5.2.1).
+- ***et al.*** — grafado **sem itálico** (Manual ABNT 2024 §2.2: itálico para estrangeirismos, *com exceção* de expressões latinas como *apud* e *et al.*; NBR 10520 §6.1.2; NBR 6023 §8.1.1.2 — nenhum exige itálico).
+- **Sumário** — um espaço após o número, sem sinal; títulos alinhados pela **numeração de subseção mais extensa** (Manual ABNT 2024 §3.1.14 c)-d)); sem espaço extra entre entradas (§5.2); fonte 12 uniforme. *Limitação:* NBR 6027 não está no repo.
 
 ---
 
@@ -71,6 +76,7 @@ Divergência ABNT × IFS: reportar **ambas** as posições, sem impor critério.
 Legenda: ✅ Conforme · ⚠️ Ajuste · ❌ Não conforme · ⬜ Não revisado.
 
 > Última revisão completa: **28/09/2026** (elementos "Finalizado" do README, 16 elementos; PDF compilado do zero, 26 páginas, sem erros).
+> Revisão de **diagramação/tipografia: 12/10/2026** (listas, sumário, títulos, cabeçalho — ver bloco abaixo).
 
 | Elemento | Arquivo | Status | Observação registrada |
 |----------|---------|--------|------------------------|
@@ -91,6 +97,22 @@ Legenda: ✅ Conforme · ⚠️ Ajuste · ❌ Não conforme · ⬜ Não revisado
 | Apêndices | `03-pos-textuais/01-apendices.tex` | ⚠️ Ajuste | meia-risca (–) em vez de travessão (—) (§4.2.3.3); separador gerado pela classe `abntex2.cls` (`nao-altere/`) |
 | Anexos | `03-pos-textuais/02-anexos.tex` | ⚠️ Ajuste | meia-risca (–) em vez de travessão (—) (§4.2.3.4) |
 
+### Diagramação e tipografia — revisão de 12/10/2026 (Issues #41–#43)
+
+| Item | Status | Fundamento / observação |
+|------|--------|--------------------------|
+| Espaçamento indicativo↔título (seções secundárias+) | ✅ Corrigido | `\setsecnumformat` em `structure.sty` — um espaço de caractere (NBR 6024 §4.1 c); NBR 14724 §5.2.2). Antes: `\quad` (1 em) do memoir |
+| Espaçamento entre itens de listas | ✅ Corrigido | `\setlist{topsep=0pt,itemsep=0pt,...}` (NBR 14724 §5.2 não excepciona listas) |
+| Alinhamento lateral siglas/símbolos | ✅ Corrigido | `symbols` (memoir) redefinido em `structure.sty` com medida dinâmica — antes coluna fixa de 8 em |
+| Sumário — "vácuo" antes de seções primárias e pós-textuais | ✅ Corrigido | `\cftbeforechapterskip=0pt` (o `\phantompart` usava o mesmo comprimento) |
+| Sumário — espaçamento número↔título | ✅ Conforme (sem alteração) | Largura pela numeração mais extensa, como manda o Manual §3.1.14 c)-d); o espaço visto é o exigido |
+| Hierarquia de negrito (Issue #43) | ✅ Implementado | Negrito em primárias/secundárias; regular da terciária em diante; sumário idêntico e fonte 12 uniforme (NBR 14724 §5.4). *Divergência:* o exemplo do Manual §2.6 usa negrito+itálico na terciária e itálico na quaternária — a norma é permissiva ("destacam-se gradativamente") |
+| "et al." sem itálico (Issue #42) | ✅ Conforme (sem alteração) | Manual §2.2 (exceção para expressões latinas); NBR 10520 §6.1.2 e NBR 6023 §8.1.1.2 não exigem itálico — o `.bst` do abntex2 já gera "et al." reto |
+| Bullets / listas numeradas de itens (Issue #41) | ✅ Conforme (sem alteração) | NBR 6024 §4.2/4.3 normatiza alíneas/subalíneas; Manual p. 43 recomenda não usar bullets; o modelo não usa `itemize` |
+| Capítulo no início da folha | ✅ Conforme | NBR 14724 §5.2.2; Manual §2.5 (folha nova; topo da mancha) |
+| Cabeçalho corrente + filete no topo | ⚠️ Extra-normativo | ABNT não prescreve; único filete normatizado = notas de rodapé (§5.2.1). Cabeçalho atual ainda imprime "Capítulo N." (desaconselhado, Manual §2.6) — não alterado, pendente de decisão do autor |
+| Rodapé / numeração | ✅ Conforme | Numeração no canto superior direito (§5.3); rodapé vazio |
+
 ### Correções recomendadas (pendentes)
 1. Epígrafe: avaliar espaçamento 1,0 → 1,5 (NBR 14724:2024 §5.2).
 2. Resumo/Abstract: capitalizar as siglas nos exemplos de palavras-chave — "normativa do IFS; ABNT NBR 6028; formatação de TCC" (NBR 6028 §4.1.7); substituir os textos-exemplo por resumos reais (150–500 palavras, §4.1.8a).
@@ -99,6 +121,7 @@ Legenda: ✅ Conforme · ⚠️ Ajuste · ❌ Não conforme · ⬜ Não revisado
 5. Padronizar título "REFERÊNCIAS" em maiúsculas; unificar entradas kitchenham (NBR 6023 §7.7.6); meia-risca → travessão em apêndices/anexos (§4.2.3.3/4).
 6. Decidir composição da banca (ABNT vs. IFS Art. 18) e fonte (Times original vs. `newtx`).
 7. ~~Ficha catalográfica: corrigir numeração das palavras-chave~~ — **RESOLVIDO** (commit `07ed40e`, 13/09/2026).
+8. Cabeçalho corrente (estilo `abntheadings`): decidir entre manter como está (extra-normativo), remover só o filete no topo, ou retirar a palavra "Capítulo N." do cabeçalho (desaconselhada, Manual ABNT 2024 §2.6) — ajuste via `\chaptermark` em `structure.sty`. A ABNT não prescreve nem proíbe cabeçalho corrente (NBR 14724 §5.3 apenas posiciona a numeração no canto superior direito).
 
 ---
 
