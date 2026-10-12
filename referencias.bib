@@ -12,6 +12,19 @@ Este arquivo faz parte de um modelo opensource para estudantes do IFS.
 Não remova os créditos dos autores originais e do modelo base.
 ---------------------------------------------------------------------------------------
 
+
+% ------------------------------------------------------------------------------
+% Opções de estilo do abntex2cite (NÃO é uma referência e não aparece na lista).
+% Chamada por \citeoption{opcoes-abnt} em main.tex: o bst processa as entradas
+% de tipo abnt-options antes de compor a saída, valendo para todas as citações e
+% referências. abnt-etal-text: "et al." em itálico - NBR 10520:2023 (6.1.2) e
+% NBR 6023:2025 (8.1.1.2) grafam a expressão em itálico nos exemplos.
+% ------------------------------------------------------------------------------
+@abnt-options{opcoes-abnt,
+  abnt-etal-text = {\textit{et al.}}
+}
+
+
 As referências devem ser conforme a seção 7 e a seção 8 da norma ABNT NBR 6023:2025, seguindo as 
 orientações específicas para cada tipo de documento.
 
@@ -62,10 +75,10 @@ Exemplo Artigo, seção e/ou matéria de publicação periódica em meio eletrô
 }
 
 @book{tanenbaum2013,
-  title={Organiza{\c{c}}{\~a}o estruturada de computadores},
-  author={Tanenbaum, Andrew S. and Austin, Todd},
-  edition={6},
-  year={2013},
-  publisher={Pearson Prentice Hall},
-  address={S{\~a}o Paulo}
+  title     = {Organiza{\c{c}}{\~a}o estruturada de computadores},
+  author    = {Tanenbaum, Andrew S. and Austin, Todd},
+  edition   = {6},
+  year      = {2013},
+  publisher = {Pearson Prentice Hall},
+  address   = {S{\~a}o Paulo}
 }
