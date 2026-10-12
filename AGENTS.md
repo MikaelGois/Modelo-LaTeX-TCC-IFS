@@ -177,6 +177,12 @@ Checkpoints de documentação:
 ## 6. Convenções do projeto (breve)
 
 - Arquivos de classe/estilo: `nao-altere/` (`abntex2.cls`, `.sty`, `.bst`). Não editar.
+- **Git: NUNCA commitar direto na `main`.** Sempre criar uma branch nova
+  (prefixos `feat/…`, `fix/…`, `docs/…`), commitar nela e **parar aí** — o
+  `push` e o pull request são feitos pelo autor, que assim consegue revisar
+  antes de mesclar.
+  - Commits são feitos com `--no-gpg-sign` (a assinatura SSH não está
+    configurada neste ambiente; a pedido do autor).
 - Elementos em: `01-pre-textuais/`, `02-textuais/`, `03-pos-textuais/`.
 - Estrutura e capa/folha de rosto: `structure.sty` + `main.tex`.
 - Fontes: `style-font-*.sty` (Times original via LuaLaTeX; `newtx` padrão; Arial; Helvet).
