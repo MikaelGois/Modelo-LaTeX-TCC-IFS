@@ -70,16 +70,22 @@
 \renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
 
 % --- AJUSTE DE ESPAÇAMENTO ENTRE TÍTULO E TEXTO (Norma ABNT) ---
-% Define o espaço após os títulos para ser exatamente de uma linha (1.5)
-\setlength{\afterchapskip}{\onelineskip}   % Para Capítulos (\chapter)
-\setlength{\aftersecskip}{\onelineskip}    % Para Seções (\section)
-\setlength{\aftersubsecskip}{\onelineskip} % Para Subseções (\subsection)
-\setlength{\aftersubsubsecskip}{\onelineskip} % Para Subsubseções (\subsubsection)
-
-% Opcional: Ajuste do espaço ANTES do título (exceto no início da página)
-\setlength{\beforechapskip}{0pt} % Capítulos sempre começam no topo da página
-\setlength{\beforesecskip}{1.0\onelineskip}
-\setlength{\beforesubsecskip}{1.0\onelineskip}
+% Define o espaço ANTES e DEPOIS dos títulos como uma linha do texto (1,5).
+% ATENÇÃO: \onelineskip é um comprimento FIXO de espaço simples (14,5 pt a 12 pt);
+% ele não acompanha o \OnehalfSpacing e por isso os \setlength anteriores
+% capturavam 14,5 pt em vez de 18 pt (folga menor que uma linha 1,5 real).
+% Usa-se \baselineskip dentro de \AtBeginDocument, quando o espaçamento 1,5 já
+% está ativo no documento (medido: 17,99 pt).
+\AtBeginDocument{%
+    \setlength{\afterchapskip}{\baselineskip}%         Capítulos (\chapter)
+    \setlength{\aftersecskip}{\baselineskip}%          Seções (\section)
+    \setlength{\aftersubsecskip}{\baselineskip}%       Subseções (\subsection)
+    \setlength{\aftersubsubsecskip}{\baselineskip}%    Subsubseções (\subsubsection)
+    % Espaço ANTES do título (exceto no início da página)
+    \setlength{\beforechapskip}{0pt}%  % Capítulos sempre começam no topo da página
+    \setlength{\beforesecskip}{\baselineskip}%
+    \setlength{\beforesubsecskip}{\baselineskip}%
+}
 
 % --- HIERARQUIA TIPOGRÁFICA DOS TÍTULOS (NBR 14724:2024, 5.4; NBR 6024:2012, 4.1 j)) ---
 % "Destacam-se gradativamente... os títulos das seções, utilizando-se os recursos de
@@ -101,26 +107,44 @@
 
 % --- ESPAÇO ENTRE NUMERAÇÃO E TÍTULO DO CAPÍTULO (NBR 14724:2024, 5.2.2) ---
 % O estilo "abnt" do abntex2 imprime o indicativo como \space\thechapter\space;
-% somado ao separador que o memoir insere antes do título, resultavam DOIS
-% espaços entre "1" e "INTRODUÇÃO" (medido: 5,98 pt ≈ 2 espaços). Redefine-se
-% \printchapternum para que a separação seja de UM espaço de caractere, como já
-% ocorre nas seções secundárias. No ramo apêndice/anexo o espaço antes do
-% travessão (–) é preservado, conforme a saída original.
+% com o separador da classe, resultavam DOIS espaços entre "1" e o título
+% (medido: 5,98 pt ≈ 2 espaços). Redefine-se \printchapternum para UM espaço
+% de caractere, como nas seções secundárias (a norma pede 1 — 5.2.2).
+%
+% Dois detalhes críticos, comprovados por testes A/B (docs bisA–bisF):
+%  1) o espaço INICIAL é obrigatório: conta na medição de
+%     \chapternamenumlength mas é descartado pelo TeX no início do parágrafo;
+%     sem ele a linha composta enche exatamente \hsize e o TeX acrescenta uma
+%     linha fantasma de ~18 pt, dobrando a folga até o texto;
+%  2) o ramo apêndice/anexo usa \if PRIMITIVO (do \newboolean do ifthen) e não
+%     \ifthenelse, que deixa tokens no fluxo horizontal da linha do título.
+%
+% No ramo apêndice/anexo o separador é TRAVESSÃO (—), não meia-risca (–):
+% NBR 14724:2024, 4.2.3.3 e 4.2.3.4 ("letras maiúsculas consecutivas,
+% travessão e pelo respectivo título"). O \ABNTEXcaptiondelim da classe usa
+% \textendash (meia-risca); o ramo apêndice/anexo escreve \textemdash à mão
+% (abaixo) — as legendas e as listas são tratadas no bloco "SEPARADOR".
+%
+%  3) espaçamento em torno do travessão — NÃO REMOVER OS DOIS \unskip. A
+%     composição da classe é "\space\thechapter\space" + \tocinnonumchapter
+%     (que ajusta os recuos do sumário) + "~" antes do título. Medido em
+%     testes A/B (docs v1–v7, abntex2 + newtxtext): aí havia TRÊS espaços
+%     antes do travessão — o \space da classe, um espaço órfão que o
+%     \cftinserthook{toc}{A} emite (o corpo do comando em memoir.cls fecha a
+%     ramificação com espaços antes do } e sem %) e o ~ (3 × 6,48 pt = 19,43
+%     pt). Os dois \unskip anulam o \space da classe e o ~, restando
+%     exatamente UM espaço de cada lado do travessão — medido no documento:
+%     2,99 pt, igual a qualquer espaço entre palavras da mesma linha (sem
+%     espaço, o pdftotext nem separa as palavras). Retirar qualquer um dos
+%     dois \unskip volta a dar DOIS espaços. É o formato do exemplo da própria
+%     norma (4.2.3.3): "APÊNDICE A - AVALIAÇÃO NUMÉRICA DE CÉLULAS ...".
 \makeatletter
 \renewcommand{\printchapternum}{%
-  \tocprintchapter
-  \setboolean{abntex@innonumchapter}{false}%
-  \chapnumfont
-  \ifthenelse{\boolean{abntex@apendiceousecao}}{%
-    % apêndice/anexo: "APÊNDICE A – ...". O espaço inicial separa o nome da
-    % letra, já que \chapternamenum é vazio no abntex2 (igual à saída original).
-    \space\thechapter\space\tocinnonumchapter\ABNTEXcaptiondelim}{%
-    % capítulo normal: compor "dígito + UM espaço" idêntico à medição de
-    % \chapternamenumlength — sem o espaço inicial, que o TeX descarta no
-    % início do parágrafo mas contava na medição, esticando a linha e
-    % dobrando a folga (5,98 pt ≈ 2 espaços; a norma pede 1 — NBR 14724:2024,
-    % 5.2.2). Assim a linha enche exata e sobra UM espaço antes do título.
-    \thechapter\space}}
+    \tocprintchapter
+    \setboolean{abntex@innonumchapter}{false}%
+    \chapnumfont
+    \space\thechapter\space
+    \ifabntex@apendiceousecao\unskip\tocinnonumchapter~\unskip\textemdash~\fi}
 \makeatother
 
 % --- LISTAS: ESPAÇAMENTO ENTRE ITENS (NBR 14724:2024, 5.2) ---
@@ -131,17 +155,94 @@
 % Ambiente `symbols` (memoir), usado pelas listas `siglas` e `simbolos`: o padrão
 % reserva uma coluna FIXA de 8 em para o texto, o que gera espaço vazio excessivo
 % após siglas/símbolos curtos e sensação de desalinhamento. Ajusta-se para rótulos
-% alinhados à esquerda numa coluna de 6 em + 2,5 em de folga até o texto, com
+% alinhados à esquerda numa coluna de 3 em + 1,5 em de folga até o texto, com
 % todos os significados começando na MESMA vertical — como no exemplo da própria
 % NBR 14724 (4.2.1.11 e 4.2.1.12: "ABNT<col>Associação..." — a norma usa APENAS
 % alinhamento em coluna, sem travessão ou outro sinal entre sigla/símbolo e
 % texto; a travessão é obrigatória só nas listas de ilustrações e tabelas,
-% 4.2.1.9 e 4.2.1.10). Se a lista tiver sigla mais larga que 6 em, amplie o
-% labelwidth (com align=left sozinho, o enumitem faz o texto recuar depois de
-% cada rótulo e a coluna sai desalinhada — testado).
+% 4.2.1.9 e 4.2.1.10).
+% Por que não automático? O enumitem só mede a coluna pelo rótulo mais largo com
+% `widest=...` (que exige o valor escrito à mão) — `labelwidth=*`/`!` não servem
+% para listas `description`, cujos rótulos são desconhecidos no início do
+% ambiente (código do enumitem: \enit@calcwidth). Fixa-se 3 em, largura que
+% comporta o rótulo mais largo da lista modelo ("UTF-8" ≈ 2,75 em). Se o
+% usuário criar uma sigla mais larga que 3 em, amplie o labelwidth aqui.
 \newlist{abntsymbols}{description}{1}
-\setlist[abntsymbols]{align=left,labelwidth=6em,font=\normalfont,leftmargin=!,labelsep=2.5em,topsep=0pt,itemsep=0pt,parsep=0pt,partopsep=0pt}
+\setlist[abntsymbols]{align=left,labelwidth=3em,font=\normalfont,leftmargin=!,labelsep=1.5em,topsep=0pt,itemsep=0pt,parsep=0pt,partopsep=0pt}
 \renewenvironment{symbols}{\begin{abntsymbols}}{\end{abntsymbols}}
+
+% --- LISTA DE ALGORITMOS: "Algoritmo 1 – Título" ALINHADA À ESQUERDA (NBR 14724:2024, 4.2.1.9 por analogia) ---
+% O algorithm2e define \l@algocf = \@dottedtocline{1}{1em}{2.3em}: entradas
+% recuadas 1 em, sem o nome "Algoritmo" e sem travessão. Redefine-se para o
+% mesmo formato das listas de figuras/tabelas — "Algoritmo 1 – Título ... página",
+% começando na margem esquerda (a norma não cita lista de algoritmos nominalmente;
+% aplica-se por analogia o modelo de 4.2.1.9, com o nome próprio, travessão e
+% título). A entrada do .loa é \numberline{1}{Título}; intercepta-se \numberline
+% durante a leitura da lista para compor "Algoritmo 1" + travessão dentro da
+% coluna de numeração, exatamente como o memoir faz com "Figura 1 –".
+\makeatletter
+\newcommand{\cftalgocfname}{Algoritmo~}
+\newlength{\cftalgocfnumwidth}\setlength{\cftalgocfnumwidth}{7em}
+\renewcommand*\l@algocf[2]{%
+    \begingroup
+    \renewcommand{\numberline}[1]{\hb@xt@\cftalgocfnumwidth{%
+            \cftalgocfname##1\hfill\textemdash\hfill}}%
+    \@dottedtocline{1}{0em}{\cftalgocfnumwidth}{#1}{#2}%
+    \endgroup}
+\makeatother
+
+% --- SEPARADOR: TRAVESSÃO NAS LISTAS E NAS LEGENDAS (NBR 14724:2024) ---
+% A norma pede TRAVESSÃO em três lugares, e o abntex2/algorithm2e vêm com
+% meia-risca ou dois-pontos:
+%   4.2.1.9  lista de ilustrações: nome + travessão + título + folha/página
+%            (exemplo da norma: "Quadro 1 — Análise de erro técnico...");
+%   4.2.1.10 lista de tabelas: "Tabela" + número + travessão (exemplo:
+%            "Tabela 1 — Perfil socioeconômico...");
+%   5.8      legenda: palavra designativa + número + travessão + título.
+% O que se troca (tudo em structure.sty; nao-altere/ intocado):
+%   \cftfigureaftersnum / \cfttableaftersnum: meia-risca -> travessão;
+%   \ABNTEXcaptiondelim: meia-risca -> travessão (legendas de Figura/Tabela);
+%   \algocf@capseparator: ":" -> travessão (legenda do algoritmo).
+% DIVERGÊNCIA INTERNA DA NORMA (não é erro do modelo): o TEXTO do 5.8 diz
+% "travessão", mas o EXEMPLO do 5.8 grafia "Gráfico 1 – Quantidade de alunos"
+% com MEIA-RISCA; prevalece o texto normativo — e assim o documento fica
+% uniforme, com o mesmo separador nas listas, nas legendas e nos títulos de
+% apêndice/anexo (folha e sumário).
+% A legenda do algoritmo recebe ~\textemdash SEM ~ final: o algorithm2e já
+% acrescenta \nobreakspace depois do separador (algorithm2e.sty, 2288), então
+% um "~" a mais duplicaria o espaço antes do título.
+\renewcommand*{\cftfigureaftersnum}{\hfill\textemdash\hfill}
+\renewcommand*{\cfttableaftersnum}{\hfill\textemdash\hfill}
+\renewcommand{\ABNTEXcaptiondelim}{~\textemdash~}
+\SetAlgoCaptionSeparator{~\textemdash}
+
+% --- REFERÊNCIAS: UMA LINHA EM BRANCO ENTRE ENTRADAS (NBR 14724:2024, 5.2) ---
+% "As referências, ao final do trabalho, devem ser separadas entre si por um
+% espaço simples em branco." Composto em espaço simples, cada linha tem
+% \baselineskip = 14,5 pt; uma LINHA EM BRANCO entre entradas pede, portanto,
+% distância entre a última linha de uma entrada e a primeira da seguinte de
+% 2 × 14,5 = 29 pt.
+%
+% A distância entre a última linha de uma entrada e a primeira da seguinte é
+% \baselineskip (linha corrente) + \itemsep + \parskip. O \bibliography do
+% abntex2cite já compõe em espaço simples e o hook já punha
+% itemsep = \baselineskip; o que sobrava era o \parskip: o \list do ambiente
+% executa "\parskip\parsep" ANTES do hook, de modo que o parskip da lista
+% valia os 4,81 pt do parsep padrão (medido: 14,45 + 14,45 + 4,81 = 33,71 pt).
+% Zerando o \parskip aqui, a distância vira 2 × 14,45 = 28,90 pt — uma linha
+% em branco exata (medido: 28,89 pt). Mexer no \parsep não adianta: ele já foi
+% copiado para o \parskip pelo \list e, depois disso, só separaria parágrafos
+% de uma MESMA entrada (as referências são compostas em parágrafo único).
+%
+% O hook roda logo após a abertura do ambiente (antes do primeiro \item),
+% quando o \SingleSpacing do \bibliography já está ativo — aí \baselineskip =
+% 14,5 pt.
+%
+% ATENÇÃO à medição: a distância de referência é a de LINHA DE BASE (extraível
+% com PyMuPDF, span["origin"][1]). O yMin do `pdftotext -bbox` é o topo da
+% TINTA da palavra: fragmenta linhas por causa de caixa alta/acento e dava
+% 33,70 pt tanto no original quanto no corrigido.
+\AfterTheBibliography{\setlength{\itemsep}{\baselineskip}\setlength{\parskip}{0pt}}
 
 % --- SUMÁRIO: UM ESPAÇO APÓS A NUMERAÇÃO MAIS EXTENSA (NBR 6027:2012, 5.2) ---
 % A norma manda alinhar os títulos "pela margem do título do indicativo mais
@@ -149,40 +250,92 @@
 % título deve haver UM espaço de caractere (NBR 14724:2024, 5.2.2 — o exemplo da
 % própria NBR 6027 mostra "3.3.1 Tempo de arquivo em disco"). O abntex2 fixava a
 % coluna em \cftsubsubsectionnumwidth+1em (folga medida de 26,8 pt ≈ 8 espaços
-% após "2.1.1.1"). Mede-se aqui a numeração mais extensa usada no documento
-% (x.x.x.x) + um espaço e redefinem-se os recuos de todos os níveis; o valor
-% fica na própria \cftlastnumwidth, que os trechos inseridos no meio do .toc
-% (\tocprintchapter etc.) também leem. Se o documento usar numeração mais larga
-% que x.x.x.x (ex.: dois dígitos em algum nível), amplie o argumento de
-% \settowidth. Também se remove o espaço extra de 1 em antes das seções
-% primárias e dos elementos pós-textuais (\phantompart usa os mesmos comprimentos).
+% após "2.1.1.1").
+%
+% Medição AUTOMÁTICA: lê-se o main.toc e extraem-se, por expressão regular, as
+% numerações de todos os \numberline{...} (seções e descendentes); mede-se cada
+% uma na fonte do sumário (12 pt normal) e a MAIS EXTENSA + um espaço valem a
+% coluna de todos os níveis. Sem .toc (1ª compilação) ou sem \numberline no
+% documento, cai no fallback "2.1.1.1". O valor fica na própria \cftlastnumwidth,
+% que os trechos inseridos no meio do .toc (\tocprintchapter etc.) também leem.
+% Também se remove o espaço extra de 1 em antes das seções primárias e dos
+% elementos pós-textuais (\phantompart usa os mesmos comprimentos).
 \newlength{\abntnumtemp}
+\ExplSyntaxOn
+\seq_new:N \l_abnt_tocnums_seq
+\cs_new_protected:Npn \abnt_tocnum_scan: {
+    % \regex_extract_all devolve o trecho completo + o grupo capturado; o filtro
+    % descarta os trechos que contêm "numberline" e mede só as numerações.
+    \seq_map_inline:Nn \l_abnt_tocnums_seq {
+        \str_if_in:nnF {##1} {numberline} {
+            \settowidth { \l_tmpa_dim } { \normalfont\normalsize ##1 }
+            \dim_set:Nn \abntnumtemp { \dim_max:nn { \abntnumtemp } { \l_tmpa_dim } }
+        }
+    }
+}
+\ior_new:N \l_abnt_toc_ior
+\cs_new_protected:Npn \abnt_tocnum_widest: {
+\setlength { \abntnumtemp } { 0pt }
+\file_if_exist:nT { main.toc } {
+    \ior_open:Nn \l_abnt_toc_ior { main.toc }
+    % Lê o .toc LINHA A LINHA (ior_str: a leitura stringifica os tokens — só
+    % ASCII, sem control sequences/acentos atrapalhando) e aplica a regex em
+    % cada linha. \regex_extract_all:nnNTF {regex}{assunto}{seq}{V}{F}.
+    % [^{}] em vez de [^}]: a classe negada não pode conter um } "pelado",
+    % senão o } fecharia o argumento do TeX antes da hora; como } está excluído
+    % da classe, o grupo capturado para no PRIMEIRO } — onde acaba a numeração.
+    \ior_str_map_inline:Nn \l_abnt_toc_ior {
+        \regex_extract_all:nnNTF
+        { \\numberline \s* \{ ([^{}]+) \} }
+        {##1} \l_abnt_tocnums_seq
+        { \abnt_tocnum_scan: } { }
+    }
+    \ior_close:N \l_abnt_toc_ior
+}
+\dim_compare:nNnT { \abntnumtemp } = { 0pt } {
+\settowidth { \abntnumtemp } { 2.1.1.1 } % fallback (1ª compilação)
+}
+}
+% Alias sem _ e : para ser chamável fora do ExplSyntaxOn (no \AtBeginDocument)
+\cs_new_eq:NN \abntMeasureTocNums \abnt_tocnum_widest:
+\ExplSyntaxOff
 \AtBeginDocument{%
-  \begingroup
+    \begingroup
     \normalfont\normalsize
-    \settowidth{\abntnumtemp}{2.1.1.1}%
+    \abntMeasureTocNums % mede a numeração mais extensa do .toc (ou fallback)
     \addtolength{\abntnumtemp}{0.25em}% um espaço de caractere
     \global\cftlastnumwidth=\abntnumtemp% copia ANTES do \endgroup
-  \endgroup
-  % atribuições globais: \settowidth/\setlength são locais e seriam
-  % desfeitos pelo \endgroup (e talvez pelo próprio agrupamento do hook)
-  \global\cftpartindent=0pt
-  \global\cftpartnumwidth=\cftlastnumwidth
-  \global\cftchapterindent=0pt
-  \global\cftchapternumwidth=\cftlastnumwidth
-  \global\cftsectionindent=0pt
-  \global\cftsectionnumwidth=\cftlastnumwidth
-  \global\cftsubsectionindent=0pt
-  \global\cftsubsectionnumwidth=\cftlastnumwidth
-  \global\cftsubsubsectionindent=0pt
-  \global\cftsubsubsectionnumwidth=\cftlastnumwidth
-  \global\cftparagraphindent=0pt
-  \global\cftparagraphnumwidth=\cftlastnumwidth
-  \global\cftsubparagraphindent=0pt
-  \global\cftsubparagraphnumwidth=\cftlastnumwidth
+    \endgroup
+    % atribuições globais: \settowidth/\setlength são locais e seriam
+    % desfeitos pelo \endgroup (e talvez pelo próprio agrupamento do hook)
+    \global\cftpartindent=0pt
+    \global\cftpartnumwidth=\cftlastnumwidth
+    \global\cftchapterindent=0pt
+    \global\cftchapternumwidth=\cftlastnumwidth
+    \global\cftsectionindent=0pt
+    \global\cftsectionnumwidth=\cftlastnumwidth
+    \global\cftsubsectionindent=0pt
+    \global\cftsubsectionnumwidth=\cftlastnumwidth
+    \global\cftsubsubsectionindent=0pt
+    \global\cftsubsubsectionnumwidth=\cftlastnumwidth
+    \global\cftparagraphindent=0pt
+    \global\cftparagraphnumwidth=\cftlastnumwidth
+    \global\cftsubparagraphindent=0pt
+    \global\cftsubparagraphnumwidth=\cftlastnumwidth
 }
 \setlength{\cftbeforechapterskip}{0pt}
 \setlength{\cftbeforepartskip}{0pt}
+
+% --- APÊNDICES/ANEXOS NO SUMÁRIO: TRAVESSÃO (NBR 14724:2024, 4.2.3.3 e 4.2.3.4) ---
+% A classe abntex2 grava "APÊNDICE A – ..." no sumário com meia-risca
+% (\textendash); substitui-se por travessão (\textemdash), o elemento exigido
+% pela norma ("letras maiúsculas consecutivas, travessão e pelo respectivo
+% título"). \cftinsertcode{A}{...} grava código no .toc executado em cada
+% \cftinsert{A} (entradas de apêndice E de anexo); como \cftinsertcode faz
+% \@namedef por chave e a structure.sty é carregada depois da classe, esta
+% chamada SOBRESCREVE a definição \cftinsertcode{A}{\hfill\textendash\hfill}
+% de abntex2.cls.
+\cftinsertcode{A}{\renewcommand{\cftchapteraftersnum}{\hfill\textemdash\hfill}}
 
 % --- SUMÁRIO: FONTES IDÊNTICAS AO TEXTO (NBR 14724:2024, 5.4; Manual ABNT 2024, 2.2) ---
 % Tamanho uniforme 12 (a norma não excepciona o sumário da fonte de 12) e o mesmo
@@ -383,7 +536,7 @@
     \ifthenelse{\boolean{abntex@apendiceousecao}}{%
         \bookmarksetup{numbered=false}%
         % \appendixname assume "Apêndice" ou "Anexo" conforme o ambiente atual
-        \oldchapter[\texorpdfstring{#1}{\appendixname\space\thechapter\space -- #1}]{#2}%
+        \oldchapter[\texorpdfstring{#1}{\appendixname\space\thechapter\space\textemdash\space#1}]{#2}%
         \bookmarksetup{numbered=true}% 
     }{%
         \oldchapter[#1]{#2}%
@@ -393,7 +546,7 @@
 \def\chap@noopt#1{%
     \ifthenelse{\boolean{abntex@apendiceousecao}}{%
         \bookmarksetup{numbered=false}%
-        \oldchapter[\texorpdfstring{#1}{\appendixname\space\thechapter\space -- #1}]{#1}%
+        \oldchapter[\texorpdfstring{#1}{\appendixname\space\thechapter\space\textemdash\space#1}]{#1}%
         \bookmarksetup{numbered=true}%
     }{%
         \oldchapter{#1}%

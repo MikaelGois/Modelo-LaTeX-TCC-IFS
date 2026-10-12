@@ -36,15 +36,15 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 - [x] Folha de Aprovação de exemplo (`01-pre-textuais/01-folha-aprovacao`) - Revisar diagramação/formatação
 - [X] Dedicatória (`01-pre-textuais/02-dedicatoria`) - Finalizado
 - [X] Agradecimentos (`01-pre-textuais/03-agradecimentos`) - Finalizado
-- [X] Epígrafe (`01-pre-textuais/04-epigrafe`) - Revisar diagramação/formatação
+- [X] Epígrafe (`01-pre-textuais/04-epigrafe`) - Finalizado
 - [X] Resumo (`01-pre-textuais/05-resumo-pt`) - Revisar diagramação/formatação
 - [X] Abstract (`01-pre-textuais/06-abstract-en`) - Revisar diagramação/formatação
 - [X] Lista de Figuras/Ilustrações (`\listfigurename`) - Finalizado
-- [X] Lista de Algoritmos (`\listofalgorithms`) - Revisar diagramação/formatação
+- [X] Lista de Algoritmos (`\listofalgorithms`) - Finalizado
 - [ ] Lista de Tabelas (`\listtablename`)
 - [X] Lista de Abreviaturas e Siglas (`01-pre-textuais/07-lista-abreviaturas-siglas`) - Revisar diagramação/formatação
 - [X] Lista de Símbolos (`01-pre-textuais/08-lista-simbolos`) - Revisar diagramação/formatação
-- [ ] Sumário (`\contentsname`) - Revisar diagramação/formatação
+- [X] Sumário (`\contentsname`) - Finalizado
 
 ### Elementos Textuais
 - [X] Introdução (`02-textuais/01-01-introducao`) - Finalizado
@@ -57,8 +57,8 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 ### Elementos Pós-Textuais
 - [X] Referências (`\bibliography{referencias}`) - Revisar diagramação/formatação
 - [ ] Glossário (`03-pos-textuais/`)
-- [X] Apêndices (`03-pos-textuais/01-apendices`) - Revisar diagramação/formatação
-- [X] Anexos (`03-pos-textuais/02-anexos`) - Revisar diagramação/formatação
+- [X] Apêndices (`03-pos-textuais/01-apendices`) - Finalizado
+- [X] Anexos (`03-pos-textuais/02-anexos`) - Finalizado
 - [ ] Índice (`03-pos-textuais/`)
 
 ---
@@ -99,6 +99,7 @@ os comandos principais que você usará com mais frequência. Itens marcados com
 | **Dados do trabalho** | `\titulo`, `\subtitulo`, `\autor`, `\orientador`, `\coorientador`, `\local`, `\uf`, `\ano`, `\preambulo` |
 | **Listas automáticas** | `\listoffigures*`, `\listoftables*`, `\listofalgorithms`, `\tableofcontents*` |
 | **Referências** | `\bibliography{referencias}` (dados em `referencias.bib`) |
+| **Opções de estilo (abntex2cite)** | `\citeoption{opcoes-abnt}` (em `main.tex`) lê a entrada `@abnt-options` de `referencias.bib` — é ela que gera *et al.* em itálico nas citações e nas referências |
 | **Apêndice / Anexo** | `\begin{apendicesenv}`, `\partapendices`, `\appendixname` |
 
 **Sobre cores:** conforme a NBR 14724:2024 (5.1), os textos devem ser em cor

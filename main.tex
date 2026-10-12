@@ -91,6 +91,17 @@ da Computação.}
 
 \frenchspacing
 
+% --- "et al." EM ITÁLICO — mecanismo NATIVO do abntex2cite ---
+% \citeoption equivale a \nocite: pede ao BibTeX a opção de estilo gravada na
+% entrada @abnt-options "opcoes-abnt" (referencias.bib). O bst processa essas
+% entradas ANTES de compor a saída (process.early.abnt.options), então o
+% abnt-etal-text vale para TODAS as citações e referências — inclusive as
+% entradas alfabeticamente anteriores a "opcoes-abnt".
+% Fundamento da grafia: NBR 10520:2023 (6.1.2) e NBR 6023:2025 (8.1.1.2)
+% trazem "et al." em itálico nos exemplos. Não é preciso (nem é recomendado)
+% alterar arquivos de nao-altere/ nem manter cópias de .bst na raiz.
+\citeoption{opcoes-abnt}
+
 % O conteúdo é gerado automaticamente a partir dos dados preenchidos acima.
 % Não entra na contagem de páginas.
 \imprimircapa % Finalizado
