@@ -3,7 +3,20 @@ name: revisao-abnt
 description: Revisão criteriosa de conformidade ABNT do modelo LaTeX de TCC do IFS. Use quando o usuário pedir para revisar/verificar os arquivos marcados como "Finalizado" (ou qualquer elemento) do README contra as normas da pasta "Normas ABNT", ou para executar a análise crítica de conformidade ABNT/NBR no projeto.
 ---
 
-# Revisão de Conformidade ABNT — Modelo LaTeX TCC IFS
+<!--
+=======================================================================================
+MODELO DE TCC - INSTITUTO FEDERAL DE SERGIPE (IFS)
+=======================================================================================
+Autor do Modelo: Mikael dos Santos Gois
+Modelo Base: abnTeX2 adaptado para as normativas internas de TCC do IFS (Art. 31 e 34)
+Licença: CC BY-SA 4.0 (ver LICENSE) | Créditos e atribuições: ver NOTICE
+Este arquivo faz parte de um modelo opensource para estudantes do IFS.
+Não remova os créditos dos autores originais e do modelo base.
+Este modelo é fornecido "no estado em que se encontra", sem garantias de qualquer tipo.
+=======================================================================================
+-->
+
+# Revisão de Conformidade ABNT - Modelo LaTeX TCC IFS
 
 Executa a análise crítica de conformidade dos elementos do modelo LaTeX de TCC
 do IFS contra as normas ABNT (pasta `Normas ABNT`) e a Normativa Interna do IFS.

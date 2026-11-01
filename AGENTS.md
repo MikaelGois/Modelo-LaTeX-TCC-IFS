@@ -1,4 +1,17 @@
-# AGENTS.md — Modelo LaTeX TCC IFS (Instituto Federal de Sergipe)
+<!--
+=======================================================================================
+MODELO DE TCC - INSTITUTO FEDERAL DE SERGIPE (IFS)
+=======================================================================================
+Autor do Modelo: Mikael dos Santos Gois
+Modelo Base: abnTeX2 adaptado para as normativas internas de TCC do IFS (Art. 31 e 34)
+Licença: CC BY-SA 4.0 (ver LICENSE) | Créditos e atribuições: ver NOTICE
+Este arquivo faz parte de um modelo opensource para estudantes do IFS.
+Não remova os créditos dos autores originais e do modelo base.
+Este modelo é fornecido "no estado em que se encontra", sem garantias de qualquer tipo.
+=======================================================================================
+-->
+
+# AGENTS.md - Modelo LaTeX TCC IFS (Instituto Federal de Sergipe)
 
 Este arquivo é a **fonte de verdade persistente** para a revisão de conformidade
 ABNT do projeto. Ele é lido e atualizado pela skill `revisao-abnt`.
