@@ -213,6 +213,35 @@
     \endgroup}
 \makeatother
 
+% --- QUADRO: AMBIENTE PARA DADOS TEXTUAIS (NBR 14724:2024, 4.2.1.9 e 5.8) ---
+% A ABNT trata o QUADRO como ILUSTRAÇÃO: a 4.2.1.9 lista "quadros" entre as
+% ilustrações, então o quadro usa a mesma identificação das figuras - palavra
+% designativa + número + travessão + título (5.8) - e a fonte vem imediatamente
+% após. A própria 4.2.1.9 recomenda "lista própria para cada tipo de ilustração"
+% quando necessário; daí a LISTA DE QUADROS, no mesmo formato das demais listas
+% ("Quadro 1 — Título ... página").
+%
+% Tabela x quadro (use o certo):
+%   - dados NUMÉRICOS -> TABELA, padronizada pelas Normas de apresentação tabular
+%     do IBGE (NBR 14724:2024, 5.9): moldura SEM traços verticais nas laterais
+%     (IBGE 4.3.3) e no MÍNIMO três traços horizontais (IBGE 4.3.1);
+%   - dados TEXTUAIS -> QUADRO (como o comparativo de trabalhos correlatos); a
+%     moldura fechada é permitida.
+\newfloat{quadro}{loq}{Quadro}
+\setfloatlocations{quadro}{htb}
+\newcommand{\listquadrosname}{Lista de Quadros}
+\newlistof{listofquadros}{loq}{\listquadrosname}
+\makeatletter
+\newcommand{\cftquadroname}{Quadro~}
+\newlength{\cftquadronumwidth}\setlength{\cftquadronumwidth}{7em}
+\newcommand*\l@quadro[2]{%
+    \begingroup
+    \renewcommand{\numberline}[1]{\hb@xt@\cftquadronumwidth{%
+            \cftquadroname##1\hfill\textemdash\hfill}}%
+    \@dottedtocline{1}{0em}{\cftquadronumwidth}{#1}{#2}%
+    \endgroup}
+\makeatother
+
 % --- SEPARADOR: TRAVESSÃO NAS LISTAS E NAS LEGENDAS (NBR 14724:2024) ---
 % A norma pede TRAVESSÃO em três lugares, e o abntex2/algorithm2e vêm com
 % meia-risca ou dois-pontos:

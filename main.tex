@@ -137,6 +137,7 @@ da Computação.}
 % listoffigures:        Lista de Figuras. Opcional, comente a linha se não for usar.
 % listofalgorithms:     Lista de Algoritmos. Opcional, comente a linha se não for usar.
 % listoftables:         Lista de Tabelas. Opcional, comente a linha se não for usar.
+% listofquadros:        Lista de Quadros. Opcional, comente a linha se não for usar.
 %
 % abreviaturas-siglas:  Lista de Abreviaturas e Siglas. 
 %                       Opcional, comente a linha se não for usar.
@@ -190,6 +191,14 @@ da Computação.}
 \pdfbookmark[0]{Lista de Tabelas}{lot}
 \renewcommand{\listtablename}{LISTA DE TABELAS}
 \listoftables* \cleardoublepage
+
+% O QUADRO é tratado pela norma como ILUSTRAÇÃO (a 4.2.1.9 lista "quadros" entre as
+% ilustrações) e, por isso, entra em lista própria de ilustrações - a mesma
+% recomendação de "lista própria para cada tipo" citada acima.
+% O conteúdo da lista é gerado automaticamente a partir do conteúdo do trabalho.
+\pdfbookmark[0]{Lista de Quadros}{loq}
+\renewcommand{\listquadrosname}{LISTA DE QUADROS}
+\listofquadros* \cleardoublepage
 
 \include{01-pre-textuais/07-lista-abreviaturas-siglas} % Feito - Revisar diagramação/formatação
 \include{01-pre-textuais/08-lista-simbolos} % Feito - Revisar diagramação/formatação
