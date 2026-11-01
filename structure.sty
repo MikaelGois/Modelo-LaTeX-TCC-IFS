@@ -47,6 +47,13 @@
 % \linespread{1.5}                % Espaçamento 1,5
 \OnehalfSpacing % Comando oficial do abntex2 para espaçamento 1,5
 
+% --- RECUO DA PRIMEIRA LINHA DO PARÁGRAFO (Manual ABNT 2024, 2.4) ---
+% "O texto deve ser digitado em parágrafos, deslocando a primeira linha em
+% 1,25 cm da margem esquerda e justificado." A NBR 14724 não fixa a medida; o
+% memoir usa 1,5 em (medido: 0,62 cm). Observação: \parindent também define o
+% recuo das alíneas do abntex2 (leftmargin=\parindent+\labelwidth-\labelsep).
+\setlength{\parindent}{1.25cm}
+
 % --- PAGINAÇÃO: SOMENTE OS ALGARISMOS, SEM CABEÇALHO CORRENTE (NBR 14724:2024, 5.3) ---
 % A norma exige apenas a numeração no canto superior direito (anverso) e no
 % canto superior esquerdo (verso), a 2 cm das bordas. O cabeçalho corrente do
@@ -96,6 +103,10 @@
     \setlength{\beforechapskip}{0pt}%  % Capítulos sempre começam no topo da página
     \setlength{\beforesecskip}{\baselineskip}%
     \setlength{\beforesubsecskip}{\baselineskip}%
+    \setlength{\beforesubsubsecskip}{\baselineskip}%   Subsubseções (terciárias)
+    \setlength{\beforeparaskip}{\baselineskip}%        Parágrafos (subdivisões)
+    % NBR 14724:2024, 5.2.2: os títulos das subseções (e, por extensão, das demais
+    % subdivisões) devem ser separados do texto que os precede e sucede por 1,5.
 }
 
 % --- HIERARQUIA TIPOGRÁFICA DOS TÍTULOS (NBR 14724:2024, 5.4; NBR 6024:2012, 4.1 j)) ---
