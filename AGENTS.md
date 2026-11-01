@@ -97,6 +97,7 @@ Legenda: ✅ Conforme · ⚠️ Ajuste · ❌ Não conforme · ⬜ Não revisado
 > Última revisão completa: **28/09/2026** (elementos "Finalizado" do README, 16 elementos; PDF compilado do zero, 26 páginas, sem erros).
 > Revisão de **diagramação/tipografia: 12/10/2026** (listas, sumário, títulos, cabeçalho, notas de rodapé, "et al.", siglas/símbolos, resumo — ver bloco abaixo) e **fechamento: 12/10/2026** (epígrafe 1,5; lista de algoritmos; travessão em listas/legendas/apêndices/anexos; linha em branco entre referências; coluna de siglas/símbolos 3 em; "et al." via `\citeoption`).
 > **Revisão geral de 12/10/2026** (espaçamentos, seções, citações, ilustrações, tabelas, código, pré-textuais): compilação limpa, 26 páginas, medições por linha de base — ver bloco "Revisão geral" abaixo e `relatorio-revisao-abnt.md`.
+> **Publicação do repositório: 31/10/2026** — correções ABNT aplicadas (recuo de parágrafo, citações da NBR 10520:2023, autorias, REFERÊNCIAS, palavras-chave, símbolos), ambiente **quadro** + LISTA DE QUADROS, **tabela** numérica de exemplo, licença CC BY-SA 4.0, `NOTICE`, termo de isenção, guia de contribuição, templates de issue e cabeçalho padrão. PDF: **27 páginas**, 0 erro.
 
 | Elemento | Arquivo | Status | Observação registrada |
 |----------|---------|--------|------------------------|
@@ -107,8 +108,8 @@ Legenda: ✅ Conforme · ⚠️ Ajuste · ❌ Não conforme · ⬜ Não revisado
 | Dedicatória | `01-pre-textuais/02-dedicatoria.tex` | ✅ Conforme | — |
 | Agradecimentos | `01-pre-textuais/03-agradecimentos.tex` | ✅ Conforme | — |
 | Epígrafe | `01-pre-textuais/04-epigrafe.tex` | ✅ Conforme | espaçamento **1,5** desde 12/10/2026 (`OnehalfSpacing`; NBR 14724 §5.2 não excepciona a epígrafe); pitch medido 17,93 pt; sem título, meio→margem direita, parte inferior |
-| Resumo | `01-pre-textuais/05-resumo-pt.tex` | ⚠️ Ajuste | "Palavras-chave" logo abaixo do resumo ✓ (12/10/2026); **resta**: siglas em minúsculas nas palavras-chave ("ifs", "abnt", "tcc") — NBR 6028 §4.1.7. *Extensão (recontada em 12/10/2026):* **163 palavras**, dentro de 150–500 (§4.1.8a) — a anotação anterior de "134 palavras (< 150)" estava **incorreta** |
-| Abstract | `01-pre-textuais/06-abstract-en.tex` | ⚠️ Ajuste | idem: espaçamento corrigido 12/10/2026; **resta** capitalizar as siglas nas palavras-chave ("ifs", "abnt") |
+| Resumo | `01-pre-textuais/05-resumo-pt.tex` | ✅ Conforme | "Palavras-chave" logo abaixo do resumo ✓; **siglas em maiúsculas** ("IFS", "ABNT NBR 6028", "TCC") — corrigido em 31/10/2026 (NBR 6028 §4.1.7; o exemplo da própria norma grafa "IBGE"); extensão **163 palavras**, dentro de 150–500 (§4.1.8a) |
+| Abstract | `01-pre-textuais/06-abstract-en.tex` | ✅ Conforme | idem (siglas em maiúsculas nas keywords, 31/10/2026) |
 | Lista de Figuras | `main.tex` (`\listoffigures*`) | ✅ Conforme | entrada "Figura 1 — Título … página" com **travessão** (—) desde 12/10/2026 (§4.2.1.9; antes meia-risca, vinda do `abntex2.cls`) |
 | Lista de Algoritmos | `main.tex` (`\listofalgorithms`) | ✅ Conforme | entrada "Algoritmo 1 — Título … página" à margem esquerda (`\l@algocf` redefinido) e legenda "Algoritmo 1 — …" (`\SetAlgoCaptionSeparator`) — §4.2.1.9/§5.8 por analogia (12/10/2026) |
 | Lista de Siglas | `01-pre-textuais/07-lista-abreviaturas-siglas.tex` | ✅ Conforme | coluna de significados alinhada (`labelwidth=3em`, `labelsep=1.5em` + `align=left`) e sem travessão, como o exemplo da NBR 14724 §4.2.1.11 (12/10/2026) |
@@ -152,47 +153,64 @@ Medições por **linha de base** (PyMuPDF) no PDF compilado do zero (26 páginas
 | Entrelinhas (corpo, pré-textuais, sumário, listas) | ✅ Conforme | 17,93 pt = 1,5 (§5.2) |
 | Referências | ✅ Conforme | 14,45 pt dentro da entrada e 28,90 pt entre entradas (1 espaço em branco) (§5.2) |
 | Travessão nas listas, legendas e apêndices/anexos | ✅ Conforme | 2,99–3,32 pt de cada lado; no **sumário** dos apêndices/anexos fica 1,66–2,00 pt (efeito do `\hfill` na coluna de numeração) — não prescrito |
-| **Recuo da 1ª linha do parágrafo** | ❌ **Não conforme** | medido **17,56 pt (0,62 cm)**; o Manual §2.4 pede **1,25 cm**. `\parindent` não é definido no modelo (memoir: `1.5em`) |
-| **Caixa do sobrenome na citação** | ❌ **Não conforme** | `\cite` produz `(KITCHENHAM; CHARTERS et al., 2007b)` — **caixa alta**; §6.1.1.1 pede "letras maiúsculas e minúsculas" (`(Clarac; Bonnin, 1985)`). O bst declara `abnt.cite.style = #0` como "default norm version for NBR10520" **de 2002** |
-| Referências com 4+ autores / exemplo `kitchenham` | ❌ Não conforme | `author = {… and others}` com 2 autores reais → `et al.` na citação e na referência: fere §8.1.1.1 (até 3 autores, **todos**). Default do bst abrevia referências com 4+ (`abnt.etal.list=3`) |
+| Recuo da 1ª linha do parágrafo | ✅ **Corrigido (31/10/2026)** | `\setlength{\parindent}{1.25cm}` em `structure.sty` (Manual ABNT 2024 §2.4). Medido: 1ª linha em **120,47 pt** = 1,25 cm (antes 102,60 pt = 0,62 cm) |
+| Caixa do sobrenome na citação | ✅ **Corrigido (31/10/2026)** | `abnt-cite-style = {(Author, YEAR)}` na `@abnt-options` (NBR 10520:2023 §6.1.1.1). Verificado no PDF: `(Kitchenham; Charters, 2007a)` (antes `(KITCHENHAM; CHARTERS et al., 2007b)`) |
+| Autorias nas referências | ✅ **Corrigido (31/10/2026)** | `abnt-etal-list = {0}` (todos os autores — §6.1.2/§8.1.1.2) e exemplos `kitchenham` sem `and others` (2 autores — §8.1.1.1). *Pendente:* as duas entradas `kitchenham` seguem quase duplicadas (2007a/2007b) |
 | Citação direta curta (aspas) e longa (4 cm/10 pt/simples) | ⬜ Sem exemplo | §7.1 / §7.1.1 — o ambiente **`citacao`** do `abntex2.cls` já implementa 4 cm + 10 pt + simples + sem aspas |
 | *apud*, alíneas/subalíneas, notas de rodapé, equações | ⬜ Sem exemplo | Manual §5.1.3; NBR 6024 §4.2/4.3; NBR 14724 §5.2.1 e §5.7 |
-| Rótulo dos exemplos de citação | ⚠️ Ajuste | `01-introducao.tex` chama de "citação **direta**" o que é `\cite` (**indireta**) — §7 do NBR 10520 |
+| Rótulo dos exemplos de citação | ✅ **Corrigido (31/10/2026)** | `01-introducao.tex`: rótulos corretos (citação **indireta**) e DICA com as **quatro formas** de citação + o comportamento do `\cite[texto]` (entra literalmente após o ano) |
 | Ilustrações: título acima, fonte abaixo, travessão | ✅ Conforme | §5.8; fonte a 10 pt e espaço simples (§5.1/§5.2) |
 | Legenda (título) de ilustração e tabela | ⚠️ Ajuste (interpretação) | 12 pt; §5.1/Manual §2.3 mandam tamanho menor para "fontes e **legendas**" — o `abntex2.cls` traz `\captiontitlefont{\ABNTEXfontereduzida}` **comentado** |
 | Tabela: moldura sem verticais laterais e ≥ 3 horizontais | ✅ Conforme | IBGE §4.3.3 e §4.3.1 (medido: nenhuma vertical lateral; 6 horizontais na largura da mancha) |
-| Tabela: verticais em todas as colunas e conteúdo textual | ⚠️ Ajuste | IBGE §4.3.2 (verticais só para "destacar parte"); dados textuais pedem **Quadro** (Manual, Ap. N); conteúdo a 12 pt vs **10** recomendado (Manual §2.3) |
+| Quadro (dados textuais) e Tabela (dados numéricos) | ✅ **Corrigido (31/10/2026)** | Ambiente `quadro` criado (memoir `\newfloat`/`\newlistof`) + **LISTA DE QUADROS** própria — a NBR trata o quadro como **ilustração** (§4.2.1.9) e recomenda lista por tipo. O comparativo textual virou `QUADRO 1` (moldura fechada, permitida em quadro); acrescentada `TABELA 1` numérica conforme IBGE (sem verticais nas laterais — §4.3.3; 3 horizontais — §4.3.1; unidade no cabeçalho — §4.6). Verificado: quadro com 5 verticais; tabela **sem** verticais |
 | Bloco de código e algoritmo | ✅ Conforme | preto e branco (§5.1), numeração de linhas, fonte ~11 pt, entrelinha simples; legenda com travessão na lista e na legenda |
 | Quebra de título em mais de uma linha | ✅ Conforme | testado: 2ª linha alinhada sob a 1ª letra do título (NBR 6024 §4.1 i); §5.2.2 |
-| "Referências" em caixa mista na folha | ❌ Não conforme | o sumário traz **REFERÊNCIAS** e a folha "Referências" — §5.4 ("no sumário e, de forma idêntica, no texto"); NBR 6024 §4.1 h) |
-| Lista de símbolos agrupada por categoria | ❌ Não conforme | §4.2.1.12 (ordem de **aparição no texto**) |
+| "REFERÊNCIAS" na folha | ✅ **Corrigido (31/10/2026)** | `\renewcommand{\bibname}{REFERÊNCIAS}` em `main.tex` (§5.2.3/§5.4; NBR 6024 §4.1 h); NBR 6027 §3.4 — o sumário reproduz a grafia do texto |
+| Lista de símbolos | ✅ **Corrigido (31/10/2026)** | DICA da **ordem de aparição** (§4.2.1.12) e remoção dos agrupamentos por categoria |
 | Paginação, margens, justificado, fonte 12 | ✅ Conforme | §5.1/§5.3 (10 pt no número, 2 cm das bordas, 3/2/3/2, Times clone `newtx`) |
 | Avisos de compilação | ✅ Identificados | 2 `Underfull` na ficha catalográfica (Helvetica ~10 pt, linha 72); 1 `Overfull` de 17,6 pt dentro do bloco do algoritmo, **sem transbordo visível** (nada passa de 538,58 pt) |
 
 **Correções desta rodada validadas por teste isolado de `bibtex`** (opção nativa, sem mexer em `nao-altere/`):
 `abnt-cite-style = {(Author, YEAR)}` → citação em caixa mista (§6.1.1.1) e `abnt-etal-list = {0}` → referência com **todos** os autores (§6.1.2/§8.1.1.2). Com 5 autores, o padrão `abnt-etal-cite=3` já cita corretamente "Primeiro *et al.*".
 
+### Publicação do repositório — 31/10/2026 (correções, licença e documentação)
+
+| Item | Status | Observação |
+|------|--------|------------|
+| Licença e créditos | ✅ | `LICENSE` (**CC BY-SA 4.0**, texto oficial) + `NOTICE` (abnTeX2/LPPL 1.3c, DECOM/UFOP, Diogo D. Moreira, imagem de von Neumann e logo do IFS) |
+| Termo de isenção de responsabilidade | ✅ | `DISCLAIMER.md` + seção no `README.md`: o modelo ajuda, mas **o usuário deve conferir** a ABNT/IBGE e a Normativa do IFS; divergências → **abrir issue** |
+| Como usar / como contribuir | ✅ | `README.md` (requisitos, compilação, fluxo) + `CONTRIBUTING.md` (issue de divergência ABNT, issue de bug, PR) + `.github/ISSUE_TEMPLATE/` (2 formulários + `config.yml`) + `.github/PULL_REQUEST_TEMPLATE.md` |
+| Como citar | ✅ | `CITATION.cff` (botão "Cite this repository") |
+| Cabeçalho padrão do modelo | ✅ | acrescentado em `structure.sty`, nos 4 `style-font-*.sty`, `README.md`, `AGENTS.md` e nos 3 `SKILL.md` (**depois** do frontmatter, para não quebrar as skills). `nao-altere/` **não** recebe (arquivos de terceiros, crédito no `NOTICE`) |
+| PDFs de terceiros | ✅ removidos do rastreio | `material-de-apoio/` (Normativa do IFS + **3 TCCs de alunos**) saiu do repositório e o conteúdo do readme foi incorporado ao README (só links). **Pendente: reescrever o histórico** — os PDFs seguem acessíveis no passado do git |
+| Reescrita do histórico | ⚠️ **Decisão do autor** | `filter-branch` (sem `filter-repo` na máquina) remove os PDFs do passado, mas **desalinha o histórico da branch `tcc`** (mesma raiz) e exige `push --force` no `main` |
+| Quadro × Tabela | ✅ | ambiente `quadro` + **LISTA DE QUADROS** própria; comparativo textual → `QUADRO 1` (moldura fechada); `TABELA 1` numérica conforme IBGE |
+| Data de acesso das referências | ✅ | `01 jan. 2026` (NBR 6023:2025) — antes "01 de jan, 2026" |
+| Exemplos didáticos (citação curta/longa, *apud*, alíneas, nota de rodapé, equação) | ⬜ Autorizado para depois | §7.1/§7.1.1, Manual §5.1.3, NBR 6024 §4.2/4.3, §5.2.1 e §5.7 |
+
 ### Correções recomendadas (pendentes)
 1. ~~Epígrafe: avaliar espaçamento 1,0 → 1,5~~ — **RESOLVIDO** (12/10/2026): `OnehalfSpacing` em `04-epigrafe.tex`; pitch medido 17,93 pt (NBR 14724:2024 §5.2).
-2. Resumo/Abstract: capitalizar as siglas nos exemplos de palavras-chave — "normativa do IFS; ABNT NBR 6028; formatação de TCC" (NBR 6028 §4.1.7). *(O espaço extra antes de "Palavras-chave" já foi corrigido e a extensão do texto-exemplo está **conforme** — 163 palavras.)*
+2. ~~Resumo/Abstract: siglas em maiúsculas nas palavras-chave~~ — **RESOLVIDO** (31/10/2026): "normativa do IFS; ABNT NBR 6028; formatação de TCC" (NBR 6028 §4.1.7). *(Extensão do texto-exemplo **conforme** — 163 palavras.)*
 3. ~~Lista de Algoritmos: entradas e legenda~~ — **RESOLVIDO** (12/10/2026): "Algoritmo 1 — Título … página" na lista e legenda "Algoritmo 1 — …" (analogia §4.2.1.9/§5.8).
-4. Lista de símbolos: reordenar conforme aparição no texto (§4.2.1.12).
-5. ~~meia-risca → travessão em apêndices/anexos (§4.2.3.3/4)~~ — **RESOLVIDO** (12/10/2026); **pendentes**: padronizar título "REFERÊNCIAS" em maiúsculas na folha (NBR 14724 §5.4 + NBR 6024 §4.1 h) e unificar entradas kitchenham (NBR 6023 §8.1.1.1).
+4. ~~Lista de símbolos: ordem de aparição~~ — **RESOLVIDO** (31/10/2026): DICA com a regra (§4.2.1.12) e remoção dos agrupamentos por categoria.
+5. ~~meia-risca → travessão em apêndices/anexos (§4.2.3.3/4)~~ — RESOLVIDO (12/10/2026); ~~"REFERÊNCIAS" em maiúsculas na folha~~ — **RESOLVIDO** (31/10/2026). **Pendente**: as duas entradas `kitchenham` seguem quase duplicadas (2007a/2007b) — diferenciar em duas obras distintas ou documentar melhor o caso a/b (NBR 10520 §6.1.6).
 6. Decidir composição da banca (ABNT vs. IFS Art. 18) e fonte (Times original vs. `newtx`).
 7. ~~Ficha catalográfica: corrigir numeração das palavras-chave~~ — **RESOLVIDO** (commit `07ed40e`, 13/09/2026).
 8. ~~Cabeçalho corrente: decidir entre manter/remover~~ — **RESOLVIDO** (12/10/2026): cabeçalho corrente e filete removidos por decisão do autor; permanece só o número da página (NBR 14724 §5.3). Registrado que a ABNT não prescreve nem proíbe cabeçalho corrente.
 9. ~~Siglas/símbolos: `labelwidth`~~ — **RESOLVIDO** (12/10/2026): ajustado de 6 em para **3 em** (+ `labelsep` 1,5 em) em `structure.sty`. Se aparecer sigla/símbolo mais largo que 3 em, ampliar o `labelwidth` ali (comentado no código).
-10. **Recuo da 1ª linha do parágrafo** (novo, 12/10/2026): `\setlength{\parindent}{1.25cm}` em `structure.sty` — Manual ABNT 2024 §2.4 (medido hoje: 17,56 pt = 0,62 cm). Cuidado: `\parindent` é usado pelas alíneas do `abntex2` (`leftmargin=\parindent+\labelwidth-\labelsep`).
-11. **Citações em caixa alta** (novo, 12/10/2026): acrescentar `abnt-cite-style = {(Author, YEAR)}` e `abnt-etal-list = {0}` à entrada `@abnt-options{opcoes-abnt}` de `referencias.bib` — NBR 10520 §6.1.1.1 (sobrenome em maiúsculas e minúsculas) e §6.1.2/§8.1.1.2 (referência com todos os autores). *Validado por teste de `bibtex`.*
-12. **Exemplos ausentes** (novo, 12/10/2026): citação direta curta (aspas, §7.1), citação direta longa (ambiente `citacao`: 4 cm/10 pt/simples/sem aspas, §7.1.1), *apud* (Manual §5.1.3), alíneas/subalíneas (NBR 6024 §4.2/4.3), nota de rodapé (§5.2.1), equação (§5.7) e tabela/quadro com "Continua/Conclusão" (Manual Ap. Q).
-13. **Tabela × quadro e legenda** (novo, 12/10/2026): conteúdo textual pede **Quadro** (Manual Ap. N) e conteúdo em **10 pt** (Manual §2.3); verticais só para destacar partes (IBGE §4.3.2). Legenda (título) de ilustração/tabela em 12 pt vs "fontes e legendas em tamanho menor" (§5.1/Manual §2.3) — **duas leituras possíveis, reportar ambas**.
-14. **Micro-ajustes de espaçamento** (novo, 12/10/2026): `\setlength{\beforesubsubsecskip}{\baselineskip}` (hoje 34,66 pt vs 35,86 pt dos demais níveis) e uniformizar a folga do travessão no sumário dos apêndices/anexos (1,66–2,00 pt).
+10. ~~Recuo da 1ª linha do parágrafo~~ — **RESOLVIDO** (31/10/2026): `\setlength{\parindent}{1.25cm}` em `structure.sty` (Manual ABNT 2024 §2.4); medido 120,47 pt = 1,25 cm.
+11. ~~Citações em caixa alta~~ — **RESOLVIDO** (31/10/2026): `abnt-cite-style = {(Author, YEAR)}` + `abnt-etal-list = {0}` na `@abnt-options` de `referencias.bib` (NBR 10520 §6.1.1.1/§6.1.2).
+12. **Exemplos ausentes** (autorizado para a próxima etapa): citação direta curta (aspas, §7.1), citação direta longa (ambiente `citacao`: 4 cm/10 pt/simples/sem aspas, §7.1.1), *apud* (Manual §5.1.3), alíneas/subalíneas (NBR 6024 §4.2/4.3 — **usar travessão** na subalínea, §4.3 a), e não o meia-risca do `abntex2`), nota de rodapé (§5.2.1), equação (§5.7) e tabela/quadro com "Continua/Conclusão" (IBGE/Manual Ap. Q).
+13. ~~Tabela × quadro~~ — **RESOLVIDO** (31/10/2026): ambiente `quadro` + LISTA DE QUADROS; `QUADRO 1` (textual, moldura fechada) e `TABELA 1` numérica (IBGE). **Restante (interpretação, sem mudança):** legenda (título) de ilustração/tabela em 12 pt — §5.8 distingue *título* de *legenda* e a §5.1 manda tamanho menor apenas para "fontes e legendas" (o Manual §2.3 tem leitura mais ampla; **duas leituras, reportar ambas**).
+14. **Micro-ajustes de espaçamento**: ~~subsubseção~~ RESOLVIDO (31/10/2026: `\beforesubsubsecskip`/`\beforeparaskip` = `\baselineskip`; medido 35,85 pt, antes 34,66 pt); **pendente**: folga do travessão no sumário dos apêndices/anexos (1,66–2,00 pt) — não prescrito pela ABNT.
 
 ### Decisões do autor (não reabrir)
 - ***et al.* em itálico** — NBR 10520 §6.1.2 e NBR 6023 §8.1.1.2 grafam a expressão em itálico nos exemplos; o Manual ABNT 2024 §2.2 desaconselha itálico para expressões latinas. Seguiu-se a **norma técnica**; a divergência fica registrada.
 - **Travessão (—) em listas, legendas e títulos de apêndice/anexo** — o texto da NBR 14724 (§4.2.1.9, §4.2.1.10, §5.8, §4.2.3.3/4) manda travessão, mas o **exemplo** do §5.8 usa meia-risca. Seguiu-se o texto normativo e uniformizou-se o documento; a divergência interna da norma fica registrada.
 - **Sem cabeçalho corrente** (só o número da página, §5.3) — a ABNT não prescreve nem proíbe.
 - **Hierarquia de negrito** — negrito até as secundárias, fonte regular da terciária em diante (inclusive no sumário); a norma é permissiva ("destacam-se gradativamente").
+- **Caixa do sobrenome nas citações: NBR 10520 vigente (2023, §6.1.1.1)** — "letras maiúsculas e minúsculas", via `abnt-cite-style = {(Author, YEAR)}` em `referencias.bib`. O padrão do abntex2 seguia a NBR 10520:**2002** (caixa alta). Decisão do autor em 31/10/2026; o `DIRETIVAS-ESCRITA.md` do TCC foi atualizado junto.
+- **Quadro para dados textuais, Tabela para dados numéricos** — o comparativo de trabalhos correlatos é `QUADRO 1` (moldura fechada permitida); a `TABELA 1` numérica segue o IBGE. A LISTA DE QUADROS é prevista pela NBR 14724 §4.2.1.9 (lista própria por tipo de ilustração).
 
 ---
 
