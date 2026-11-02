@@ -2,9 +2,13 @@
 =======================================================================================
 MODELO DE TCC - INSTITUTO FEDERAL DE SERGIPE (IFS)
 =======================================================================================
-Autor do Modelo: Mikael dos Santos Gois
-Modelo Base: abnTeX2 adaptado para as normativas internas de TCC do IFS (Art. 31 e 34)
-Licença: CC BY-SA 4.0 (ver LICENSE) | Créditos e atribuições: ver NOTICE
+Autores do Modelo (discentes de Ciência da Computação - IFS, Campus Itabaiana):
+  Mikael dos Santos Gois
+  Talyson Rodrigues Silva Nascimento
+  Kauan Gutierrez Santos Estácio
+Modelo Base: abnTeX2, adaptado para as normativas internas de TCC do IFS (Art. 31 e 34)
+Créditos dos modelos base (abnTeX2, DECOM/UFOP e Diogo D. Moreira) e das imagens: ver NOTICE
+Licença: CC BY-SA 4.0 (ver LICENSE)
 Este arquivo faz parte de um modelo opensource para estudantes do IFS.
 Não remova os créditos dos autores originais e do modelo base.
 Este modelo é fornecido "no estado em que se encontra", sem garantias de qualquer tipo.
@@ -52,10 +56,14 @@ Requisitos (portátil — não depender de caminho fixo de máquina):
 | Norma | Uso |
 |-------|-----|
 | `ABNT-NBR-14724-2024` | Estrutura do trabalho (§4) e regras gerais (§5) — norma central |
+| `ABNT-NBR-6024-2012` | Numeração progressiva das seções (§4.1–4.4) |
+| `ABNT-NBR-6027-2012` | Sumário (§3.4, §4, §5 e §6) |
 | `ABNT-NBR-6028-2021` | Resumo/abstract (§4.1) |
-| `ABNT-NBR-6023-2025` | Referências (§6.3) |
-| `Manual_ABNT_2024` | Orientação prática dos elementos |
-| `material-de-apoio/Normativa Interna para TCC.pdf` | Regras institucionais IFS (Art. 18, 31, 34) |
+| `ABNT-NBR-6023-2025` | Referências (§7 e §8) |
+| `ABNT-NBR-10520-2023` | Citações (§5, §6.1 e §7) |
+| `Manual_ABNT_2024` (**Manual ABNT – FECAP**, 6. ed.) | **Apoio** na formatação: recuo de **1,25 cm** (§2.5), fonte **10 pt** para notas, paginação e fontes/legendas de ilustrações e tabelas (§2.2) e modelos de tabela/quadro (Ap. N/Q). A **7. ed. (2026)** está em <https://www.fecap.br/files/docs/biblioteca/Manual_ABNT_7edicao_2026.pdf> — os pontos usados foram **reconferidos** nela |
+| `Normas-de-apresentação-tabular-IBGE` | Tabelas (§4.3 moldura; §4.6 unidade de medida) |
+| Normativa Interna para TCC (IFS) | Regras institucionais (Art. 18, 31, 34) — consultar no site institucional/coordenação (**não** versionada, nem redistribuída) |
 
 Divergência ABNT × IFS: reportar **ambas** as posições, sem impor critério.
 

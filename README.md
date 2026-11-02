@@ -2,11 +2,16 @@
 =======================================================================================
 MODELO DE TCC - INSTITUTO FEDERAL DE SERGIPE (IFS)
 =======================================================================================
-Autor do Modelo: Mikael dos Santos Gois
-Modelo Base: abnTeX2 adaptado para as normativas internas de TCC do IFS
-Licença: Creative Commons Atribuição-CompartilhaIgual 4.0 (CC BY-SA 4.0) - ver LICENSE
-Créditos e atribuições: ver NOTICE
+Autores do Modelo (discentes de Ciência da Computação - IFS, Campus Itabaiana):
+  Mikael dos Santos Gois
+  Talyson Rodrigues Silva Nascimento
+  Kauan Gutierrez Santos Estácio
+Modelo Base: abnTeX2, adaptado para as normativas internas de TCC do IFS (Art. 31 e 34)
+Créditos dos modelos base (abnTeX2, DECOM/UFOP e Diogo D. Moreira) e das imagens: ver NOTICE
+Licença: CC BY-SA 4.0 (ver LICENSE)
+Este arquivo faz parte de um modelo opensource para estudantes do IFS.
 Não remova os créditos dos autores originais e do modelo base.
+Este modelo é fornecido "no estado em que se encontra", sem garantias de qualquer tipo.
 =======================================================================================
 -->
 
@@ -75,14 +80,15 @@ Se você usa este modelo com um assistente de IA (VS Code/Copilot, OpenCode etc.
 4. **Não edite** a pasta `nao-altere/` (arquivos do abnTeX2).
 5. Abra o pull request descrevendo o problema, a cláusula aplicada e o que mudou.
 
-## Informações do Projeto
+## Autores e contribuidores
 
-- **Título:** Luso: Um Ecossistema Opensource para o Ensino Localizado de Programação.
-- **Autor:** Mikael dos Santos Gois.
-- **Orientador:** Prof. Me. Marlos Tacio Silva.
-- **Coorientador:** Prof. Me. Levi da Costa Mota.
-- **Instituição:** Instituto Federal de Sergipe (IFS) - Campus Itabaiana.
-- **Ano:** 2026.
+O modelo é mantido por discentes do curso de **Ciência da Computação** do **Instituto Federal de Sergipe (IFS) - Campus Itabaiana**:
+
+- **Mikael dos Santos Gois**
+- **Talyson Rodrigues Silva Nascimento**
+- **Kauan Gutierrez Santos Estácio**
+
+Este modelo **não é vinculado a um trabalho específico**: é um template geral para os TCCs do curso. Os dados do trabalho de quem usa (título, autor, orientador, instituição, ano) são preenchidos em `main.tex`.
 
 ## Estrutura do Projeto
 
@@ -118,7 +124,7 @@ Esta seção lista os elementos do modelo que já foram revisados e finalizados,
 
 ### Elementos Textuais
 - [X] Introdução (`02-textuais/01-introducao`) - Finalizado
-- [X] Fundamentação Teórica (`02-textuais/02-fundamentacao-teorica.tex`) - Finalizado
+- [X] Fundamentação Teórica (`02-textuais/02-fundamentacao-teorica`) - Finalizado
 - [X] Trabalhos Correlatos (`02-textuais/03-trabalhos-correlatos`) - Finalizado
 - [X] Metodologia (`02-textuais/04-metodologia`) - Finalizado
 - [ ] Resultados e Discussão (`02-textuais/05-resultados-discussao`)
@@ -180,6 +186,11 @@ Normas ABNT citadas pela NBR 14724 e usadas na formatação deste modelo:
 - ABNT NBR 12225 — Lombada — Apresentação
 
 > As normas ABNT são protegidas por direitos autorais e **não** são redistribuídas neste repositório. Use o acesso institucional (GEDWEB/campus) para consultá-las.
+
+### Manual de normalização (Manual ABNT - FECAP)
+
+- **MANUAL ABNT** (7. ed., 2026) — manual de normalização mantido pela FECAP, usado neste modelo como **apoio** na conferência de formatação (é a fonte, por exemplo, do recuo de **1,25 cm** na primeira linha do parágrafo e da fonte **10 pt** para notas, paginação e fontes/legendas de ilustrações e tabelas). Disponível em: <https://www.fecap.br/files/docs/biblioteca/Manual_ABNT_7edicao_2026.pdf>.
+  A revisão de conformidade deste modelo (out./2026) consultou a **6ª edição**; os pontos utilizados foram **reconferidos na 7ª edição** (§2.2 Fontes e §2.5 Parágrafos, espaçamento e alinhamento).
 
 ### Modelos LaTeX de referência
 

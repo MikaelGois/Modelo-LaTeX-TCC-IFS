@@ -10,6 +10,12 @@ authors:
   - family-names: Gois
     given-names: Mikael dos Santos
     affiliation: "Instituto Federal de Sergipe (IFS) - Campus Itabaiana"
+  - family-names: Nascimento
+    given-names: Talyson Rodrigues Silva
+    affiliation: "Instituto Federal de Sergipe (IFS) - Campus Itabaiana"
+  - family-names: Estácio
+    given-names: Kauan Gutierrez Santos
+    affiliation: "Instituto Federal de Sergipe (IFS) - Campus Itabaiana"
 repository-code: "https://github.com/MikaelGois/Modelo-LaTex-TCC-IFS"
 url: "https://github.com/MikaelGois/Modelo-LaTex-TCC-IFS"
 license: CC-BY-SA-4.0
