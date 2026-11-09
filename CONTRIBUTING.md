@@ -27,7 +27,7 @@ divergências com a norma e correções são bem-vindos.
 ## Antes de abrir uma issue
 
 1. Confira se já existe uma issue parecida em
-   [Issues](https://github.com/MikaelGois/Modelo-LaTex-TCC-IFS/issues?q=is%3Aissue).
+   [Issues](https://github.com/MikaelGois/Modelo-LaTeX-TCC-IFS/issues?q=is%3Aissue).
 2. Se for **dúvida de uso** (como compilar, onde editar, qual comando usar), veja
    primeiro a seção [Como usar](README.md#como-usar) e a
    [Referência rápida de comandos](README.md#referência-rápida-de-comandos) do README.

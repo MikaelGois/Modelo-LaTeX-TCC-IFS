@@ -34,6 +34,7 @@ Este modelo tem **propósito educacional**: ajudar a montar o TCC em LaTeX no fo
 - O modelo **não substitui as normas**. Quem usa tem o **dever de conferir** a ABNT NBR 14724 e as normas correlatas (NBR 6023, NBR 6024, NBR 6027, NBR 6028, NBR 6034, NBR 10520, NBR 12225), as **Normas de apresentação tabular do IBGE** e a **Normativa Interna de TCC do IFS** vigente.
 - Normas são revisadas periodicamente: uma edição nova pode tornar algum detalhe do modelo desatualizado.
 - O modelo é fornecido **no estado em que se encontra** (*as is*), **sem garantias** de qualquer tipo.
+- O modelo é uma **iniciativa estudantil independente**: **não** é documento oficial do IFS nem foi endossado pela instituição (veja [Autoria e vínculo institucional](DISCLAIMER.md#autoria-e-vínculo-institucional)).
 - A conferência final do trabalho é **responsabilidade do autor**, em conjunto com orientação e banca.
 
 **Encontrou divergência entre a norma e o modelo?** Abra uma *issue* — é assim que o modelo melhora. Veja [Como contribuir](#como-contribuir).
@@ -123,7 +124,7 @@ Se você usa este modelo com um assistente de IA (VS Code/Copilot, OpenCode etc.
 
 ### Abrir uma issue (problema, dúvida ou divergência com a norma)
 
-1. Verifique se já existe uma issue parecida em [Issues](https://github.com/MikaelGois/Modelo-LaTex-TCC-IFS/issues).
+1. Verifique se já existe uma issue parecida em [Issues](https://github.com/MikaelGois/Modelo-LaTeX-TCC-IFS/issues).
 2. Clique em **New issue** e escolha o modelo correspondente:
    - **Divergência ABNT/IBGE** — informe: a norma e a cláusula (ex.: `NBR 14724:2024, 5.2.2`), o arquivo e a linha, **o que o modelo faz** e **o que a norma pede**, e a medição, se houver.
    - **Erro de compilação / bug** — informe: sistema operacional, distribuição TeX (MiKTeX/TeX Live) e versão, o log do erro e os passos para reproduzir.
@@ -147,6 +148,8 @@ O modelo é mantido por discentes do curso de **Ciência da Computação** do **
 - **Kauan Gutierrez Santos Estácio**
 
 Este modelo **não é vinculado a um trabalho específico**: é um template geral para os TCCs do curso. Os dados do trabalho de quem usa (título, autor, orientador, instituição, ano) são preenchidos em `main.tex`.
+
+Os três são **discentes** do curso de Ciência da Computação (IFS - Campus Itabaiana) e mantêm o modelo como **iniciativa estudantil independente**. O repositório **não é um documento oficial do IFS** e não foi analisado, aprovado ou endossado pela instituição, pela coordenação do curso ou pela biblioteca: o nome e a logo do IFS identificam apenas a origem dos autores e o público do modelo. Veja [Autoria e vínculo institucional](DISCLAIMER.md#autoria-e-vínculo-institucional).
 
 Citar o modelo no seu trabalho é **opcional** (recomendado, não exigido): veja os textos prontos em [O que é obrigatório e o que é recomendado](#o-que-é-obrigatório-e-o-que-é-recomendado).
 
@@ -279,3 +282,11 @@ Em agradecimentos (ou em nota de rodapé):
 Nas referências (NBR 6023 — ajuste o ano e a data de acesso):
 
 > MODELO LaTeX para TCC do Instituto Federal de Sergipe. Autores: Mikael dos Santos Gois; Talyson Rodrigues Silva Nascimento; Kauan Gutierrez Santos Estácio. Itabaiana: IFS, 2026. Disponível em: [endereço do repositório]. Acesso em: 9 nov. 2026.
+
+### Gerar a citação (botão "Cite this repository")
+
+O GitHub mostra, na barra lateral do repositório, o botão **Cite this repository**. Ele lê o arquivo [CITATION.cff](CITATION.cff) e oferece a citação pronta em **APA** e em **BibTeX** — escolha o formato e copie.
+
+O `CITATION.cff` já traz o título, os três autores (com a afiliação no IFS - Campus Itabaiana), a versão, a data de publicação, a licença e o endereço do repositório. Quem altera o modelo (fork) deve atualizar `version` e `date-released` para a citação continuar correta.
+
+> O botão só aparece quando existe um `CITATION.cff` **válido** na branch padrão do repositório.
