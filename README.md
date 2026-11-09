@@ -289,4 +289,6 @@ O GitHub mostra, na barra lateral do repositório, o botão **Cite this reposito
 
 O `CITATION.cff` já traz o título, os três autores (com a afiliação no IFS - Campus Itabaiana), a versão, a data de publicação, a licença e o endereço do repositório. Quem altera o modelo (fork) deve atualizar `version` e `date-released` para a citação continuar correta.
 
+**Versão atual: 1.1.0.** O histórico de mudanças e as regras de versionamento (SemVer: `MAJOR.MINOR.PATCH`) estão no [CHANGELOG.md](CHANGELOG.md) — vale conferir ao atualizar um TCC que já estava em andamento.
+
 > O botão só aparece quando existe um `CITATION.cff` **válido** na branch padrão do repositório.
