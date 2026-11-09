@@ -61,7 +61,7 @@ Requisitos (portátil — não depender de caminho fixo de máquina):
 | `ABNT-NBR-6028-2021` | Resumo/abstract (§4.1) |
 | `ABNT-NBR-6023-2025` | Referências (§7 e §8) |
 | `ABNT-NBR-10520-2023` | Citações (§5, §6.1 e §7) |
-| `Manual_ABNT_2024` (**Manual ABNT – FECAP**, 6. ed.) | **Apoio** na formatação: recuo de **1,25 cm** (§2.5), fonte **10 pt** para notas, paginação e fontes/legendas de ilustrações e tabelas (§2.2) e modelos de tabela/quadro (Ap. N/Q). A **7. ed. (2026)** está em <https://www.fecap.br/files/docs/biblioteca/Manual_ABNT_7edicao_2026.pdf> — os pontos usados foram **reconferidos** nela |
+| `Manual_ABNT_2024` (**Manual ABNT – FECAP**, 6. ed.) | **Apoio** na formatação: recuo de **1,25 cm** (§2.5), fonte **10 pt** para notas, paginação e fontes/legendas de ilustrações e tabelas (§2.2) e modelos de tabela/quadro (Ap. N/Q). A **7. ed. (2026)** está em [Manual ABNT (7. ed., 2026)](https://www.fecap.br/files/docs/biblioteca/Manual_ABNT_7edicao_2026.pdf) — os pontos usados foram **reconferidos** nela |
 | `Normas-de-apresentação-tabular-IBGE` | Tabelas (§4.3 moldura; §4.6 unidade de medida) |
 | Normativa Interna para TCC (IFS) | Regras institucionais (Art. 18, 31, 34) — consultar no site institucional/coordenação (**não** versionada, nem redistribuída) |
 
