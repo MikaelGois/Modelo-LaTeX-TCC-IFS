@@ -55,6 +55,8 @@ ambientes e opções) e o formato do PDF resultante. Assim:
 - Espaçamento antes e depois das subsubseções uniformizado com os demais níveis.
 - README reescrito (requisitos, pacotes, editores e plataformas, links) e cabeçalho de
   créditos padronizado em todos os arquivos.
+- `AGENTS.md` passa a documentar as regras de versionamento SemVer que o agente deve
+  seguir a cada atualização.
 
 ### Corrigido
 

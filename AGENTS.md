@@ -229,6 +229,7 @@ Ao concluir uma revisão (via skill `revisao-abnt`):
 2. Atualize "Correções recomendadas" conforme os novos achados.
 3. Gere `relatorio-revisao-abnt.md` com status, fundamento (cláusula) e observação por elemento.
 4. Se o usuário autorizar, aplique as correções e registre aqui o que foi feito.
+5. Atualize a versão (SemVer) e o `CHANGELOG.md` — ver seção 7.
 
 ---
 
@@ -279,3 +280,60 @@ Checkpoints de documentação:
     `revisor-academico`);
     os nomes/descrições do frontmatter seguem o padrão kebab-case do Copilot.
 - `README.md` lista o status TODO dos elementos ("Finalizado" etc.). Manter sincronizado.
+
+---
+
+## 7. Versionamento (SemVer)
+
+O projeto segue o **Versionamento Semântico 2.0.0** (`MAJOR.MINOR.PATCH`) e registra
+cada versão em **três lugares**, que devem ficar sempre sincronizados:
+
+| Onde | O que registrar |
+|------|-----------------|
+| `CITATION.cff` | `version: "X.Y.Z"` e `date-released: "AAAA-MM-DD"` (data da release) |
+| `CHANGELOG.md` | seção `## [X.Y.Z] - AAAA-MM-DD` com Adicionado / Alterado / Corrigido / Removido |
+| `README.md` | linha "**Versão atual: X.Y.Z**" (na seção de citação) |
+
+Além disso, cria-se a **tag anotada** `vX.Y.Z` no commit que fecha a release.
+
+### 7.1 O que conta como MAJOR, MINOR e PATCH
+
+A "interface pública" do modelo é o que o usuário escreve em `main.tex` e nas pastas
+`01-pre-textuais/`, `02-textuais/` e `03-pos-textuais/` (comandos, ambientes, opções)
+e o formato do PDF resultante.
+
+- **MAJOR** — o documento do usuário deixa de compilar, ou um comando/ambiente muda de
+  nome, assinatura ou significado (ex.: renomear `\imprimircapa`, mudar a assinatura de
+  um ambiente, trocar a classe base de forma incompatível, remover comando usado nos
+  exemplos). Exige **nota de migração** no CHANGELOG.
+- **MINOR** — funcionalidade nova ou ajuste de formatação **compatível**: o documento
+  continua compilando sem alteração (ex.: ambiente `quadro`, `\listofquadros`, novo
+  exemplo, mudança de recuo/espaçamento prescrita por norma).
+- **PATCH** — correção de erro, comentário `%`, documentação (README, CONTRIBUTING,
+  DISCLAIMER, NOTICE, CITATION) ou ajuste que não muda a saída esperada.
+
+### 7.2 Regra para o agente (obrigatória)
+
+Sempre que alterar qualquer arquivo versionado:
+
+1. Classifique a mudança (MAJOR/MINOR/PATCH) **antes** de commitar.
+2. Atualize `version` e `date-released` no `CITATION.cff`.
+3. Acrescente a entrada no `CHANGELOG.md` (categoria + descrição curta).
+4. Atualize a linha "Versão atual" do `README.md`.
+5. Faça o bump **no mesmo commit/PR** da mudança (não deixe para depois); o commit de
+   release usa a mensagem `chore(release): X.Y.Z ...`.
+6. Se a versão anterior **ainda não foi publicada** (branch aberta, sem release), acumule
+   no bump seguinte em vez de criar versões intermediárias.
+7. Crie a tag anotada `vX.Y.Z` no commit que fecha a release e **avise o autor** — o
+   push (inclusive das tags: `git push origin vX.Y.Z` ou `git push --tags`) é dele.
+
+> Exceção: mudança **apenas** em `AGENTS.md`, nos relatórios (`relatorio-*.md`, gitignored)
+> ou em arquivos de sessão **não** gera release — registre aqui e siga. Todo o resto
+> (modelo, estilos, exemplos, documentação pública, templates do GitHub, licença) exige bump.
+
+### 7.3 Histórico de versões
+
+| Versão | Data | Tag | Resumo |
+|--------|------|-----|--------|
+| 1.1.0 | 2026-11-09 | `v1.1.0` | ambiente `quadro` + LISTA DE QUADROS, tabela numérica IBGE, citações NBR 10520:2023, guias de uso (VS Code/Overleaf/pacotes), `CITATION.cff` |
+| 1.0.0 | 2026-10-31 | — | primeira versão pública |
