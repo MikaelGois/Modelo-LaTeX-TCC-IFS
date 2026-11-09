@@ -1,29 +1,58 @@
-% ---------------------------------------------------------------------------------------
+% =======================================================================================
 % MODELO DE TCC - INSTITUTO FEDERAL DE SERGIPE (IFS)
-% ---------------------------------------------------------------------------------------
-% Autor do Modelo: Mikael dos Santos Gois (mikaelgois1@gmail.com)
-% Baseado nos modelos de: 
-%   - Diogo D. Moreira (TCC, Dissertação e Tese)
-%   - DECOM/UFOP (Monografia de Ciência da Computação)
-% Modelo Base: abnTeX2 adaptado para as normativas internas de TCC do IFS (Art. 31 e 34)
-% Versão: 1.0 (2026)
-% ---------------------------------------------------------------------------------------
+% =======================================================================================
+% Autores do Modelo (discentes de Ciência da Computação - IFS, Campus Itabaiana):
+%   Mikael dos Santos Gois
+%   Talyson Rodrigues Silva Nascimento
+%   Kauan Gutierrez Santos Estácio
+% Modelo Base: abnTeX2, adaptado para as normativas internas de TCC do IFS (Art. 31 e 34)
+% Créditos dos modelos base (abnTeX2, DECOM/UFOP e Diogo D. Moreira) e das imagens: ver NOTICE
+% Licença: CC BY-SA 4.0 (ver LICENSE)
 % Este arquivo faz parte de um modelo opensource para estudantes do IFS.
 % Não remova os créditos dos autores originais e do modelo base.
 % Este modelo é fornecido "no estado em que se encontra", sem garantias de qualquer tipo.
-% ---------------------------------------------------------------------------------------
+% =======================================================================================
 
 % [O que aparece no PDF Bookmark] {O que aparece impresso no documento}
 \chapter[Introdução]{INTRODUÇÃO} \label{sec:introducao}
 A introdução é a seção inicial do trabalho, onde o tema é apresentado e contextualizado.
 Nela, o autor deve expor a motivação para a escolha do tema, os objetivos do estudo, a justificativa da relevância do trabalho e a metodologia adotada para alcançar os resultados esperados.
 A introdução deve ser clara e objetiva, fornecendo ao leitor uma visão geral do que será abordado no restante do trabalho.
-\cite{kitchenham2007guidelinesOnline}
-
+% ---------------------------------------------------------------------------------------
+% DICA: AS QUATRO FORMAS DE CITAÇÃO (NBR 10520:2023)
+% ---------------------------------------------------------------------------------------
+% | Comando                   | Saída               | Quando usar                                      |
+% |---------------------------|---------------------|--------------------------------------------------|
+% | \cite{chave}              | (Autor, ano)        | citação INDIRETA (paráfrase), ao fim da frase    |
+% | \citeonline{chave}        | Autor (ano)         | autor como sujeito da frase                      |
+% | \cite[p. 10]{chave}       | (Autor, ano, p. 10) | citação DIRETA (transcrição): página OBRIGATÓRIA |
+% | \citeonline[p. 10]{chave} | Autor (ano, p. 10)  | citação direta com o autor no texto              |
+%
+% Regras de uso:
+% - NUNCA escreva o nome do autor à mão ao lado de \cite: gera citação duplicada
+%   (ex.: "Segundo Silva (2020) \cite{silva2020}" sai "(Silva, 2020) (Silva, 2020)").
+% - O texto entre colchetes entra LITERALMENTE depois do ano: escreva "p. 10", nunca
+%   "10" (\cite[10]{chave} sai "(Autor, ano, 10)" - conferido na compilação).
+% - Citação direta de ATÉ 3 linhas: transcreva entre aspas duplas, no corpo do texto,
+%   com o mesmo tamanho de fonte (NBR 10520:2023, 7.1).
+% - Citação direta com MAIS de 3 linhas: recuo de 4 cm, letra menor, espaço simples e
+%   SEM aspas (7.1.1) - use o ambiente `citacao` (ver README).
+% - A caixa do sobrenome na citação é definida em referencias.bib (@abnt-options).
+% ---------------------------------------------------------------------------------------
 
 \section{Exemplo de Citação}
-Exemplo de citação direta \cite{kitchenham2007guidelines}.
 
-Exemplo de citação direta, porém com um texto explicativo \cite[p. 15]{kitchenham2007guidelines}
+Exemplo de \textbf{citação indireta} (paráfrase), com a indicação entre parênteses ao final
+da frase \cite{kitchenham2007guidelines}.
 
-Citação em linha normal \citeonline{kitchenham2007guidelines} e com texto explicativo \citeonline[p. 15]{kitchenham2007guidelines}.
+Exemplo de citação indireta de um documento em meio eletrônico
+\cite{kitchenham2007guidelinesOnline}.
+
+Exemplo de citação indireta com indicação da página consultada
+\cite[p. 15]{kitchenham2007guidelines}.
+
+Exemplo de \textbf{citação em linha}, com o autor como sujeito da frase:
+\citeonline{kitchenham2007guidelines} apresentam as diretrizes para revisões sistemáticas.
+
+Exemplo de citação em linha com a página indicada: segundo
+\citeonline[p. 15]{kitchenham2007guidelines}, ...

@@ -1,3 +1,18 @@
+% =======================================================================================
+% MODELO DE TCC - INSTITUTO FEDERAL DE SERGIPE (IFS)
+% =======================================================================================
+% Autores do Modelo (discentes de Ciência da Computação - IFS, Campus Itabaiana):
+%   Mikael dos Santos Gois
+%   Talyson Rodrigues Silva Nascimento
+%   Kauan Gutierrez Santos Estácio
+% Modelo Base: abnTeX2, adaptado para as normativas internas de TCC do IFS (Art. 31 e 34)
+% Créditos dos modelos base (abnTeX2, DECOM/UFOP e Diogo D. Moreira) e das imagens: ver NOTICE
+% Licença: CC BY-SA 4.0 (ver LICENSE)
+% Este arquivo faz parte de um modelo opensource para estudantes do IFS.
+% Não remova os créditos dos autores originais e do modelo base.
+% Este modelo é fornecido "no estado em que se encontra", sem garantias de qualquer tipo.
+% =======================================================================================
+
 % --- PACOTES BÁSICOS ---
 \usepackage[utf8]{inputenc}     % Codificacao do arquivo (conversão automática dos acentos)
 \usepackage{indentfirst}        % Indenta o primeiro parágrafo de cada seção.
@@ -35,6 +50,13 @@
 \usepackage[a4paper, top=3.0cm, bottom=2.0cm, left=3.0cm, right=2.0cm]{geometry}
 % \linespread{1.5}                % Espaçamento 1,5
 \OnehalfSpacing % Comando oficial do abntex2 para espaçamento 1,5
+
+% --- RECUO DA PRIMEIRA LINHA DO PARÁGRAFO (Manual ABNT 2024, 2.4) ---
+% "O texto deve ser digitado em parágrafos, deslocando a primeira linha em
+% 1,25 cm da margem esquerda e justificado." A NBR 14724 não fixa a medida; o
+% memoir usa 1,5 em (medido: 0,62 cm). Observação: \parindent também define o
+% recuo das alíneas do abntex2 (leftmargin=\parindent+\labelwidth-\labelsep).
+\setlength{\parindent}{1.25cm}
 
 % --- PAGINAÇÃO: SOMENTE OS ALGARISMOS, SEM CABEÇALHO CORRENTE (NBR 14724:2024, 5.3) ---
 % A norma exige apenas a numeração no canto superior direito (anverso) e no
@@ -85,6 +107,10 @@
     \setlength{\beforechapskip}{0pt}%  % Capítulos sempre começam no topo da página
     \setlength{\beforesecskip}{\baselineskip}%
     \setlength{\beforesubsecskip}{\baselineskip}%
+    \setlength{\beforesubsubsecskip}{\baselineskip}%   Subsubseções (terciárias)
+    \setlength{\beforeparaskip}{\baselineskip}%        Parágrafos (subdivisões)
+    % NBR 14724:2024, 5.2.2: os títulos das subseções (e, por extensão, das demais
+    % subdivisões) devem ser separados do texto que os precede e sucede por 1,5.
 }
 
 % --- HIERARQUIA TIPOGRÁFICA DOS TÍTULOS (NBR 14724:2024, 5.4; NBR 6024:2012, 4.1 j)) ---
@@ -188,6 +214,35 @@
     \renewcommand{\numberline}[1]{\hb@xt@\cftalgocfnumwidth{%
             \cftalgocfname##1\hfill\textemdash\hfill}}%
     \@dottedtocline{1}{0em}{\cftalgocfnumwidth}{#1}{#2}%
+    \endgroup}
+\makeatother
+
+% --- QUADRO: AMBIENTE PARA DADOS TEXTUAIS (NBR 14724:2024, 4.2.1.9 e 5.8) ---
+% A ABNT trata o QUADRO como ILUSTRAÇÃO: a 4.2.1.9 lista "quadros" entre as
+% ilustrações, então o quadro usa a mesma identificação das figuras - palavra
+% designativa + número + travessão + título (5.8) - e a fonte vem imediatamente
+% após. A própria 4.2.1.9 recomenda "lista própria para cada tipo de ilustração"
+% quando necessário; daí a LISTA DE QUADROS, no mesmo formato das demais listas
+% ("Quadro 1 — Título ... página").
+%
+% Tabela x quadro (use o certo):
+%   - dados NUMÉRICOS -> TABELA, padronizada pelas Normas de apresentação tabular
+%     do IBGE (NBR 14724:2024, 5.9): moldura SEM traços verticais nas laterais
+%     (IBGE 4.3.3) e no MÍNIMO três traços horizontais (IBGE 4.3.1);
+%   - dados TEXTUAIS -> QUADRO (como o comparativo de trabalhos correlatos); a
+%     moldura fechada é permitida.
+\newfloat{quadro}{loq}{Quadro}
+\setfloatlocations{quadro}{htb}
+\newcommand{\listquadrosname}{Lista de Quadros}
+\newlistof{listofquadros}{loq}{\listquadrosname}
+\makeatletter
+\newcommand{\cftquadroname}{Quadro~}
+\newlength{\cftquadronumwidth}\setlength{\cftquadronumwidth}{7em}
+\newcommand*\l@quadro[2]{%
+    \begingroup
+    \renewcommand{\numberline}[1]{\hb@xt@\cftquadronumwidth{%
+            \cftquadroname##1\hfill\textemdash\hfill}}%
+    \@dottedtocline{1}{0em}{\cftquadronumwidth}{#1}{#2}%
     \endgroup}
 \makeatother
 

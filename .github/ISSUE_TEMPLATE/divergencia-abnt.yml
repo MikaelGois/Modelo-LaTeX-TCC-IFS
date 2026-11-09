@@ -1,0 +1,82 @@
+name: Divergência ABNT/IBGE
+description: Relate uma divergência entre o que a norma diz e o que o modelo faz
+title: "[ABNT] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por relatar. O modelo **não substitui as normas**: quem usa deve
+        conferir a edição vigente. Divergências encontradas ajudam a corrigir o modelo.
+
+        Antes de enviar, confira a cláusula na edição vigente da norma (veja a seção
+        "Material de apoio" do README para o acesso institucional).
+
+  - type: checkboxes
+    id: checagem
+    attributes:
+      label: Antes de enviar
+      options:
+        - label: Conferi se já existe uma issue parecida
+          required: true
+        - label: Confirmei a cláusula na edição vigente da norma
+          required: true
+
+  - type: input
+    id: norma
+    attributes:
+      label: Norma e cláusula
+      description: "Exemplo: NBR 14724:2024, 5.2.2 (ou IBGE, Normas de apresentação tabular, 4.3.3)"
+      placeholder: "NBR 14724:2024, 5.2.2"
+    validations:
+      required: true
+
+  - type: input
+    id: local
+    attributes:
+      label: Arquivo e linha no modelo
+      description: "Exemplo: structure.sty, linha 87 (ou o elemento do PDF, ex.: página 18)"
+      placeholder: "structure.sty, linha 87"
+    validations:
+      required: true
+
+  - type: textarea
+    id: o_que_o_modelo_faz
+    attributes:
+      label: O que o modelo faz hoje
+      description: Descreva o comportamento atual (e o trecho do código, se puder).
+    validations:
+      required: true
+
+  - type: textarea
+    id: o_que_a_norma_pede
+    attributes:
+      label: O que a norma exige
+      description: Copie a passagem relevante da norma e explique, em poucas palavras.
+    validations:
+      required: true
+
+  - type: input
+    id: medicao
+    attributes:
+      label: Medição (se for espaçamento ou tamanho)
+      description: "Exemplo: medido 17,56 pt; a norma pede 1,25 cm"
+      placeholder: "medido 17,56 pt; esperado 35,43 pt (1,25 cm)"
+    validations:
+      required: false
+
+  - type: input
+    id: versao
+    attributes:
+      label: Versão do modelo
+      description: Commit, tag ou data do download do repositório.
+      placeholder: "commit 764e10c / data 31/10/2026"
+    validations:
+      required: true
+
+  - type: textarea
+    id: anexo
+    attributes:
+      label: Anexo (opcional)
+      description: Recorte do PDF (a página) ou do log que mostre o problema.
+    validations:
+      required: false

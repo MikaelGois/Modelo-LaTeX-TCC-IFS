@@ -1,27 +1,44 @@
----------------------------------------------------------------------------------------
-MODELO DE TCC - INSTITUTO FEDERAL DE SERGIPE (IFS)
----------------------------------------------------------------------------------------
-Autor do Modelo: Mikael dos Santos Gois
-Baseado nos modelos de: 
-  - Diogo D. Moreira (TCC, Dissertação e Tese)
-  - DECOM/UFOP (Monografia de Ciência da Computação)
-Modelo Base: abnTeX2 adaptado para as normativas internas de TCC do IFS (Art. 31 e 34)
-Versão: 1.0 (2026)
----------------------------------------------------------------------------------------
-Este arquivo faz parte de um modelo opensource para estudantes do IFS.
-Não remova os créditos dos autores originais e do modelo base.
----------------------------------------------------------------------------------------
-
-
-% ------------------------------------------------------------------------------
+% =======================================================================================
+% MODELO DE TCC - INSTITUTO FEDERAL DE SERGIPE (IFS)
+% =======================================================================================
+% Autores do Modelo (discentes de Ciência da Computação - IFS, Campus Itabaiana):
+%   Mikael dos Santos Gois
+%   Talyson Rodrigues Silva Nascimento
+%   Kauan Gutierrez Santos Estácio
+% Modelo Base: abnTeX2, adaptado para as normativas internas de TCC do IFS (Art. 31 e 34)
+% Créditos dos modelos base (abnTeX2, DECOM/UFOP e Diogo D. Moreira) e das imagens: ver NOTICE
+% Licença: CC BY-SA 4.0 (ver LICENSE)
+% Este arquivo faz parte de um modelo opensource para estudantes do IFS.
+% Não remova os créditos dos autores originais e do modelo base.
+% Este modelo é fornecido "no estado em que se encontra", sem garantias de qualquer tipo.
+% =======================================================================================
 % Opções de estilo do abntex2cite (NÃO é uma referência e não aparece na lista).
 % Chamada por \citeoption{opcoes-abnt} em main.tex: o bst processa as entradas
 % de tipo abnt-options antes de compor a saída, valendo para todas as citações e
-% referências. abnt-etal-text: "et al." em itálico - NBR 10520:2023 (6.1.2) e
-% NBR 6023:2025 (8.1.1.2) grafam a expressão em itálico nos exemplos.
+% referências.
+%
+%   abnt-etal-text  : "et al." em itálico - NBR 10520:2023 (6.1.2) e
+%                     NBR 6023:2025 (8.1.1.2) grafam a expressão em itálico nos
+%                     exemplos (o Manual ABNT 2024, 2.2, desaconselha itálico em
+%                     expressões latinas; o modelo segue a norma técnica).
+%   abnt-cite-style : (Author, YEAR) = sobrenome em "letras maiúsculas e
+%                     minúsculas" na citação - NBR 10520:2023 (6.1.1.1). O padrão
+%                     do abntex2 é (AUTHOR, YEAR), herdado da versão 2002 da norma.
+%   abnt-etal-list  : 0 = NÃO abrevia a lista de autores na referência, isto é,
+%                     indica TODOS - NBR 10520:2023 (6.1.2) e NBR 6023:2025
+%                     (8.1.1.2: "convém indicar todos").
+%
+% Regras de autoria (NBR 6023:2025, 8.1.1.1 e 8.1.1.2):
+%   - até 3 autores  -> todos devem ser indicados (na citação e na referência);
+%   - 4 ou mais      -> convém indicar todos na referência; na CITAÇÃO pode ser
+%                       citado só o primeiro autor + "et al." (NBR 10520, 6.1.2).
+%   - mesma autoria, mesmo ano -> distinguir com letras: 2007a, 2007b (NBR 10520,
+%                       6.1.6). Nesse caso as duas obras devem ser DIFERENTES.
 % ------------------------------------------------------------------------------
 @abnt-options{opcoes-abnt,
-  abnt-etal-text = {\textit{et al.}}
+  abnt-etal-text  = {\textit{et al.}},
+  abnt-cite-style = {(Author, YEAR)},
+  abnt-etal-list  = {0}
 }
 
 
@@ -48,19 +65,22 @@ São Paulo, 2009.
 Exemplo Artigo, seção e/ou matéria de publicação periódica (7.7.5)
 @article{kitchenham2007guidelines,
   title     = {Guidelines for performing systematic literature reviews in software engineering},
-  author    = {Kitchenham, Barbara and Charters, Stuart and others},
+  author    = {Kitchenham, Barbara and Charters, Stuart},
   year      = {2007},
   publisher = {Keele, UK}
 }
 
 Exemplo Artigo, seção e/ou matéria de publicação periódica em meio eletrônico (7.7.6)
+
+A data de acesso segue a NBR 6023:2025: dia + mês abreviado com ponto + ano
+(exemplos da norma: "27 jun. 2019", "23 mar. 2017") - daí "01 jan. 2026" abaixo.
 @article{kitchenham2007guidelinesOnline,
   title         = {Guidelines for performing systematic literature reviews in software engineering},
-  author        = {Kitchenham, Barbara and Charters, Stuart and others},
+  author        = {Kitchenham, Barbara and Charters, Stuart},
   year          = {2007},
   publisher     = {Keele, UK},
   url           = {http://exemplo.com/artigo-online},
-  urlaccessdate = {01 de jan, 2026}
+  urlaccessdate = {01 jan. 2026}
 }
 
 @manual{NBR14724:2024,

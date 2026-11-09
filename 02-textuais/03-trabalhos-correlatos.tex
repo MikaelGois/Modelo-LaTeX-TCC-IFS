@@ -1,29 +1,35 @@
-% ---------------------------------------------------------------------------------------
+% =======================================================================================
 % MODELO DE TCC - INSTITUTO FEDERAL DE SERGIPE (IFS)
-% ---------------------------------------------------------------------------------------
-% Autor do Modelo: Mikael dos Santos Gois (mikaelgois1@gmail.com)
-% Baseado nos modelos de: 
-%   - Diogo D. Moreira (TCC, Dissertação e Tese)
-%   - DECOM/UFOP (Monografia de Ciência da Computação)
-% Modelo Base: abnTeX2 adaptado para as normativas internas de TCC do IFS (Art. 31 e 34)
-% Versão: 1.0 (2026)
-% ---------------------------------------------------------------------------------------
+% =======================================================================================
+% Autores do Modelo (discentes de Ciência da Computação - IFS, Campus Itabaiana):
+%   Mikael dos Santos Gois
+%   Talyson Rodrigues Silva Nascimento
+%   Kauan Gutierrez Santos Estácio
+% Modelo Base: abnTeX2, adaptado para as normativas internas de TCC do IFS (Art. 31 e 34)
+% Créditos dos modelos base (abnTeX2, DECOM/UFOP e Diogo D. Moreira) e das imagens: ver NOTICE
+% Licença: CC BY-SA 4.0 (ver LICENSE)
 % Este arquivo faz parte de um modelo opensource para estudantes do IFS.
 % Não remova os créditos dos autores originais e do modelo base.
 % Este modelo é fornecido "no estado em que se encontra", sem garantias de qualquer tipo.
-% ---------------------------------------------------------------------------------------
+% =======================================================================================
 
 % [O que aparece no PDF Bookmark] {O que aparece impresso no documento}
 \chapter[Trabalhos Correlatos]{TRABALHOS CORRELATOS} \label{sec:trabalhos-correlatos}
 
 A análise de trabalhos correlatos permite mapear o estado da arte e identificar as abordagens metodológicas adotadas por outros pesquisadores para resolver problemas semelhantes. Nesta seção, são discutidas publicações recentes relacionadas à execução de algoritmos de inferência e coleta de dados inerciais.
 
-Ao longo da literatura, nota-se que grande parte das implementações prioriza a execução de modelos computacionais em plataformas de alto desempenho. A Tabela \ref{tab:comparativo_trabalhos} sintetiza as principais diferenças de arquitetura e hardware entre os trabalhos analisados e a solução proposta nesta pesquisa.
+Ao longo da literatura, nota-se que grande parte das implementações prioriza a execução de modelos computacionais em plataformas de alto desempenho. O Quadro \ref{qua:comparativo_trabalhos} sintetiza as principais diferenças de arquitetura e hardware entre os trabalhos analisados e a solução proposta nesta pesquisa.
 
-% EXEMPLO DE TABELA PADRÃO ABNT / IBGE (SEM BORDAS LATERAIS)
-
-
-\begin{table}[htb]
+% ---------------------------------------------------------------------------------------
+% EXEMPLO DE QUADRO (DADOS TEXTUAIS) - NBR 14724:2024, 4.2.1.9 e 5.8
+% ---------------------------------------------------------------------------------------
+% DICA: dados TEXTUAIS (comparações, características, definições) vão em QUADRO. A norma
+% trata o quadro como ILUSTRAÇÃO: identificação com palavra designativa + número +
+% travessão + título, fonte logo abaixo e entrada na LISTA DE QUADROS (elemento próprio).
+% No quadro, a moldura fechada é permitida.
+% DICA: cite o quadro no texto ANTES dele aparecer (com \ref{}) e substitua o conteúdo
+% de exemplo pelo seu.
+\begin{quadro}[htb]
     \centering
     \caption{Comparativo entre os trabalhos correlatos e a solução proposta}
     \vspace{0.2cm}
@@ -32,7 +38,7 @@ Ao longo da literatura, nota-se que grande parte das implementações prioriza a
     % 'l' = alinhado à esquerda (ideal para colunas curtas, como o nome do Autor)
     % 'c' = centralizado (ideal para colunas com respostas curtas, como Sim/Não)
     % 'X' = coluna dinâmica que quebra o texto automaticamente e preenche o espaço da página
-    \begin{tabularx}{\textwidth}{l | X | X | X}
+    \begin{tabularx}{\textwidth}{|l | X | X | X|}
         \hline
         \textbf{Autor (Ano)} & \textbf{[Inserir Critério 1]} & \textbf{[Inserir Critério 2]} & \textbf{[Inserir Critério 3]} \\
         \hline
@@ -47,11 +53,51 @@ Ao longo da literatura, nota-se que grande parte das implementações prioriza a
     \end{tabularx}
     
     \fonte{Elaborada pelo autor (2026).}
-    \label{tab:comparativo_trabalhos}
+    \label{qua:comparativo_trabalhos}
+\end{quadro}
+
+Conforme evidenciado no Quadro \ref{qua:comparativo_trabalhos}, a principal distinção da proposta atual reside no.... Enquanto os trabalhos de Sobrenome \emph{et al.} (2023) e Sobrenome e Silva (2024) apresentam limitações quanto a [Citar o problema deles], a presente abordagem inova ao utilizar [Sua solução]. Essa escolha garante [Citar vantagem], preenchendo a lacuna identificada na literatura analisada.
+
+% ---------------------------------------------------------------------------------------
+% EXEMPLO DE TABELA (DADOS NUMÉRICOS) - NBR 14724:2024, 5.9 + Normas do IBGE
+% ---------------------------------------------------------------------------------------
+% DICA: dados NUMÉRICOS vão em TABELA, padronizada pelas Normas de apresentação tabular
+% do IBGE (a NBR 14724:2024, 5.9, remete a elas):
+%   - a moldura NÃO deve ter traços verticais que delimitem a tabela à esquerda e à
+%     direita (IBGE, 4.3.3) - por isso o tabular abaixo não usa "|" nas laterais;
+%   - no MÍNIMO três traços horizontais: topo, cabeçalho e rodapé (IBGE, 4.3.1);
+%   - traços verticais apenas para DESTACAR parte do cabeçalho ou dos dados (IBGE, 4.3.2);
+%   - a unidade de medida deve ser indicada no cabeçalho da coluna (IBGE, 4.6);
+%   - recomenda-se alinhar os dados numéricos à direita (boa prática de leitura; a
+%     norma do IBGE não fixa o alinhamento).
+% DICA: se a tabela não couber em uma página, repita o cabeçalho e indique "continua"
+% (primeira página), "continuação" (intermediárias) e "conclusão" (última), deixando o
+% rodapé apenas na página de conclusão (IBGE).
+% DICA: a tabela entra na LISTA DE TABELAS e é citada no texto com \ref{}.
+A Tabela \ref{tab:selecao_rsl} exemplifica um dado numérico: a quantidade de trabalhos recuperados e selecionados em cada base de dados consultada.
+
+\begin{table}[htb]
+    \centering
+    \caption{Trabalhos recuperados e selecionados por base de dados}
+    \label{tab:selecao_rsl}
+    \begin{tabular}{lrrr}
+        \hline
+        \textbf{Base de dados} & \textbf{Recuperados} & \textbf{Selecionados} & \textbf{Aproveitamento (\%)} \\
+        \hline
+        ACM Digital Library & 412 & 38 & 9,2 \\
+        IEEE Xplore         & 356 & 41 & 11,5 \\
+        Scopus              & 289 & 27 & 9,3 \\
+        \textbf{Total}      & \textbf{1\,057} & \textbf{106} & \textbf{10,0} \\
+        \hline
+    \end{tabular}
+    \fonte{Elaborada pelo autor (2026).}
 \end{table}
 
+Os números da Tabela \ref{tab:selecao_rsl} mostram que [explique, com suas palavras, o que os dados indicam: quantos trabalhos foram recuperados, quantos passaram pelos critérios de seleção e o que o percentual de aproveitamento revela sobre a busca].
+
 % DICA PARA O ESTUDANTE:
-% Sempre comente os resultados da tabela no parágrafo imediatamente abaixo dela.
+% Sempre comente os resultados da tabela (ou do quadro) no parágrafo imediatamente
+% abaixo, explicando com suas palavras o que os dados mostram.
 %
 % DICA: a expressão latina "et al." é grafada EM ITÁLICO no texto, nas citações
 % e nas referências - assim como a própria ABNT a grafia nos exemplos da
@@ -59,5 +105,3 @@ Ao longo da literatura, nota-se que grande parte das implementações prioriza a
 % em textos escritos à mão; nas citações automáticas (\cite) e nas
 % referências o próprio modelo já gera o itálico (entrada @abnt-options
 % "opcoes-abnt" em referencias.bib + \citeoption{opcoes-abnt} em main.tex).
-
-Conforme evidenciado na Tabela \ref{tab:comparativo_trabalhos}, a principal distinção da proposta atual reside no.... Enquanto os trabalhos de Sobrenome \emph{et al.} (2023) e Sobrenome e Silva (2024) apresentam limitações quanto a [Citar o problema deles], a presente abordagem inova ao utilizar [Sua solução]. Essa escolha garante [Citar vantagem], preenchendo a lacuna identificada na literatura analisada.

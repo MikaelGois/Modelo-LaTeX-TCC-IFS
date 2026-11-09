@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Dúvida de uso (como compilar, onde editar, qual comando usar)
+    url: https://github.com/MikaelGois/Modelo-LaTex-TCC-IFS/blob/main/README.md#como-usar
+    about: Veja a seção "Como usar" e a "Referência rápida de comandos" do README.
+  - name: Normas ABNT (acesso institucional GEDWEB/IFS)
+    url: https://gedweb.com.br/ifs/
+    about: As normas ABNT não são redistribuídas no repositório. Consulte pelo acesso institucional.

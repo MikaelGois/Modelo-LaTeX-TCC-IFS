@@ -1,0 +1,57 @@
+MODELO DE TCC - INSTITUTO FEDERAL DE SERGIPE (IFS)
+Aviso de créditos e atribuições (NOTICE)
+=======================================================================================
+
+Este projeto (textos, estrutura, documentação e exemplos) é distribuído sob a
+licença Creative Commons Atribuição-CompartilhaIgual 4.0 Internacional
+(CC BY-SA 4.0). Veja o arquivo LICENSE.
+
+---------------------------------------------------------------------------------------
+1. abnTeX2 (créditos obrigatórios)
+---------------------------------------------------------------------------------------
+Os arquivos da pasta `nao-altere/` (abntex2.cls, abntex2cite.sty,
+abntex2abrev.sty, abntex2-alf.bst, abntex2-num.bst) são de autoria do projeto
+abnTeX2 e permanecem sob a licença LaTeX Project Public License (LPPL) 1.3c.
+Os avisos de copyright originais NÃO foram alterados nem removidos.
+
+  - Projeto abnTeX2: https://www.abntex.net.br/
+  - Licença LPPL 1.3c: https://www.latex-project.org/lppl/lppl-1-3c/
+
+---------------------------------------------------------------------------------------
+2. Modelos base (template e texto)
+---------------------------------------------------------------------------------------
+  - Modelo de Monografia de Ciência da Computação da Universidade Federal de
+    Ouro Preto (DECOM/UFOP), licença CC BY 4.0.
+  - Modelo de TCC, Dissertação e Tese, de Diogo D. Moreira, licença CC BY 4.0,
+    baseado no template dos professores Ricardo Luis dos Santos e Cristiano
+    Santos Pereira de Abreu e no abnTeX2.
+
+---------------------------------------------------------------------------------------
+3. Autores e adaptação deste modelo
+---------------------------------------------------------------------------------------
+  Discentes de Ciência da Computação do Instituto Federal de Sergipe (IFS) -
+  Campus Itabaiana:
+  - Mikael dos Santos Gois
+  - Talyson Rodrigues Silva Nascimento
+  - Kauan Gutierrez Santos Estácio
+
+  Adaptação para a Normativa Interna de TCC do IFS.
+
+---------------------------------------------------------------------------------------
+4. Imagens
+---------------------------------------------------------------------------------------
+  - `figuras/Arquitecturaneumann.jpg`: diagrama da arquitetura de von Neumann,
+    de David strigoi (2009), via Wikimedia Commons, em DOMÍNIO PÚBLICO
+    (PD-self): https://commons.wikimedia.org/wiki/File:Arquitecturaneumann.jpg
+    Imagem de EXEMPLO - substitua pela sua ilustração e indique a fonte correta.
+
+  - `figuras/logo-instituicao.png`: marca do Instituto Federal de Sergipe,
+    disponibilizada pela própria instituição em https://www.ifs.edu.br/marcas.
+    A marca pertence ao IFS; uso institucional.
+
+---------------------------------------------------------------------------------------
+5. Observação sobre as normas
+---------------------------------------------------------------------------------------
+As normas ABNT (NBR), o Manual ABNT e os demais documentos normativos são obras
+protegidas por direitos autorais e NÃO são redistribuídos neste repositório.
+Consulte-as pelo acesso institucional (GEDWEB/campus).

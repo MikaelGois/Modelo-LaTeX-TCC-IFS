@@ -1,0 +1,57 @@
+name: Erro de compilação ou bug
+description: O modelo não compila, gera erro ou se comporta de forma inesperada
+title: "[Bug] "
+body:
+  - type: checkboxes
+    id: checagem
+    attributes:
+      label: Antes de enviar
+      options:
+        - label: Conferi se já existe uma issue parecida
+          required: true
+        - label: Testei com o repositório recém-clonado (sem alterações locais)
+          required: false
+
+  - type: input
+    id: sistema
+    attributes:
+      label: Sistema operacional
+      placeholder: "Windows 11 / Ubuntu 24.04 / macOS 15"
+    validations:
+      required: true
+
+  - type: input
+    id: tex
+    attributes:
+      label: Distribuição TeX e versão
+      description: "MiKTeX ou TeX Live, e a versão (ex.: saída de 'latexmk --version')"
+      placeholder: "MiKTeX 24.1 / TeX Live 2025"
+    validations:
+      required: true
+
+  - type: textarea
+    id: passos
+    attributes:
+      label: Passos para reproduzir
+      value: |
+        1. Clonei o repositório
+        2. Rodei `latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex`
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: log
+    attributes:
+      label: Log do erro
+      description: Trecho do `main.log` ou a mensagem exibida no terminal.
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: esperado
+    attributes:
+      label: O que você esperava que acontecesse
+    validations:
+      required: true

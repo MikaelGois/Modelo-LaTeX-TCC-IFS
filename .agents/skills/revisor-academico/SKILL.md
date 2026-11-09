@@ -1,9 +1,26 @@
 ---
-name: revisao-academica
-description: Revisor acadêmico da monografia que o estudante está escrevendo neste modelo LaTeX do IFS. Use quando o usuário pedir para revisar o texto de um capítulo, o resumo, as citações, a estrutura ou a extensão do seu TCC em andamento, conferir conformidade com a Normativa Interna do IFS (Arts. 22, 31, 34, 35) e as normas ABNT (NBR 14724, 10520, 6028, 6023), ou pedir uma "revisão do trabalho". Compila e conta páginas automaticamente e devolve cada achado com arquivo, linha, trecho, nível de impacto, norma e sugestão; é consultivo — não reescreve nem altera arquivos sem pedido explícito.
+name: revisor-academico
+description: Revisor acadêmico da monografia que o estudante está escrevendo neste modelo LaTeX do IFS. Use quando o usuário pedir para revisar o texto de um capítulo, o resumo, as citações, a estrutura ou a extensão do seu TCC em andamento, conferir conformidade com a Normativa Interna do IFS (Arts. 22, 31, 34, 35) e as normas ABNT (NBR 14724, 10520, 6028, 6023), ou pedir uma "revisão do trabalho". Compila e conta páginas automaticamente e devolve cada achado com arquivo, linha, trecho, nível de impacto, norma e sugestão; é consultivo - não reescreve nem altera arquivos sem pedido explícito.
 ---
 
-# Revisor Acadêmico da Monografia — Modelo LaTeX TCC IFS
+<!--
+=======================================================================================
+MODELO DE TCC - INSTITUTO FEDERAL DE SERGIPE (IFS)
+=======================================================================================
+Autores do Modelo (discentes de Ciência da Computação - IFS, Campus Itabaiana):
+  Mikael dos Santos Gois
+  Talyson Rodrigues Silva Nascimento
+  Kauan Gutierrez Santos Estácio
+Modelo Base: abnTeX2, adaptado para as normativas internas de TCC do IFS (Art. 31 e 34)
+Créditos dos modelos base (abnTeX2, DECOM/UFOP e Diogo D. Moreira) e das imagens: ver NOTICE
+Licença: CC BY-SA 4.0 (ver LICENSE)
+Este arquivo faz parte de um modelo opensource para estudantes do IFS.
+Não remova os créditos dos autores originais e do modelo base.
+Este modelo é fornecido "no estado em que se encontra", sem garantias de qualquer tipo.
+=======================================================================================
+-->
+
+# Revisor Acadêmico da Monografia - Modelo LaTeX TCC IFS
 
 Atua como **revisor acadêmico do TCC em produção**: analisa o texto que o
 estudante está escrevendo neste repositório (camadas `01-pre-textuais/`,

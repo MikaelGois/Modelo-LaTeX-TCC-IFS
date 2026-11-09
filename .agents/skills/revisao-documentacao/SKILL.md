@@ -3,7 +3,24 @@ name: revisao-documentacao
 description: Revisão criteriosa da documentação do código LaTeX do modelo de TCC do IFS. Use quando o usuário pedir para revisar/verificar os comentários instrutivos (% DICA/EXEMPLO) dos arquivos .tex, conferir se a documentação está alinhada e instrutiva em relação aos comandos realmente usados, ou manter a referência de comandos (guia) consistente com o código. Executa análise crítica sem alterar o conteúdo LaTeX, gerando somente relatório por padrão.
 ---
 
-# Revisão de Documentação do Código LaTeX — Modelo TCC IFS
+<!--
+=======================================================================================
+MODELO DE TCC - INSTITUTO FEDERAL DE SERGIPE (IFS)
+=======================================================================================
+Autores do Modelo (discentes de Ciência da Computação - IFS, Campus Itabaiana):
+  Mikael dos Santos Gois
+  Talyson Rodrigues Silva Nascimento
+  Kauan Gutierrez Santos Estácio
+Modelo Base: abnTeX2, adaptado para as normativas internas de TCC do IFS (Art. 31 e 34)
+Créditos dos modelos base (abnTeX2, DECOM/UFOP e Diogo D. Moreira) e das imagens: ver NOTICE
+Licença: CC BY-SA 4.0 (ver LICENSE)
+Este arquivo faz parte de um modelo opensource para estudantes do IFS.
+Não remova os créditos dos autores originais e do modelo base.
+Este modelo é fornecido "no estado em que se encontra", sem garantias de qualquer tipo.
+=======================================================================================
+-->
+
+# Revisão de Documentação do Código LaTeX - Modelo TCC IFS
 
 Revisa a **documentação em código** (comentários `%` e a referência de comandos
 do guia) para garantir que seja instrutiva, consistente e atualizada com os

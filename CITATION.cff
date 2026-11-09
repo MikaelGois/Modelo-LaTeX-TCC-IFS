@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+title: "Modelo LaTeX para TCC - Instituto Federal de Sergipe (IFS)"
+abstract: >-
+  Modelo de Trabalho de Conclusão de Curso em LaTeX para o Instituto Federal de
+  Sergipe (IFS), baseado no abnTeX2 e adaptado às normas ABNT e à Normativa
+  Interna de TCC do IFS.
+message: "Se este modelo ajudou no seu trabalho, cite-o."
+type: software
+authors:
+  - family-names: Gois
+    given-names: Mikael dos Santos
+    affiliation: "Instituto Federal de Sergipe (IFS) - Campus Itabaiana"
+  - family-names: Nascimento
+    given-names: Talyson Rodrigues Silva
+    affiliation: "Instituto Federal de Sergipe (IFS) - Campus Itabaiana"
+  - family-names: Estácio
+    given-names: Kauan Gutierrez Santos
+    affiliation: "Instituto Federal de Sergipe (IFS) - Campus Itabaiana"
+repository-code: "https://github.com/MikaelGois/Modelo-LaTex-TCC-IFS"
+url: "https://github.com/MikaelGois/Modelo-LaTex-TCC-IFS"
+license: CC-BY-SA-4.0
+version: 1.0.0
+date-released: 2026-10-31
+keywords:
+  - ABNT
+  - TCC
+  - LaTeX
+  - abnTeX2
+  - IFS
+  - monografia
+  - normalização
+  - template
