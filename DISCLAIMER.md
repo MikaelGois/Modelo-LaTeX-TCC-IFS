@@ -43,6 +43,23 @@ Sergipe (IFS), com base nas normas da ABNT.
   banca). Erros de formatação, conteúdo ou referência são de responsabilidade de quem
   entrega o trabalho.
 
+## Autoria e vínculo institucional
+
+O modelo foi criado por três **discentes** do curso de Ciência da Computação do
+Instituto Federal de Sergipe (IFS) - Campus Itabaiana — Mikael dos Santos Gois,
+Talyson Rodrigues Silva Nascimento e Kauan Gutierrez Santos Estácio — como
+**iniciativa estudantil independente**, de uso educacional.
+
+- **Não é um documento oficial** do Instituto Federal de Sergipe.
+- **Não foi analisado, aprovado ou endossado** pela instituição, pela coordenação do
+  curso, pela biblioteca ou por qualquer setor do IFS.
+- A menção ao IFS e o uso da logo institucional servem apenas para identificar a
+  origem dos autores e o público a que o modelo se destina; a marca pertence à
+  instituição.
+- Regras oficiais do TCC (prazos, banca, entrega e formatação exigida) devem ser
+  confirmadas com a coordenação do curso, o orientador e a biblioteca — não com os
+  autores do modelo.
+
 ## Encontrou uma divergência?
 
 Se você encontrar uma divergência entre **o que a norma diz** e **o que o modelo faz**,
