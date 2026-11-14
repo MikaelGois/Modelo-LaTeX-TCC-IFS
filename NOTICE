@@ -14,7 +14,14 @@ abntex2abrev.sty, abntex2-alf.bst, abntex2-num.bst) são de autoria do projeto
 abnTeX2 e permanecem sob a licença LaTeX Project Public License (LPPL) 1.3c.
 Os avisos de copyright originais NÃO foram alterados nem removidos.
 
+Os cinco arquivos estão **sem nenhuma modificação** (versão 1.9.7, de 24/11/2018),
+copiados do pacote distribuído pelo CTAN. Eles ficam no repositório apenas para que a
+compilação use sempre a mesma versão; o `.latexmkrc` é o que os coloca no caminho do
+`latexmk`. O time do abnTeX2 **não** presta suporte a este modelo: problemas do template
+devem ser reportados no repositório do modelo, não aos autores originais.
+
   - Projeto abnTeX2: https://www.abntex.net.br/
+  - Pacote no CTAN (versão original): https://ctan.org/pkg/abntex2
   - Licença LPPL 1.3c: https://www.latex-project.org/lppl/lppl-1-3c/
 
 ---------------------------------------------------------------------------------------

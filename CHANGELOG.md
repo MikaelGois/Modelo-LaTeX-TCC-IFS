@@ -29,6 +29,31 @@ ambientes e opções) e o formato do PDF resultante. Assim:
   continua compilando sem nenhuma alteração;
 - **PATCH** — correção de erro, comentário ou documentação, sem mudar a saída esperada.
 
+## [1.2.0] - 2026-11-14
+
+### Adicionado
+
+- `.latexmkrc` que fixa o abnTeX2 do repositório na compilação: `nao-altere/` entra em
+  `TEXINPUTS` e `BSTINPUTS`, então a classe e o estilo BibTeX usados são sempre os
+  versionados aqui, em qualquer máquina (MiKTeX, TeX Live ou Overleaf).
+
+### Alterado
+
+- `nao-altere/` atualizada para o **abnTeX2 1.9.7** (a versão de 2018, ainda a atual),
+  **sem nenhuma modificação**: caem as 10 linhas que antes eram editadas à mão na classe.
+  O comportamento é preservado por duas redefinições em `structure.sty`
+  (`\listadesiglasname` e `\listadesimbolosname`).
+- O abnTeX2 **não precisa mais ser instalado**: os arquivos vêm no projeto. O README
+  explica que a compilação deve ser feita com `latexmk` (é ele que lê o `.latexmkrc`).
+- Mantenedores do repositório passam a compilar sempre contra a mesma versão do abnTeX2,
+  o que torna o PDF reproduzível.
+
+### Corrigido
+
+- Os marcadores (índice lateral do PDF) das listas de abreviaturas e de símbolos agora
+  aparecem com as iniciais maiúsculas, coerentes com os títulos impressos
+  ("Lista de Abreviaturas e Siglas", "Lista de Símbolos").
+
 ## [1.1.0] - 2026-11-09
 
 ### Adicionado
