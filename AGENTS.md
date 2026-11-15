@@ -38,6 +38,12 @@ Requisitos (portátil — não depender de caminho fixo de máquina):
 
 - Compilar: `latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex`
 - Compilar do zero: remover `main.pdf` antes.
+- **Compilar sempre com `latexmk`** (nunca `pdflatex main.tex` direto): o `.latexmkrc` da
+  raiz põe `nao-altere/` em `TEXINPUTS` e `BSTINPUTS`, e é assim que o modelo usa o
+  **abnTeX2 1.9.7 sem modificações** que está versionado. `pdflatex`/`bibtex` chamados
+  direto ignoram o `.latexmkrc` e caem no abnTeX2 instalado na máquina (versão diferente,
+  PDF potencialmente diferente). Verificar a origem em `main.fls` (classe/estilos) e
+  `main.blg` (`.bst`).
 - Extrair texto de página: `pdftotext -layout -f N -l N main.pdf saida.txt`
 - Extrair texto de PDF de norma: `pdftotext -layout <norma.pdf> saida.txt`
 
@@ -196,6 +202,16 @@ Medições por **linha de base** (PyMuPDF) no PDF compilado do zero (26 páginas
 | Data de acesso das referências | ✅ | `01 jan. 2026` (NBR 6023:2025) — antes "01 de jan, 2026" |
 | Exemplos didáticos (citação curta/longa, *apud*, alíneas, nota de rodapé, equação) | ⬜ Autorizado para depois | §7.1/§7.1.1, Manual §5.1.3, NBR 6024 §4.2/4.3, §5.2.1 e §5.7 |
 
+### Build reproduzível — P11 (14/11/2026)
+
+| Item | Status | Observação |
+|------|--------|------------|
+| abnTeX2 usado na compilação | ✅ | Antes vinha do MiKTeX (1.9.7); `nao-altere/` (1.9.6 **com 10 linhas editadas à mão**) era ignorada. Agora `.latexmkrc` fixa `nao-altere/` em `TEXINPUTS`/`BSTINPUTS` e a pasta foi atualizada para **1.9.7 sem modificações** (LPPL: sem obra derivada) |
+| Edições manuais na classe | ✅ Removidas | Eram 10 linhas + 2 comandos: `\orientadornamef`/`\coorientadornamef` (nunca usados), capitalização de 4 nomes de lista (só afetava **marcadores do PDF**) e remoção de dois `\uppercase` (redundantes: `main.tex` já define `REFERÊNCIAS` e o `structure.sty` monta os títulos de apêndices). Comportamento preservado por `\listadesiglasname`/`\listadesimbolosname` em `structure.sty` |
+| Teste A/B/C | ✅ | A = MiKTeX 1.9.7; B = repo 1.9.6 editada; C = **opção adotada** (repo 1.9.7 + `.latexmkrc` + redefinições). 27 páginas, 0 erros, 385 spans de texto, texto idêntico nos três; C difere de B em **66 bytes** (apenas datas e `/ID` do PDF) e de A só nos 2 marcadores + datas. Relatório: `relatorio-p11-nao-altere.md` |
+| Teste no Overleaf | ✅ | ZIP com 34 arquivos compilou no Overleaf usando `nao-altere/` (confirmado pelo autor em 14/11/2026) |
+| Limitação | ⚠️ | `pdflatex`/`bibtex` chamados direto ignoram o `.latexmkrc` (README avisa: compilar com `latexmk`) |
+
 ### Correções recomendadas (pendentes)
 1. ~~Epígrafe: avaliar espaçamento 1,0 → 1,5~~ — **RESOLVIDO** (12/10/2026): `OnehalfSpacing` em `04-epigrafe.tex`; pitch medido 17,93 pt (NBR 14724:2024 §5.2).
 2. ~~Resumo/Abstract: siglas em maiúsculas nas palavras-chave~~ — **RESOLVIDO** (31/10/2026): "normativa do IFS; ABNT NBR 6028; formatação de TCC" (NBR 6028 §4.1.7). *(Extensão do texto-exemplo **conforme** — 163 palavras.)*
@@ -335,5 +351,6 @@ Sempre que alterar qualquer arquivo versionado:
 
 | Versão | Data | Tag | Resumo |
 |--------|------|-----|--------|
+| 1.2.0 | 2026-11-14 | `v1.2.0` | build reproduzível: `.latexmkrc` + abnTeX2 **1.9.7 intacto** em `nao-altere/` (sem obra derivada), nomes das listas em `structure.sty`, marcadores do PDF capitalizados |
 | 1.1.0 | 2026-11-09 | `v1.1.0` | ambiente `quadro` + LISTA DE QUADROS, tabela numérica IBGE, citações NBR 10520:2023, guias de uso (VS Code/Overleaf/pacotes), `CITATION.cff` |
 | 1.0.0 | 2026-10-31 | — | primeira versão pública |

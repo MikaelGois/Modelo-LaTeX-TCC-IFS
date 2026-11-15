@@ -53,17 +53,19 @@ Uma distribuição TeX com `latexmk`, `pdflatex` e `bibtex`:
 
 ### Pacotes que podem precisar ser baixados
 
-O modelo usa pacotes que **não** vêm em toda instalação mínima (por exemplo `abntex2`, `newtx`, `algorithm2e`, `booktabs`, `enumitem`, `microtype`). Como resolver:
+O modelo usa pacotes que **não** vêm em toda instalação mínima (por exemplo `newtx`, `algorithm2e`, `booktabs`, `enumitem`, `microtype`). Como resolver:
 
 - **MiKTeX:** ele instala sozinho na primeira compilação — basta aceitar o download quando perguntar (é preciso estar conectado à internet). Se a instalação automática estiver desligada, ligue em *MiKTeX Console > Settings > Install packages on-the-fly*.
 - **TeX Live:**
 
   ```
-  tlmgr install abntex2 newtx algorithm2e listings booktabs dcolumn enumitem microtype bookmark babel-portugues relsize etoolbox xpatch iftex setspace textcomp tools geometry hyperref amsmath graphics
+  tlmgr install newtx algorithm2e listings booktabs dcolumn enumitem microtype bookmark babel-portugues relsize etoolbox xpatch iftex setspace textcomp tools geometry hyperref amsmath graphics
   ```
 
   No Ubuntu/Debian, `sudo apt install texlive-latex-extra latexmk` já cobre a maioria (mais `texlive-lang-portuguese` para o `babel-portuges`).
 - **Overleaf:** nada a fazer — a plataforma já tem os pacotes instalados.
+
+> **O abnTeX2 não precisa ser instalado.** A classe e o estilo BibTeX vêm junto, na pasta `nao-altere/` (versão 1.9.7), e o arquivo `.latexmkrc` faz o `latexmk` usá-los. Compile sempre com `latexmk` (o VS Code e o Overleaf já fazem isso): chamar `pdflatex main.tex` direto ignora o `.latexmkrc` e usa a versão do abnTeX2 instalada na máquina.
 
 > Se a compilação parar com `File '<pacote>.sty' not found`, falta esse pacote: instale com `tlmgr install <pacote>` (TeX Live) ou deixe o MiKTeX baixar. A mensagem de erro e o caminho completo ficam em `main.log`.
 
@@ -107,7 +109,7 @@ Se preferir não instalar nada, o modelo roda no [Overleaf](https://www.overleaf
 
 Pontos de atenção:
 
-- **Envie a pasta `nao-altere/`** junto: ela faz parte do projeto (não é redistribuída separadamente).
+- **Envie a pasta `nao-altere/`** junto: a classe e o estilo BibTeX vêm dela (abnTeX2 1.9.7). O `.latexmkrc` na raiz é o que faz o `latexmk` do Overleaf usar esses arquivos; se ele não aparecer no projeto (alguns uploads não preservam arquivos que começam com ponto), crie em **New File** com o nome `.latexmkrc`, cole as duas linhas `ensure_path(...)` e use **Recompile from scratch**.
 - As fontes "originais" (`style-font-times-new-roman.sty` e `style-font-arial.sty`) exigem LuaLaTeX/XeLaTeX e podem não funcionar no plano gratuito do Overleaf. O padrão do modelo (`style-font-newtx.sty`) compila em pdfLaTeX; se precisar da fonte original, use instalação local (ou VS Code) com LuaLaTeX.
 
 ### Skills do assistente (`.agents/skills/`)
@@ -289,6 +291,6 @@ O GitHub mostra, na barra lateral do repositório, o botão **Cite this reposito
 
 O `CITATION.cff` já traz o título, os três autores (com a afiliação no IFS - Campus Itabaiana), a versão, a data de publicação, a licença e o endereço do repositório. Quem altera o modelo (fork) deve atualizar `version` e `date-released` para a citação continuar correta.
 
-**Versão atual: 1.1.0.** O histórico de mudanças e as regras de versionamento (SemVer: `MAJOR.MINOR.PATCH`) estão no [CHANGELOG.md](CHANGELOG.md) — vale conferir ao atualizar um TCC que já estava em andamento.
+**Versão atual: 1.2.0.** O histórico de mudanças e as regras de versionamento (SemVer: `MAJOR.MINOR.PATCH`) estão no [CHANGELOG.md](CHANGELOG.md) - vale conferir ao atualizar um TCC que já estava em andamento.
 
 > O botão só aparece quando existe um `CITATION.cff` **válido** na branch padrão do repositório.

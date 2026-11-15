@@ -464,7 +464,11 @@
 \providecommand{\imprimircoorientadorcite}{}
 \newcommand{\coorientaddorcite}[1]{\renewcommand{\imprimircoorientadorcite}{#1}}
 
-% \renewcommand{\listadesimbolosname}{LISTA DE SÍMBOLOS}
+% --- Nomes das listas de siglas e de simbolos ---
+% Definidos aqui (e nao na classe) para manter `nao-altere/` intacta: os arquivos
+% do abnTeX2 ficam sem nenhuma modificacao (ver NOTICE).
+\renewcommand{\listadesiglasname}{Lista de Abreviaturas e Siglas}
+\renewcommand{\listadesimbolosname}{Lista de S\'imbolos}
 
 % --- Comando para título SEM aparecer no índice do PDF ---
 \newcommand{\pretextualchaptersilent}[1]{%

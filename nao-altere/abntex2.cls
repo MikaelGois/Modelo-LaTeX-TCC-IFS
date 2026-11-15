@@ -1,5 +1,5 @@
-%% abntex2.cls, v-1.9.6 laurocesar
-%% Copyright 2012-2016 by abnTeX2 group at https://www.abntex.net.br/ 
+%% abntex2.cls, v-1.9.7 laurocesar
+%% Copyright 2012-2018 by abnTeX2 group at https://www.abntex.net.br/ 
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -23,7 +23,7 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{abntex2}[2016/02/26 v-1.9.6 abnTeX2]
+\ProvidesClass{abntex2}[2018/11/24 v-1.9.7 abnTeX2]
 \RequirePackage{ifthen}
 %
 % Captura as options article e twocolumn
@@ -148,13 +148,11 @@
 \newcommand{\apendicename}{AP\^ENDICE}
 \newcommand{\apendicesname}{Ap\^endices}
 \newcommand{\orientadorname}{Orientador:}
-\newcommand{\orientadornamef}{Orientadora:}
 \newcommand{\coorientadorname}{Coorientador:}
-\newcommand{\coorientadornamef}{Coorientadora:}
 \newcommand{\folhadeaprovacaoname}{Folha de aprova\c{c}\~ao}
 \newcommand{\resumoname}{Resumo} 
-\newcommand{\listadesiglasname}{Lista de Abreviaturas e Siglas}
-\newcommand{\listadesimbolosname}{Lista de S\'imbolos}
+\newcommand{\listadesiglasname}{Lista de abreviaturas e siglas}
+\newcommand{\listadesimbolosname}{Lista de s\'imbolos}
 \newcommand{\fontename}{Fonte}
 \newcommand{\notaname}{Nota}
 %
@@ -162,8 +160,8 @@
   %% ajusta nomes padroes do babel
   \renewcommand{\bibname}{Refer\^encias}
   \renewcommand{\indexname}{\'Indice}
-  \renewcommand{\listfigurename}{Lista de Ilustra\c{c}\~{o}es}
-  \renewcommand{\listtablename}{Lista de Tabelas}
+  \renewcommand{\listfigurename}{Lista de ilustra\c{c}\~{o}es}
+  \renewcommand{\listtablename}{Lista de tabelas}
   %% ajusta nomes usados com a macro \autoref
   \renewcommand{\pageautorefname}{p\'agina}
   \renewcommand{\sectionautorefname}{se{\c c}\~ao}
@@ -186,8 +184,8 @@
   \renewcommand{\coorientadorname}{Co-supervisor:}
   \renewcommand{\folhadeaprovacaoname}{Approval}
   \renewcommand{\resumoname}{Abstract} 
-  \renewcommand{\listadesiglasname}{List of Abbreviations and Acronyms}
-  \renewcommand{\listadesimbolosname}{List of Symbols}
+  \renewcommand{\listadesiglasname}{List of abbreviations and acronyms}
+  \renewcommand{\listadesimbolosname}{List of symbols}
   \renewcommand{\fontename}{Source}
   \renewcommand{\notaname}{Note}
    %% adjusts names used by \autoref
@@ -368,7 +366,6 @@
 }
 
 % Define o comando \fonte que respeita as configurações de caption do memoir ou do caption
-\makeatletter
 \newcommand{\fonte}[2][\fontename]{%
   \M@gettitle{#2}%
   \memlegendinfo{#2}%
@@ -383,12 +380,9 @@
      \captiondelim{\ABNTEXcaptionfontedelim}
      \@makecaption{\ABNTEXfontereduzida #1}{\ignorespaces\ABNTEXfontereduzida #2}\par
   \endgroup}
-\makeatother
 
 % Define o comando \notas que respeita as configurações de caption do memoir ou do caption
-\makeatletter
 \newcommand{\nota}[2][\notaname]{\fonte[#1]{#2}}
-\makeatother
 
 
 % Altera os comandos \configurecaptions e \configureseparator para trabalhar com 
@@ -521,7 +515,7 @@
   %
   % Fontes das entradas do sumario
   %
-  \renewcommand{\cftpartfont}{\bfseries\larger}
+  \renewcommand{\cftpartfont}{\bfseries\large}
   %
   \renewcommand{\cftchapterfont}{\bfseries}
   \renewcommand{\cftchapterpagefont}{\normalsize\cftchapterfont}
@@ -545,7 +539,7 @@
     \bibmark
     \ifnobibintoc\else
     \phantomsection
-    \addcontentsline{toc}{chapter}{\bibname}
+    \addcontentsline{toc}{chapter}{\texorpdfstring{\MakeTextUppercase{\bibname}}{\bibname}}
     \fi
     \prebibhook
 }
@@ -700,6 +694,11 @@
 \newcommand{\titulo}[1]{\title{#1}}
 \newcommand{\imprimirtitulo}{\thetitle}
 
+% Comandos de dados - titulo do documento
+\newcommand{\tituloestrangeiro}[1]{\providecommand{\theforeigntitle}{#1}}
+\newcommand{\imprimirtituloestrangeiro}{\theforeigntitle}
+
+
 % Comandos de dados - autor (use \and para multiplos autores)
 \newcommand{\autor}[1]{\author{#1}}
 \newcommand{\imprimirautor}{\theauthor}
@@ -749,6 +748,13 @@
 % ---
 % Ambiente para definicao da Capa
 \newenvironment{capa}{\begin{titlingpage}}{\end{titlingpage}\cleardoublepage}
+% ---
+
+% ---
+% Titulos em lingua estrangeira para artigos: ABNT NBR 6022:2018
+\ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
+\renewcommand{\maketitlehookb}{\LARGE\center\textit{\theforeigntitle}}
+}{}
 % ---
 
 % ---
@@ -852,7 +858,7 @@
 % ---
 
 % ---
-% Lista de sembolos
+% Lista de simbolos
 \newenvironment{simbolos}{%
   \pretextualchapter{\listadesimbolosname}
   \begin{symbols}
@@ -882,7 +888,7 @@
  \setboolean{abntex@apendiceousecao}{true}%
  \renewcommand{\appendixname}{#1}
  \ifthenelse{\boolean{ABNTEXsumario-abnt-6027-2012}}{
-   \renewcommand{\appendixtocname}{#2}
+   \renewcommand{\appendixtocname}{\uppercase{#2}}
   }{%
   \renewcommand{\appendixtocname}{#2}} 
  \renewcommand{\appendixpagename}{#2}
