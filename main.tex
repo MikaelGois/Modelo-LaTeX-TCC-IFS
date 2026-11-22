@@ -36,6 +36,15 @@
 
 \input{structure.sty}
 
+% Configuração do Índice de Assuntos
+\usepackage[noautomatic]{imakeidx}
+
+\makeindex[
+    columns=1,
+    intoc,
+    title={ÍNDICE DE ASSUNTOS}
+]
+
 % ----------------------------------------------------------------------------------------
 % DADOS DO ALUNO E DO TRABALHO
 % ----------------------------------------------------------------------------------------
@@ -258,7 +267,11 @@ da Computação.}
 \renewcommand{\bibname}{REFERÊNCIAS}
 \bibliography{referencias} % Feito - Revisar diagramação/formatação
 
+% Glossário — elemento opcional.
+\include{03-pos-textuais/00-glossario}
 \include{03-pos-textuais/01-apendices} % Feito - Revisar diagramação/formatação
 \include{03-pos-textuais/02-anexos} % Feito - Revisar diagramação/formatação
+% Índice de Assuntos (opcional)
+\include{03-pos-textuais/03-indice}
 
 \end{document}
