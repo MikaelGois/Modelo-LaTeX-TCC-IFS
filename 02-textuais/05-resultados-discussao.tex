@@ -14,4 +14,117 @@
 % =======================================================================================
 
 % [O que aparece no PDF Bookmark] {O que aparece impresso no documento}
-\chapter[Resultados e Discussão]{RESULTADOS E DISCUSSÃO} \label{sec:resultados-discussao}
+
+\chapter[Resultados e Discussão]{RESULTADOS E DISCUSSÃO}
+\label{sec:resultados-discussao}
+
+% ATENÇÃO:
+% Os números utilizados a seguir são fictícios.
+% Substitua-os pelos resultados reais do TCC.
+
+Este capítulo apresenta um exemplo de organização dos resultados obtidos em uma avaliação experimental, seguido de sua interpretação e discussão. Em um trabalho acadêmico, os resultados devem ser apresentados de forma objetiva, relacionados aos objetivos da pesquisa e analisados à luz da metodologia adotada. Os dados utilizados a seguir são fictícios e destinam-se exclusivamente à demonstração do uso do modelo.
+
+\section{Apresentação dos Resultados}
+
+Como exemplo, considera-se uma aplicação computacional avaliada em duas configurações:
+uma sem otimização e outra com otimização.
+
+Foram escolhidas duas métricas ilustrativas: tempo médio de execução, expresso em segundos,
+e consumo médio de memória, expresso em megabytes.
+
+A Tabela \ref{tab:resultados_exemplo}
+apresenta os valores hipotéticos dessa comparação.
+
+\begin{table}[htb]
+    \centering
+    \caption{Resultados ilustrativos de uma
+    avaliação de desempenho}
+    \label{tab:resultados_exemplo}
+
+    \begin{tabular}{lrr}
+        \hline
+        \textbf{Configuração} &
+        \textbf{Tempo médio (s)} &
+        \textbf{Memória média (MB)} \\
+        \hline
+        Sem otimização & 4,8 & 620 \\
+        Com otimização & 3,6 & 540 \\
+        \hline
+    \end{tabular}
+
+    \fonte{Elaboração própria (dados fictícios
+    para fins ilustrativos).}
+\end{table}
+
+No exemplo apresentado na Tabela
+\ref{tab:resultados_exemplo}, o tempo médio
+de execução passou de 4,8 para 3,6 segundos, correspondendo a uma redução de 25\%.
+
+O consumo médio de memória passou de 620 para 540 MB, o que representa uma
+redução aproximada de 12,9\%.
+
+Essas porcentagens foram calculadas tomando os valores da configuração sem otimização
+como referência.
+
+\section{Discussão dos Resultados}
+
+Os valores hipotéticos sugerem que a configuração com otimização teria melhor
+desempenho nos dois critérios considerados, para as condições representadas neste exemplo.
+
+Entretanto, uma comparação consistente exige descrever o ambiente de execução, as
+características da carga de trabalho, a quantidade de repetições e a variabilidade
+das medições.
+
+Sem essas informações, não é possível avaliar a estabilidade das diferenças
+observadas nem generalizar os resultados.
+
+Na versão definitiva de um trabalho, esta discussão deve relacionar os achados aos
+objetivos estabelecidos na Introdução, confrontá-los com as decisões metodológicas
+e, quando pertinente, compará-los com estudos citados na Fundamentação Teórica ou nos
+Trabalhos Correlatos.
+
+\section{Limitações da Avaliação}
+
+Os números utilizados neste exemplo não correspondem a experimentos reais.
+
+Em uma pesquisa efetiva, devem ser explicitadas as limitações que afetam a
+interpretação dos resultados, tais como o tamanho da amostra, as condições do ambiente
+experimental, a representatividade dos cenários avaliados e os fatores que não
+puderam ser controlados.
+
+Dessa forma, as conclusões permanecem coerentes com as evidências obtidas e não
+extrapolam o alcance da investigação.
+
+% Exemplo de implementacao do indice de assuntos.
+A avaliação experimental
+\index{Avaliacao experimental@Avaliação experimental}
+foi realizada para analisar o desempenho
+\index{Desempenho} do sistema.
+
+Foram consideradas métricas como tempo de
+execução\index{Tempo de execucao@Tempo de execução}
+e consumo de memória
+\index{Consumo de memoria@Consumo de memória}.
+
+% -------------------------------------------------------
+% DICA PARA O ESTUDANTE — RESULTADOS E DISCUSSÃO
+% -------------------------------------------------------
+% Resultados e Discussão não devem ser apenas uma
+% sequência de tabelas, gráficos e números.
+%
+% Primeiro, apresente objetivamente o que foi
+% observado; depois, explique o que esses achados
+% significam para o problema e os objetivos da
+% pesquisa, relacionando-os à metodologia e à
+% literatura utilizada.
+%
+% Ao adaptar o exemplo, o estudante deve substituir
+% todos os dados fictícios pelas medições reais,
+% identificar e explicar as métricas, comentar
+% tendências ou diferenças observadas e, quando
+% pertinente, comparar os achados com estudos
+% anteriores.
+%
+% É importante discutir limitações e possíveis
+% explicações sem tratar hipóteses como fatos nem
+% afirmar resultados que os dados não comprovam.
